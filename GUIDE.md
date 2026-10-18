@@ -1,0 +1,509 @@
+# HMS Guide
+
+**RPG Companion HMS Edition 2.0 beta** and **HMS Reporter beta**
+
+This guide explains how an HMS game works, how to set it up, and what every part does.
+Read **Start here** first. Use the other parts when you need them.
+
+---
+
+## 1. Start here: three parts, one game
+
+An HMS game has three parts. Each part has one job.
+
+| Part | What it is | Its job |
+| --- | --- | --- |
+| **The bot** | The character card and its lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite or Overlord | The world and its rules. It writes the **WORLD STATE HUD** at the top of every reply. |
+| **HMS Reporter beta** | A preset: the prompt Lumiverse sends | How the story under the HUD is written: style, voices, length, thinking. |
+| **RPG Companion HMS Edition 2.0 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, quests, fights and more. It helps you start a game and ask questions. |
+
+### Who is in charge
+
+When two parts disagree, this order wins:
+
+1. **The bot.** Its rules and its HUD are the law. The bots call this **STATE IS GOD**. Nothing may hide, change or replace the HUD.
+2. **The preset.** It only shapes the story under the HUD. It never changes a rule or a HUD line.
+3. **The extension.** It reads and shows. It asks the model for one small hidden block after the story. It never writes a HUD of its own and never adds rules.
+
+### What a reply looks like
+
+```
+### WORLD STATE ###
+Day: 3 | Time: 14:10 (Afternoon)
+◆ World of Re:Zero → Lugunica → Roswaal Mansion
+Arc: Arc 2: A Week at the Mansion
+***
+The story...
+<rpg_companion>{ ... }</rpg_companion>
+```
+
+- **The HUD** is the top part, from `### WORLD STATE ###` down to the `***` line. It belongs to the bot.
+- **The wall** is the `***` line.
+- **The story** comes under the wall. It follows the bot's rules, written in the preset's style.
+- **The hidden block** comes last. It belongs to the extension. You never see it: it is removed from the saved message.
+
+### Who owns what
+
+| Thing | Owner | Notes |
+| --- | --- | --- |
+| The HUD: time, place, arc, powers, money | Bot | The extension only reads it. |
+| Rules: death, power gaps, Return by Death, exams | Bot | Fights in the extension use the bot's own rules. |
+| Start commands and the catalog | Bot | The New game card only fills them in for you. |
+| OOC answers | Bot (its guide character) | The OOC card asks that same guide. |
+| Injuries in Re:Zero and Mushoku Tensei | Bot | These bots keep wounds on their HUD. The extension stays out. |
+| Injuries in Classroom of the Elite and Overlord | Extension | These bots keep no wounds. The Injuries card tracks them. |
+| How the story reads, its length, thinking | Preset | Set them under the sliders icon. |
+| Emoji and dialogue colours | Extension | Drawn on your screen. The preset never writes emoji. |
+| Side panel, map, Chronicle, people, quests | Extension | Read from the HUD and the hidden block. |
+
+---
+
+## 2. Install and set up
+
+You need **Lumiverse 1.2.0 or newer**.
+
+### Step 1: Remove the old RPG Companion
+
+If you have the original RPG Companion extension, disable or remove it. Both would add to your prompt.
+
+### Step 2: Install the extension
+
+1. Open the drawer and go to **Extensions**.
+2. Click **Add Extension**.
+3. Pick one way:
+    - **Install from Source**: paste the extension's GitHub link.
+    - **Import Local** (owner or admin only): first put the `rpg_companion_hms` folder in `Lumiverse/data/extensions/`.
+4. Read the permissions and click **Install**.
+5. New extensions start switched off. Turn **Enable** on.
+6. Grant the permissions. You can skip any. That part then switches off and tells you why.
+
+| Permission | What it is for |
+| --- | --- |
+| interceptor | Adds the extension's small request to your prompt. |
+| generation | The extension's own model calls: fights, the OOC guide, chapter summaries, a missed side-panel block. |
+| chat_mutation | Keeps the hidden block out of saved replies, puts back HUD lines, and posts your new-game, phone and Move the world turns. |
+| world_books | Reads your lorebooks: the Atlas, the Arc line check, the OOC guide, lore for fights. |
+| memories | Uses Lumiverse's Memory Cortex: the Chronicle writes to it, fights read from it. |
+| image_gen | Character portraits only. |
+
+### Step 3: Import the preset
+
+1. Open the **Preset Manager** in Lumiverse.
+2. Import the file `HMS_Reporter_beta.json`. It comes with the extension, in its `preset` folder.
+3. Choose **HMS Reporter beta** as the preset for your HMS chats.
+
+### Step 4: Open the panel
+
+Open a chat with an HMS bot. Then open the **RPG Companion (HMS)** tab in the side drawer.
+
+### Step 5: Use your world's preset
+
+After the first reply, the panel offers **Use the [world] preset**. Click it.
+It sets the right cards, fights and theme for that bot in one click.
+You can also do this later in **Settings → Play style**.
+
+### Good settings to start with
+
+- Preset sliders: **Thinking: Normal**, **Prose length: Scene-led**, **Start replies with the HUD header: Auto**.
+- Lumiverse: switch on the **Memory Cortex** if you want the Chronicle to remember key moments.
+- Extension: keep **Together** mode (Settings → General).
+- Want emoji or coloured dialogue? Settings → **Chat and panel extras** → **Dialogue**. They are off at first.
+
+---
+
+## 3. Start a new game
+
+### The catalog
+
+Every HMS bot opens on a **catalog**. Its first message has many pages. Swipe left and right to see them.
+
+- **The hub page** says how to start, and names the **start handler** line.
+- **The canvas page** is almost empty. You type your start under it.
+- **Command pages** list starts, add-ons and ready-made examples.
+
+### The start handler line
+
+Your first message must begin with the bot's start line, on a line of its own.
+
+| Bot | First line | Line to resume an old campaign |
+| --- | --- | --- |
+| Re:Zero | `ReZero_Start_Handler` | `ReZero_Start_Continuer` |
+| Mushoku Tensei | `MUSHOKU_TENSEI_START_HANDLER` | `MUSHOKU_TENSEI_START_CONTINUER` |
+| Classroom of the Elite | `Cote_Start_Handler` | `Cote_Start_Continuer` |
+| Overlord | `Overlord_Start_Handler` | `Overlord_Start_Continuer` |
+
+Then come your commands. For example:
+
+```
+ReZero_Start_Handler
+Start at Arc 3 with RBD, Hell Mode, Start with Echidna
+```
+
+### The New game card (the easy way)
+
+On a new chat, the panel shows **New game**. It reads the catalog pages for you.
+
+1. Pick a page at the top.
+2. Pick one **start**.
+3. Pick any **add-ons**. Add-ons stack on a start.
+4. Fill any blanks, like `[Name]`.
+5. Read the warnings. For example: no start yet, an empty blank, or no Return by Death in Re:Zero. One click adds `with RBD`.
+6. Press **Start the game**.
+
+The card turns the greeting to the canvas page and sends your command. You can also edit the command by hand, **Copy** it, or **Clear** it.
+
+### Resume an old campaign
+
+Inside the New game card, open **Resume an old campaign instead**.
+
+1. Paste the last HUD from your old chat. This is your save file.
+2. If you have them, paste your last few messages and a summary of the story.
+3. Press **Resume the campaign**.
+
+The card puts the bot's Continuer line first, as the bot asks.
+
+### After the first reply
+
+- The bot builds the HUD on turn 1. From then on it carries it in every reply.
+- **Arc line check.** The Arc line is a lookup key. If it is misspelled, the arc's lore never loads. The World State card warns you and offers the book's spelling in one click.
+
+---
+
+## 4. What happens each turn
+
+1. You write what you do, and send it.
+2. The preset builds the prompt: the bot's card and engine, your lore, memory, the chat, and the extension's small request.
+3. The model writes the HUD, the `***` wall, the story, and the hidden block.
+4. The extension reads the reply:
+    - It reads the HUD and updates the cards.
+    - It reads the hidden block (people, quests, phone, injuries), then removes it from the saved message.
+    - It checks for HUD lines that vanished, and puts back lines you pinned.
+    - It draws the HUD as a card in the chat, and dialogue colours and emoji if you switched them on.
+5. When you answer a reply, that reply is settled. The Chronicle then writes its key moments to the Memory Cortex.
+
+### The button row
+
+| Button | What it does |
+| --- | --- |
+| **Move the world** | You do nothing new. One story thread off screen moves one step. |
+| **Immersive fight** | Starts a fight you play in the chat. The panel tracks it. |
+| **Turn-based fight** | Opens the D&D fight window. Only when D&D is on. |
+| **Read again** | Reads the latest reply again. Free: no model call. Use it when a card did not update. |
+
+### The top bar
+
+| Item | What it does |
+| --- | --- |
+| Together mode / Separate mode / Paused | Shows how the extension gets its data. See Settings → General. |
+| **Refresh** | Asks the model again for the side-panel data. This costs a call. |
+| Drawer / Floating / Own window | Where the panel lives: in the drawer, floating over the chat, or in its own window for a second screen. |
+| **Test zone** | A practice chat inside the extension. Demo mode costs nothing. |
+| **Guide** | This guide. |
+| **Settings** | All settings. |
+
+### Buttons in the chat input bar
+
+**Refresh side panel**, **Open RPG Companion**, **Start or resume a fight**, and **Move the world**.
+
+---
+
+## 5. HMS Reporter beta (the preset)
+
+### What it does
+
+HMS Reporter beta tells the model how to write the story under the wall. It always puts the bot first. It says: the core and its lorebook entries outrank everything in this preset.
+
+### The blocks, top to bottom
+
+| Block | On at first? | What it does |
+| --- | --- | --- |
+| Frame | On | Says who is in charge and the reply shape: HUD, wall, story, then the hidden block if one is asked for. Explains OOC messages. |
+| Game card | On | The bot's description and its system prompt. |
+| HMS core (personality field) | On | The bot's engine: its rules and its HUD. |
+| Scenario | On | The card's scenario, if it has one. |
+| Player persona | On | Your persona. |
+| Example messages | On | Style examples only. |
+| Reporter: how the prose reads | On | Lead with what changed. Use exact details. Show only what you can see. End where the world hands it back. Cut stock phrases. |
+| Voices and groups | On | People speak briefly and in their own voice. Nobody reads minds. Groups talk to each other. |
+| The player's character | On | The model never writes your choices, words or thoughts. A Narrative Mode from the bot can change this. |
+| Mature content (adults only) | Off | Adult scenes between adults only. Minors and family bonds always stay non-explicit. |
+| Gore | Off | Shows violence without softening it. |
+| World info (before) and (after) | On | Your lorebook entries. |
+| Memory (Chat Memory and Memory Cortex) | On | Lumiverse's long-term memory. |
+| Story summary (Loom Summary) | Off | Lumiverse's own summary. Turn it on only if you use it instead of Chapters. |
+| Chat history | On | The chat itself. |
+| Card's post-history instructions | On | Anything the card puts after the chat. |
+| Fight craft | Fights only | Loads by itself during fights: wind-ups, the room in the fight, impact before pain. |
+| Side panel (RPG Companion) | On | The extension's request goes here. It stays empty without the extension and on OOC turns. |
+| Before you write | On | Thinking, length, and the dialogue marker reminder. On an OOC turn: answer out of character. |
+
+### Your settings: the sliders icon
+
+| Setting | Choices | Tip |
+| --- | --- | --- |
+| Thinking | Off, Light, Normal (default), Deep | Deep plans many moves ahead. It is the slowest. |
+| Think out loud | On or off | For models that cannot think by themselves. Also switch on Auto-parse thoughts in Lumiverse, so the plan folds away. |
+| Prose length | Brief, Scene-led (default), Long, Very long | The HUD never counts toward the length. |
+| Start replies with the HUD header | Auto (default), Always, Never | Auto helps only Kimi and DeepSeek. Use Always only if a model keeps skipping the HUD, with thinking off. |
+
+### OOC messages
+
+Start a message with the bot's OOC trigger, like `[OOC: ...]` or `OOC guide: ...`.
+The preset then asks for an answer out of character: no HUD, no story, no hidden block, and no time passes.
+
+---
+
+## 6. The extension's cards
+
+The panel shows one card per thing. A card only shows when it has something to show.
+Click a card's title to fold or unfold it.
+
+### New game
+Only on a new chat. See part 3.
+
+### World State
+The HUD, line by line.
+
+- **Pin** a line (the pin icon) to keep it exactly as it is. If the model drops or changes it, the extension puts it back. The model is also reminded.
+- **The guard.** If a line vanishes, you see it with **Restore**. A carrier line (one that keeps lore loaded, like the Arc line) is marked, because losing it hides lore.
+- Lines that end by their own rules (a healed injury, a passed exam) show as **cleared**, with a put-back button.
+- If a reply has no HUD at all, press **Put the last HUD back**.
+- The **Arc line check** warns when the Arc line loads no arc lore, and fixes it in one click.
+
+### The world card
+One card per world: **Re:Zero**, **Overlord**, **Classroom of the Elite**, **Mushoku Tensei**, **Undertale**, **Dark Souls** and **Skyrim**.
+It shows that world's own stats from the HUD, explained from your lorebooks. Some examples:
+
+- Re:Zero: deaths and the save point, Authorities, spirit contracts and their ranks.
+- Overlord: levels and classes, with a check that they add up.
+- Classroom of the Elite: the calendar, class standings, Private Points, the exam.
+- Mushoku Tensei: sword styles and magic ranks, and the Man-God's advice.
+
+### Map
+Where everyone stands in the room. It is off at first: Settings → Chat and panel extras → **Map**.
+A room is drawn once, then only people move. The **map bank** keeps every drawn room for that world, so a place is never paid for twice.
+
+### Atlas
+The bot's location book as a map. It shows where you are, the rooms around you, and details for any place: how watched it is, opening hours, who is usually there.
+Click a place to go in, **Up** to go out.
+
+### You
+Your own state: health and other pools, meters, mood, stress and sanity.
+Level and experience show only in worlds that have levels.
+**Standard issue** lists things the bot assumes you have. **Carried** lists small things you got in the story. You can add or remove them.
+
+### D&D
+A character sheet and a dice roller. Your roll goes into your next message.
+Switch it off in Settings → Modules if your game does not use dice.
+
+### People
+Everyone you have met. Each person shows:
+
+- **Standing**: how close they feel to you, from Nemesis to Devoted. It is never romance.
+- **Bond**: what kind of relationship it is: classmate, mentor, family, partner.
+- Their mood, and bars like Affection and Trust, with the reason a bar moved.
+- **In the scene**: how they look and act now, and their thoughts.
+
+Use **Set the bond** if the story reads a relationship wrong.
+Minors are protected: never a romantic bond, never any desire.
+Party members show how they are holding up. Add them with **Add to party**.
+
+### Phone
+Your device, your money, your contacts, your messages and notices.
+Send a text, call or transfer. It goes into the story as your turn, and the bot decides whether it reaches anyone.
+
+### Body
+Wounds and conditions from the HUD, with how long each has lasted.
+
+### Injuries
+Only for bots that keep no wounds on their HUD (Classroom of the Elite, Overlord).
+Each injury is raw until tended. Treated is not healed. The card shows healing time and warnings.
+
+### Mind
+Mind conditions, like Dread, and the Mental Council.
+
+### Survival
+Off at first. Tracks time since you slept, ate and drank, from the HUD clock. The bot decides what it means.
+
+### Magic
+Magic pools, traditions, cooldowns, and a spellbook that learns your spells.
+
+### Abilities
+Your powers, skills and attributes, read from the HUD.
+
+### Quests
+- **The plot**: where the story stands, and its open threads.
+- **Objectives**: what you are trying to do now. You can add your own. Yours are never sent to the model.
+- **Quests** from the HUD, with the goal, who gave it, where, the reward, and the time left.
+- **Your notes** are never sent to the model.
+- If a quest drops off the HUD while still live, press **Put back**.
+
+### Chronicle
+The story's timeline: key moments, milestones, how people came to feel about you, and plot points.
+Filter it, star an entry, hide one, or add your own.
+Settled replies are written to the Memory Cortex. See part 8.
+
+### Chapters
+Summaries of parts of the story. Press **End chapter and summarise** when a part ends.
+Summaries go with every message, on top of the chat.
+
+### OOC guide
+Ask the bot's guide a question. See part 7.
+
+### Critical
+A red banner for real danger: health near zero, a condition at its worst, a wound left raw too long.
+
+### The fight tracker
+During an immersive fight: everyone's HP, MP and Stamina, effects, what each fighter just did, and a fight log.
+
+### Fights
+
+| Kind | How it works |
+| --- | --- |
+| **Immersive fight** | No window. You fight by writing in the chat. The panel tracks bodies, effects and moves. Enemies keep hidden plans. **Study** an enemy to learn its weak points. The bot's rules decide who wins. |
+| **Turn-based fight** | A D&D window: initiative, attack rolls, damage dice, saving throws. The extension rolls the dice. When it ends, the aftermath is posted to the chat as a normal reply, with the HUD. |
+| **Narrative window** | The old fight window. Hidden unless you switch it on in Settings → Fights → Legacy. |
+
+### In the chat itself
+
+- **The HUD card.** The HUD drawn as a neat card in the bot's colours. The saved reply keeps its plain text. **Show the HUD as text** opens the plain version.
+- **Internal states** under each reply: tabs for Scene, People, Bonds, Plot and Map.
+- **Dialogue display** (off at first): an emoji for each speaker's feeling, a colour per speaker, or their name.
+
+### Test zone
+A practice chat inside the extension. It runs the same code as a real chat and touches none of your chats.
+**Demo** plays scripted turns for each world and costs nothing. **Live** uses your model.
+
+---
+
+## 7. Ask out of character (OOC)
+
+Each bot has a guide character who answers questions about the world, the rules and the commands.
+
+| Bot | Guide | Trigger |
+| --- | --- | --- |
+| Re:Zero | Echidna | `[OOC: your question]` |
+| Mushoku Tensei | Roxy | `OOC guide: your question` |
+| Overlord | Demiurge | `OOC guide: your question` |
+| Classroom of the Elite | Arisu Sakayanagi | `OOC guide: your question` (also `[OOC:` or `OOC:`) |
+
+### Two ways to ask
+
+1. **In the panel**: open the **OOC guide** card, type your question, press **Ask**. The answer stays in the panel. The story never sees it. It costs one model call.
+2. **In the chat**: press **Ask in the story**, or type the trigger yourself.
+
+You can name another guide in the **Guide** box, if the bot allows it.
+
+### What happens on an OOC turn
+
+- No HUD, no story, and no time passes.
+- The extension adds nothing to that turn and does not read the answer as story.
+- Your next normal message picks the story up again.
+
+---
+
+## 8. Memory: what remembers what
+
+| Helper | Part | What it keeps | Reaches the model? |
+| --- | --- | --- | --- |
+| **Chronicle** | Extension | The timeline: moments, milestones, bonds, plot | Yes, through the Memory Cortex |
+| **Chapters** | Extension | Summaries of story parts; loops in Re:Zero | Yes, as "the story so far", once summarised |
+| **Map bank** | Extension | Every room drawn, per world | Only a short room plan when needed |
+| **Memory Cortex** and **Chat Memory** | Lumiverse | People, places, links between them, older passages | Yes, through the preset's Memory block |
+| **Loom Summary** | Lumiverse | One summary of the story | Only if you switch on its block in the preset |
+
+### The Chronicle and the Memory Cortex
+
+- A reply is written to the Cortex only after you answer it. So a swipe never leaves a wrong memory.
+- Each entry becomes a fact on the people it is about, with an importance tag.
+- Choose how much is written: Settings → **Chronicle** → Write to the Memory Cortex. **Key moments, bonds, plot and milestones** is the default.
+- **Write now** writes at once. **Write everything again** is for after a Cortex rebuild. Nothing is written twice.
+- In Re:Zero, a loop undone by Return by Death is written as undone.
+
+### Tip
+
+Use **Chapters** or the **Loom Summary**, not both. Both would send a summary of the same story.
+
+---
+
+## 9. Settings, section by section
+
+Settings opens as a list of sections. Click one to open it. Every switch has a short note under it.
+
+| Section | What it holds |
+| --- | --- |
+| **Play style** | World presets (one click per bot), play styles (HMS Narrative, D&D, Power scaling, Pure narrative, Gritty survival, Social and romance), your own saved presets, the panel theme, density and text size. |
+| **Modules** | Every feature in one list. Switch off what you do not use: it leaves the panel and the prompt, and costs no tokens. |
+| **HMS engine** | HMS mode (automatic, always, off), the hidden block, fetching a forgotten block, the guard for dropped lines, the pin reminder. |
+| **HMS systems** | How the HUD is read: pools and meters, wounds and conditions, abilities and attributes, people and their bars, the phone, the party, the survival clock, injuries, experience. |
+| **Quests** | The Quests card, quest details, the plot, objectives, the quest journal, quest labels and states. |
+| **Chapters** | Automatic chapters for loops, arcs, days or months; summaries; whether they go with every message and with fights. |
+| **Chronicle** | On or off, asking the story for key moments, and how much goes into the Memory Cortex. |
+| **Lorebook context** | Which of the extension's own calls get your lorebooks, and what the last call sent. |
+| **Engine core & memory** | Whether fights run on the bot's engine, and how much long-term memory they recall. |
+| **General** | The master switch, Together or Separate mode, the connection for the extension's own calls, and time limits. |
+| **Panels** | Which classic panels show, and bar colours. |
+| **Chat and panel extras** | Internal states under each reply, the map and map bank, the HUD card, dialogue emoji, colours and names, weather effects, portraits. |
+| **Characters setup** | What is asked about each character in the scene: details, thoughts, character bars. |
+| **Fights** | Difficulty, how immersive fights resolve, fate dice, effects, moves, hidden plans, the legacy window. |
+| **D&D** | The D&D card, the roller, the HUD's scores, turn-based fights. |
+| **Story extras** | Extras from the original RPG Companion: immersive HTML, dialogue colouring, deception tags, the omniscience filter, choose your own adventure (off in HMS chats), song suggestions. |
+| **Tracker field presets** | Save and load whole tracker setups, mostly for classic chats. Link one to a character. |
+| **Custom prompts** | Every prompt the extension sends, editable. Empty uses the built-in one. |
+| **Help & bug report** | **Open the guide**, and **Copy bug report** for Discord. No chat text unless you tick the box. |
+| **Reset** | Clear this chat's trackers, or reset all settings. |
+
+**Together or Separate?** Together (the default) gets the side-panel data in the same reply: one call. Separate makes a second call after each reply. Use Separate only if your model keeps forgetting the hidden block.
+
+---
+
+## 10. When something goes wrong
+
+| Problem | What to do |
+| --- | --- |
+| The World State card is empty. | It says why. Often the model wrote the HUD inside its thinking. Press **Read again**. The extension also moves a HUD out of the thinking by itself. |
+| A card did not update. | Press **Read again**. It is free. |
+| "The reply left out the side-panel block." | The extension fetches it with a quick second call. If it happens a lot, use **Separate** mode (Settings → General). |
+| A HUD line vanished. | Press **Restore** in the World State card. Pin the line if it keeps happening. |
+| The reply has no HUD at all. | Press **Put the last HUD back**, or swipe for a new reply. |
+| The HUD header shows twice. | The extension keeps one by itself. If it keeps happening, set the preset's HUD header slider to **Never**. |
+| "The Arc line loads no arc entry." | Press **Use** to put in the book's spelling. |
+| An OOC answer came back with a HUD or a story. | Check the trigger is at the very start of your message, like `[OOC: ...]`. |
+| No emoji or dialogue colours. | They are off at first: Settings → Chat and panel extras → Dialogue. |
+| The New game card does not show. | It only shows on a new chat whose first message has catalog pages. |
+| The D&D card shows in a game without dice. | Use your world's preset, or switch D&D off in Settings → Modules. |
+| "Your provider allows only one request at a time." | Wait for the reply to finish, then press **Refresh**, or **Read again** (free). |
+| A permission is missing. | Grant it in the Extensions panel. The part that needs it says which one. |
+| Something else. | Settings → **Help & bug report** → **Copy bug report**, and paste it in the Discord. |
+
+### What it costs
+
+- The hidden-block request is about 1,000 to 1,700 tokens per reply, depending on what is switched on.
+- Modules you switch off cost nothing.
+- Fights, the OOC guide and chapter summaries each make their own call when you use them.
+
+---
+
+## 11. Words used in this guide
+
+| Word | Meaning |
+| --- | --- |
+| **HMS** | The game engine inside the bot's card. |
+| **HUD** (WORLD STATE) | The block at the top of each reply: time, place, arc, powers and more. |
+| **The wall** | The `***` line under the HUD. The story starts after it. |
+| **STATE IS GOD** | The bots' rule: the HUD is true, and the story must agree with it. |
+| **Carrier line** | A HUD line whose words keep a lorebook entry loaded, like the Arc line. |
+| **Start handler** | The bot's start line, like `ReZero_Start_Handler`. Your first message begins with it. |
+| **Catalog** | The pages of the bot's first message: how to start, and all the commands. |
+| **Canvas** | The almost empty catalog page you type your start under. |
+| **OOC** | Out of character: a question to the bot's guide, outside the story. |
+| **Hidden block** | The small `<rpg_companion>` data after the story. The extension reads it and removes it. |
+| **Pin** | Keep a HUD line exactly as it is. |
+| **Guard** | The check for HUD lines that vanished. |
+| **Swipe** | Another version of a reply. The extension follows the swipe you keep. |
+| **Lorebook** | The bot's world entries. A keyword in the chat loads an entry. |
+| **Memory Cortex** | Lumiverse's memory of people, places and their links. |
+| **Preset** | The prompt recipe Lumiverse sends to the model. Here: HMS Reporter beta. |
+| **Extension** | An add-on for Lumiverse. Here: RPG Companion HMS Edition. |
+| **Together / Separate** | Whether the side-panel data comes in the same reply, or from a second call. |
+| **Settled reply** | A reply you have answered. It can no longer be swiped away. |
