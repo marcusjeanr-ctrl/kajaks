@@ -1,5 +1,104 @@
 # Changelog — RPG Companion HMS Edition
 
+## 2.5.1 beta
+- **Agenda layout fix**: the time ("in 1h 25m (after the manor visit, this afternoon)") now sits under the title and
+  wraps, instead of squeezing the title into a narrow column. Late and soon times are readable on light themes.
+
+## 2.5.0 beta
+- **Interface in English, Português (Brasil) and Español.** Settings → General → Language: Auto (the
+  browser's language) or a fixed one. Every card, setting, status line, confirmation, the fight window, the
+  Test zone and the in-chat panels (Internal states, the HUD card's own words) follow it. Only what is shown
+  is translated: settings values, keys, HUD lines and everything sent to the model stay as they are, so
+  lorebooks keep loading. The HUD card never translates a HUD line.
+- **Ask for panel text in this language** (shown when the language is not English): the model writes the
+  side-panel block's free text (thoughts, looks, reasons, moments, agenda, notes), chapter summaries and the
+  OOC guide's answers in that language, keeping names, HUD lines, keys and list values untranslated.
+- **The guide in all three languages** (GUIDE.md, GUIDE.pt-BR.md, GUIDE.es.md), the in-panel Guide follows the
+  interface language.
+- Translations live in `i18n/pt-BR.json` and `i18n/es.json` (English text → translation; `{0}` slots for text
+  built at run time, `{0d}` for a number or a time span). `python3 tools/embed_i18n.py` copies them and the
+  guides into `dist/`.
+
+## 2.4.0 beta
+- **Finances**: a ledger of every sum that changes hands (income, expense, debt, loan, repaid), from your own
+  message and the reply, with totals per currency and open debts that count down as they are repaid. The HUD
+  balance stays the authority. Open debts go into the request.
+- **Factions**: guilds, kingdoms, churches, houses, gangs, school classes — your standing on an eight-step
+  ladder (hunted to member), rank, bounty, why it moved, and their people from People. Read from the story and
+  the HUD's Faction/Guild/Affiliation/Bounty lines; set the standing by hand. Swings, promotions and bounties go
+  into the Chronicle.
+- **Secrets**: your secrets and who found them out, and how; others' secrets you learned. Add, add a knower, or
+  remove one by hand. The request names who knows each secret, so nobody acts on what they could not know.
+  Discoveries go into the Chronicle.
+- All three: Settings → HMS systems, Modules, classic chats too; the Mushoku Tensei demo shows each.
+
+## 2.3.0 beta
+- **Agenda**, a new card and module: appointments, promises, deadlines and errands.
+  - Read from your own message and the reply ("I'll meet you at the river tomorrow") through an optional
+    `"agenda"` key; made, kept, missed, moved or called off. Add your own.
+  - Times land on the HUD clock: the HUD's format ("Day 5, 14:00"), or plain words ("tomorrow at dawn", "in
+    three days", "tonight", "before dark", "at 4pm"). The card sorts them into Late, Soon, Coming up and No set
+    time, and counts down.
+  - The request tells the model what is coming up, due now or late. Kept and missed ones go into the
+    Chronicle.
+- **Holdings**, a new card and module: vehicles, mounts, homes and rented rooms, land, buildings, businesses,
+  titles and offices — what you hold but do not carry.
+  - From an optional `"holdings"` key (gained, lost, changed), the HUD's Title/Property/Mount/Vehicle/Estate
+    lines (`Knight of Asura (granted by the king)`), and by hand. A holding the HUD lists is never lost.
+  - Grouped by kind, with where it is, a note, how long it has been held, and what Gear says is kept there.
+  - The request lists them; gains and losses go into the Chronicle.
+- Settings → HMS systems → Agenda / Holdings; Modules → Agenda / Holdings. Classic chats too.
+- Test zone: the Mushoku Tensei demo makes a promise, keeps an appointment and gains a room and a pony.
+
+## 2.2.0 beta
+- **Gear**, a new card and module: how you carry each thing — in hand, worn, sheathed, on you (back, belt,
+  shoulder), inside a bag, left somewhere, dropped or gone.
+  - **Your own message counts.** The side-panel block now reports every change in how you carry things
+    from what you wrote ("I sheathe my sword, I sling the pack on my back") as well as from the reply,
+    unless the reply shows it failed. Before, nothing tracked this, and things handed over only counted
+    when they changed hands in the reply.
+  - The HUD's Equipment/Items lines show on the card: `Backpack [rope, rations]` fills the backpack,
+    `Longsword (sheathed)` sets the state, `Roxy's wand — keepsake` is read as "Roxy's wand". The HUD stays
+    the record of what you own: an item it still lists is never marked gone.
+  - One list per bag; **This turn** shows what changed; **Move…** changes the state or puts an item into a
+    bag, holding until the story says something newer; added by hand with its state.
+  - The request carries how everything is carried now, so a sheathed sword is not swung.
+  - Gear replaces the Carried row of the You card while it is on (standard issue stays).
+  - Classic chats get the same card from the tracker JSON.
+- **"got" and "lost"** (things handed over) now include what you did in your own message.
+
+## 2.1.0 beta
+- **Family**, a new card and module. Your own family: what each one is to you, alive, missing or dead, and
+  where they are, as the story last showed (*seen*, at your HUD location), told (*told*) or assumed
+  (*guess*), with the trail of where they have been and how long ago on the HUD clock.
+  - Read from an optional `"family"` key in the side-panel block (only the family members a reply shows or
+    speaks of), from People readings whose bond is a family bond (family friends excluded), and from what
+    you add by hand.
+  - **Correct this**: set a place, the relation or the status by hand; it holds until the story says
+    something newer about that person, then the story wins again.
+  - The request carries each one's last known place and status, so the model does not move anyone the
+    story never moved. Settings → HMS systems → Family: the card, asking the story, the reminder.
+  - The Chronicle records a death, someone going missing, being found alive, and news of where someone is.
+  - The People settings view (People, family, party & phone) and Modules list it.
+  - Test zone: the Mushoku Tensei demo shows Paul in the scene and news of Zenith.
+- **Fix: labelled location paths.** A HUD that writes `Location: ◆ World → Region → Place` (the Mushoku Tensei
+  format, and `**Location:** A → B`) was read as a plain field, so the Atlas, the map bank, first visits in
+  the Chronicle and Internal states found no place. The label is now skipped and the path read as one.
+  `Location: Roswaal Mansion` with no path stays a plain field.
+
+## 2.0.1 beta
+- **Side calls read reasoning models' answers.** DeepSeek and GLM through some proxies send their chain of
+  thought with no opening `<think>`, only a lone `</think>` before the answer. Fights, the tracker, chapter
+  summaries, portraits and the OOC guide used to read that as "unreadable" (or pick up braces from the
+  reasoning). One `stripThink` now handles `<think>`, `<thinking>`, `<reasoning>`, the orphan closing tag and a
+  block cut off mid-way, everywhere a side call is read.
+- **JSON repair finds the real object.** A `{` or `}` in prose before or after the JSON no longer spoils it: balanced
+  objects are tried first.
+- **Chapter summaries use the chat's own connection.** They were sent without the chat, so a side connection
+  set for that chat was ignored, the busy-provider retry could not tell the chat was generating, and the panel
+  showed no "provider busy" status.
+- Unused code removed (`catalogCompose`, `commsInbox`, `CHAPTER_KINDS`, an unused list in the fight window).
+
 ## 2.0 beta — the official beta
 - **The guide is built in.** A **Guide** button in the top bar opens the whole guide in the panel, with a find
   box; the same text is `GUIDE.md`. It explains the three parts (bot, preset, extension), who is in charge,
