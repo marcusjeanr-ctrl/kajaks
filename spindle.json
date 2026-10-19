@@ -1,11 +1,11 @@
 {
-  "version": "2.5.1",
+  "version": "2.5.2",
   "name": "RPG Companion HMS Edition 2.0 beta",
   "identifier": "rpg_companion_hms",
   "author": "TenderTriper (Perch) — HMS Edition. Based on RPG Companion by Marinara.",
   "github": "https://github.com/marcusjeanr-ctrl/kajaks",
   "homepage": "https://github.com/marcusjeanr-ctrl/kajaks",
-  "description": "The side panel for the HMS Living World bots (Re:Zero, Mushoku Tensei, Classroom of the Elite, Overlord), and for Undertale, Dark Souls and Skyrim bots. It reads the bot's WORLD STATE HUD instead of competing with it and shows it as cards: you, the people around you, quests, the phone, the map and the atlas, fights, the Chronicle and more. It builds a new game from the bot's own catalog, answers OOC questions with the bot's guide, and draws emoji and dialogue colours. Made to work with the HMS Reporter beta preset. The guide is in the panel (Guide) and in GUIDE.md.",
+  "description": "The side panel for the HMS Living World bots (Re:Zero, Mushoku Tensei, Classroom of the Elite, Overlord), and for Undertale, Dark Souls and Skyrim bots. It reads the bot's WORLD STATE HUD instead of competing with it and shows it as cards: you, the people around you, quests, the phone, the map and the atlas, fights, the Chronicle and more. The bundled HMS Reporter preset includes 2.1 Minds behavior guidance. It builds a new game from the bot's own catalog, answers OOC questions with the bot's guide, and draws emoji and dialogue colours. Made to work with the HMS Reporter beta preset. The guide is in the panel (Guide) and in GUIDE.md.",
   "permissions": [
     "interceptor",
     "generation",
