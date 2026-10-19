@@ -308,6 +308,64 @@ Use **Set the bond** if the story reads a relationship wrong.
 Minors are protected: never a romantic bond, never any desire.
 Party members show how they are holding up. Add them with **Add to party**.
 
+### Finances
+A ledger of every payment, wage, purchase, bribe, loan and debt, from your own messages and the story, beside the HUD's balance (which stays the record of what you have).
+
+- **Open debts**: who owes whom and how much is left; a repayment to the same person counts it down, ✓ settles it by hand.
+- **Ledger**: newest first, with totals in and out per currency. **Log** adds your own entry, ✕ removes one.
+- The model is reminded of open debts, so a creditor remembers.
+
+### Factions
+Groups, not people: guilds, kingdoms, churches, noble houses, gangs, school classes. For each: your **standing** (hunted, hostile, unfriendly, neutral, friendly, trusted, allied, member), your **rank** in it, any **bounty** on your head, why it last moved, and who from People belongs to it.
+
+- From your messages and the story, and from the HUD's Faction, Guild, Affiliation and Bounty lines. Change the standing from the card; it holds until the story moves it again.
+- The model is reminded where you stand with each. Big swings, promotions and bounties go into the Chronicle.
+
+### Secrets
+Who knows what.
+
+- **Your secrets** (a past life, Return by Death, a plan) and who has found each out, and how. **What you know about others**: their secrets you have learned.
+- From the story when someone finds something out, and by hand: add a secret, add someone who knows, or ✕ someone who does not.
+- The model is told who knows each secret; anyone not named does not know it and cannot act on it. Each discovery goes into the Chronicle.
+
+### Agenda
+Appointments, promises and set times: "I'll meet you at the river tomorrow", "the exam is on Friday", "be back before dark".
+
+- They come from your own messages and from the story. Times are placed on the HUD clock ("tomorrow at dawn", "in three days", "Day 5, 14:00"), so the card counts down: **Late**, **Soon** (next 3 hours), **Coming up**, **No set time**.
+- ✓ kept, ✗ missed, ⊘ called off; the story marks them too. Done ones fold away.
+- The model is reminded what is coming up, due now or late, so people remember you were meant to meet. Kept and missed promises go into the Chronicle.
+
+### Holdings
+What you own or hold that you do not carry: **vehicles** (a wagon, a ship), **mounts**, **homes** and rented rooms, **land**, **buildings**, **businesses**, **titles** and **offices**.
+
+- Read from your messages and the story (gained, lost, changed) and from the HUD's Title, Property, Mount and similar lines. Something the HUD lists cannot be marked lost.
+- Each shows where it is, a note (condition, rank, what it brings), how long you have held it, and what the Gear card says is kept there ("stowed in the wagon").
+- **Edit** sets where it is or a note; ✕ marks it lost. Gains and losses go into the Chronicle.
+
+### Gear
+How you carry each thing: **in hand**, **worn**, **sheathed**, **on you** (slung on your back, on your belt), **inside a bag**, **left somewhere** or **dropped**.
+
+- Just write it in your message: "I sheathe my sword and sling the pack on my back", "the letter goes in my coat pocket". After the reply the card shows it. What you say you do counts unless the reply shows it failed.
+- What the HUD lists under Equipment or Items shows up too (as *on the HUD*). The HUD stays the record of what you own; Gear only says how you carry it.
+- **This turn** lists what changed. Each bag gets its own list of what is inside it.
+- **Move…** changes how you carry something, puts it into a bag, or marks it gone. It holds until the story says something newer about that item.
+- The model is reminded how everything is carried, so a sheathed sword is not swung and a dropped pack is not opened.
+
+Settings → HMS systems → Gear switches the card, the reading and the reminder.
+
+### Family
+Your own family, on a card of its own: what each one is to you, whether they are alive, and where they are.
+
+- **Where**: the place the story last showed or told. *seen* means they were in the scene with you (the place is your own HUD location then), *told* means someone in the story said so, *a guess* means it is only assumed. **Here with you** marks anyone in the current scene.
+- **Status**: alive, missing, dead or unknown. A missing person seen again is marked found.
+- **Where they have been**: every move, with how it was known and how long ago on the HUD clock.
+- Their standing and Affection and Trust come from People, so the two cards agree.
+- **Correct this**: set the place, what they are to you, or the status. It holds until the story says something newer about them.
+- **Add to family** for someone the story has not named yet. **✕** hides someone who is not family.
+- The model is reminded where everyone was last known, so nobody turns up where the story never sent them. Deaths, disappearances, reunions and news of where someone is go into the Chronicle.
+
+Settings → HMS systems → Family switches the card, the question to the story and the reminder.
+
 ### Phone
 Your device, your money, your contacts, your messages and notices.
 Send a text, call or transfer. It goes into the story as your turn, and the bot decides whether it reaches anyone.
@@ -435,7 +493,7 @@ Settings opens as a list of sections. Click one to open it. Every switch has a s
 | **Play style** | World presets (one click per bot), play styles (HMS Narrative, D&D, Power scaling, Pure narrative, Gritty survival, Social and romance), your own saved presets, the panel theme, density and text size. |
 | **Modules** | Every feature in one list. Switch off what you do not use: it leaves the panel and the prompt, and costs no tokens. |
 | **HMS engine** | HMS mode (automatic, always, off), the hidden block, fetching a forgotten block, the guard for dropped lines, the pin reminder. |
-| **HMS systems** | How the HUD is read: pools and meters, wounds and conditions, abilities and attributes, people and their bars, the phone, the party, the survival clock, injuries, experience. |
+| **HMS systems** | How the HUD is read: pools and meters, wounds and conditions, abilities and attributes, people and their bars, your agenda, holdings, gear, money, factions, secrets and family, the phone, the party, the survival clock, injuries, experience. |
 | **Quests** | The Quests card, quest details, the plot, objectives, the quest journal, quest labels and states. |
 | **Chapters** | Automatic chapters for loops, arcs, days or months; summaries; whether they go with every message and with fights. |
 | **Chronicle** | On or off, asking the story for key moments, and how much goes into the Memory Cortex. |
