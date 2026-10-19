@@ -1,3 +1,8 @@
+## 2.5.2 beta — Minds prompt integration
+- Restores the 2.1 Minds behavior guidance in the bundled HMS Reporter preset: distinct motives, emotional continuity, knowledge limits, subtext and independent NPC actions.
+- Adds the Minds checks to the preset's planning guidance while retaining the 2.5.1 extension and HUD/tracker behavior.
+- This is prompt-level Minds integration. It does not restore the 2.1 stateful Minds tracker or its removed `rpgc_minds` macro.
+
 # Changelog — RPG Companion HMS Edition
 
 ## 2.5.1 beta
