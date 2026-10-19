@@ -21,6 +21,12 @@ Three parts make one game, and when they disagree this order wins:
 3. **The extension** (this): reads the HUD and one hidden block after the prose, shows them, and owns every
    display extra (emoji, dialogue colours, the HUD card). It adds no rules and writes no HUD of its own.
 
+## Language
+English, Português (Brasil) and Español: Settings → General → Language (Auto follows the browser). With
+**Ask for panel text in this language** on, the model also writes the panel's free text, chapter summaries and
+OOC answers in that language; HUD lines, names and keywords are never translated. Translations are in
+`i18n/*.json`; after editing them or a guide, run `python3 tools/embed_i18n.py`.
+
 ## Install
 Needs Lumiverse 1.2.0 or newer.
 1. Remove or disable the old **RPG Companion** extension first. Both inject into the prompt.
@@ -145,6 +151,39 @@ into the panel.
   Re:Zero a loop that Return by Death undoes is written as undone, for you and for everyone who was in
   it, so nobody acts on a loop that never happened. The latest reply waits, because a swipe could still
   change it. `{{rpgc_chronicle}}` gives the key moments to a preset that wants them without the Cortex.
+- **Finances.** An optional `"money"` key (income, expense, debt, loan, repaid — from the player's own
+  message and the reply) builds a ledger with totals per currency and open debts, beside the HUD balance.
+  Open debts go into the request.
+- **Factions.** Groups' view of the player — hunted to member — with rank, bounty and why it moved, from an
+  optional `"factions"` key and the HUD's Faction/Guild/Affiliation/Bounty lines; People whose bond names the
+  group are listed as its people. The request carries every non-neutral standing; the Chronicle big swings.
+- **Secrets.** Who knows what: the player's secrets and who found them out (and how), others' secrets the
+  player learned. From an optional `"secrets"` key and by hand. The request names who knows each secret, so
+  nobody acts on what they could not know; each discovery goes into the Chronicle.
+- **Agenda.** Appointments, promises, deadlines and errands, from an optional `"agenda"` key in the
+  side-panel block (made, kept, missed, moved or called off in the player's own message or the reply) and
+  by hand. Times are placed on the HUD clock (the HUD's own format, or "tomorrow at dawn", "in three
+  days", "before dark"), so the card shows what is late, soon and coming up, and the request reminds the
+  model. Kept and missed promises go into the Chronicle.
+- **Holdings.** What you own or hold that you do not carry — vehicles, mounts, homes, land, buildings,
+  businesses, titles, offices — from an optional `"holdings"` key (gained, lost, changed), from the HUD's
+  Title/Property/Mount/Vehicle lines, and by hand. Shows what Gear says is stowed there. Gains and losses
+  go into the Chronicle.
+- **Gear.** How you carry each thing: in hand, worn, sheathed, on you (back, belt, shoulder), inside a
+  named bag, left somewhere, dropped or gone. Read from one optional `"gear"` key in the side-panel block,
+  which reports every change from **the player's own last message** as well as the reply ("I sheathe my
+  sword" counts unless the reply shows it failed), from the HUD's Equipment/Items lines (`Backpack [rope,
+  rations]` fills the backpack, `(sheathed)` sets the state), from things handed over, and from **Move…**
+  on the card, which holds until the story says something newer. The request carries how everything is
+  carried now. The HUD stays the record of what you own. Settings → HMS systems → Gear; Modules → Gear.
+- **Family.** Your own family on a card of its own: what each one is to you, alive, missing or dead, and
+  where they are as the story last showed (*seen*: in the scene with you, at your HUD location), told
+  (*told*) or assumed (*guess*), with the trail of where they have been. Read from one optional
+  `"family"` key in the side-panel block (only family members a reply shows or speaks of; usually `[]`),
+  from People readings whose bond is a family bond, and from what you add by hand. A place or status you
+  set holds until the story says something newer. The request carries each one's last known place and
+  status (about 15 tokens a person) so nobody teleports, and deaths, disappearances, reunions and news
+  go into the Chronicle. Settings → HMS systems → Family; Modules → Family.
 - **What you carry beyond the HUD.** Some bots keep standard items off the HUD on purpose (Classroom
   of the Elite assumes uniform, student ID, phone, dorm key and textbooks). The You card lists them as
   standard issue and the Phone card uses the assumed phone. Small things you are handed or lose in the
