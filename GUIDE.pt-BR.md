@@ -1,6 +1,6 @@
 # Guia HMS
 
-**RPG Companion HMS Edition 2.0 beta** e **HMS Reporter beta**
+**RPG Companion HMS Edition 2.6 beta** e **HMS Reporter beta**
 
 Este guia explica como um jogo HMS funciona, como configurá-lo e o que cada parte faz.
 Leia primeiro **Comece aqui**. Use as outras partes quando precisar.
@@ -15,7 +15,7 @@ Um jogo HMS tem três partes. Cada parte tem uma função.
 | --- | --- | --- |
 | **O bot** | O card do personagem e seus lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite ou Overlord | O mundo e suas regras. Ele escreve o **HUD do WORLD STATE** no topo de cada resposta. |
 | **HMS Reporter beta** | Um preset: o prompt que o Lumiverse envia | Como a história abaixo do HUD é escrita: estilo, vozes, tamanho, raciocínio. |
-| **RPG Companion HMS Edition 2.0 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
+| **RPG Companion HMS Edition 2.6 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, o que sentem e o que sabem, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
 
 ### Quem manda
 
@@ -23,7 +23,7 @@ Quando duas partes discordam, esta ordem vence:
 
 1. **O bot.** As regras e o HUD dele são a lei. Os bots chamam isso de **STATE IS GOD**. Nada pode esconder, mudar ou substituir o HUD.
 2. **O preset.** Ele só molda a história abaixo do HUD. Nunca muda uma regra nem uma linha do HUD.
-3. **A extensão.** Ela lê e mostra. Pede ao modelo um pequeno bloco oculto depois da história. Nunca escreve um HUD próprio e nunca acrescenta regras.
+3. **A extensão.** Ela lê e mostra. Pede ao modelo um pequeno bloco oculto depois da história, e devolve o que lembra das pessoas (Mentes) antes da resposta seguinte. Nunca escreve um HUD próprio e nunca acrescenta regras.
 
 ### Como é uma resposta
 
@@ -55,6 +55,9 @@ A história...
 | Como a história soa, tamanho, raciocínio | Preset | Ajuste no ícone de controles deslizantes. |
 | Emoji e cores de diálogo | Extensão | Desenhados na sua tela. O preset nunca escreve emoji. |
 | Painel lateral, mapa, Crônica, pessoas, missões | Extensão | Lidos do HUD e do bloco oculto. |
+| Quem um personagem é | Bot (os cards dos personagens) | Os cards sempre vencem. |
+| Como os personagens são interpretados por dentro | Preset (o bloco Minds) | Do FrankenSIM. Veja a parte 7. |
+| Os números: sentimentos, rotinas, quem sabe o quê, detalhes plantados | Extensão (Mentes) | O modelo só diz o que mudou. A extensão guarda o resto. Veja a parte 7. |
 
 ---
 
@@ -179,11 +182,12 @@ O cartão coloca a linha Continuer do bot primeiro, como o bot pede.
 ## 4. O que acontece a cada turno
 
 1. Você escreve o que faz e envia.
-2. O preset monta o prompt: o card e o motor do bot, sua lore, a memória, o chat e o pequeno pedido da extensão.
+2. O preset monta o prompt: o card e o motor do bot, sua lore, a memória, o chat, o estado das mentes e o pequeno pedido da extensão.
 3. O modelo escreve o HUD, a parede `***`, a história e o bloco oculto.
 4. A extensão lê a resposta:
     - Lê o HUD e atualiza os cartões.
-    - Lê o bloco oculto (pessoas, missões, celular, ferimentos) e o remove da mensagem salva.
+    - Lê o bloco oculto (pessoas, sentimentos, rotinas, o que as pessoas descobriram, detalhes plantados, missões, celular, ferimentos) e o remove da mensagem salva.
+    - Faz as contas das Mentes: limita cada passo, deixa sentimentos antigos esfriarem, lembra dívidas.
     - Procura linhas do HUD que sumiram e coloca de volta as linhas que você fixou.
     - Desenha o HUD como um cartão no chat, e as cores e emoji de diálogo se você os ligou.
 5. Quando você responde a uma resposta, ela fica assentada. A Crônica então grava os momentos-chave dela no Memory Cortex.
@@ -235,6 +239,7 @@ O preset é em inglês, como o card. Para jogar em português, diga isso ao bot 
 | Reporter: how the prose reads | Ligado | Comece pelo que mudou. Use detalhes exatos. Mostre só o que dá para ver. Termine onde o mundo devolve a vez. Corte frases feitas. |
 | Voices and groups | Ligado | As pessoas falam pouco e com a própria voz. Ninguém lê mentes. Grupos conversam entre si. |
 | The player's character | Ligado | O modelo nunca escreve suas escolhas, falas ou pensamentos. Um Narrative Mode do bot pode mudar isso. |
+| Minds (from FrankenSIM) | Ligado | Como interpretar cada personagem por dentro: o lado dele que lidera, sentimentos que se carregam, máscaras, honestidade que se conquista, conhecimento que precisa de um caminho até a pessoa. Veja a parte 7. |
 | Mature content (adults only) | Desligado | Cenas adultas só entre adultos. Menores e laços familiares sempre ficam não explícitos. |
 | Gore | Desligado | Mostra a violência sem suavizar. |
 | World info (before) e (after) | Ligado | Suas entradas de lorebook. |
@@ -242,6 +247,7 @@ O preset é em inglês, como o card. Para jogar em português, diga isso ao bot 
 | Story summary (Loom Summary) | Desligado | O resumo próprio do Lumiverse. Ligue só se você o usar no lugar dos Capítulos. |
 | Chat history | Ligado | O próprio chat. |
 | Card's post-history instructions | Ligado | O que o card coloca depois do chat. |
+| Minds state (RPG Companion) | Ligado | O que a extensão lembra das pessoas da história. Fica vazio sem a extensão, com as Mentes desligadas e nos turnos OOC. |
 | Fight craft | Só em lutas | Carrega sozinho nas lutas: preparação de golpes, o ambiente na luta, o impacto antes da dor. |
 | Side panel (RPG Companion) | Ligado | O pedido da extensão vai aqui. Fica vazio sem a extensão e nos turnos OOC. |
 | Before you write | Ligado | Raciocínio, tamanho e o lembrete dos marcadores de diálogo. Num turno OOC: responder fora do personagem. |
@@ -250,7 +256,7 @@ O preset é em inglês, como o card. Para jogar em português, diga isso ao bot 
 
 | Configuração | Opções | Dica |
 | --- | --- | --- |
-| Thinking | Off, Light, Normal (padrão), Deep | Deep planeja muitos lances à frente. É o mais lento. |
+| Thinking | Off, Light, Normal (padrão), Deep | Normal e Deep pensam em cada personagem primeiro (o passo das mentes). Deep também move o mundo fora de cena e confere os detalhes plantados. É o mais lento. |
 | Think out loud | Ligado ou desligado | Para modelos que não pensam sozinhos. Ligue também Auto-parse thoughts no Lumiverse, para o plano se recolher. |
 | Prose length | Brief, Scene-led (padrão), Long, Very long | O HUD nunca conta para o tamanho. |
 | Start replies with the HUD header | Auto (padrão), Always, Never | Auto só ajuda Kimi e DeepSeek. Use Always só se um modelo vive pulando o HUD, com o raciocínio desligado. |
@@ -292,6 +298,8 @@ Ele mostra os atributos próprios daquele mundo a partir do HUD, explicados pelo
 Onde cada um está na sala. Começa desligado: Configurações → Extras do chat e do painel → **Mapa**.
 Um cômodo é desenhado uma vez, depois só as pessoas se movem. O **banco de mapas** guarda todo cômodo desenhado para aquele mundo, então um lugar nunca é pago duas vezes.
 
+**Prédio inteiro.** Quando dois ou mais cômodos de um mesmo prédio já foram desenhados, aperte **Prédio inteiro**. A extensão junta os cômodos pelas portas, andar por andar. Não gasta tokens. Quem não está no seu cômodo aparece onde a rotina dele o coloca. Um cômodo a que nenhuma porta leva ainda é desenhado com linha tracejada. Veja a parte 7.
+
 ### Atlas
 O livro de locais do bot como mapa. Mostra onde você está, os cômodos ao redor e detalhes de qualquer lugar: o quanto é vigiado, horário de funcionamento, quem costuma estar lá.
 Clique num lugar para entrar, **Subir** para sair.
@@ -310,8 +318,12 @@ Todos que você conheceu. Cada pessoa mostra:
 
 - **Posição**: o quão próxima ela se sente de você, de Nemesis a Devoted. Nunca é romance.
 - **Vínculo**: que tipo de relação é: colega de classe, mentor, família, parceiro.
-- O humor, e barras como Afeto e Confiança, com o motivo de uma barra ter mudado.
+- **A linha 🧠**: o que sente agora e por quem, o quanto se mostra caloroso, e os três sentimentos mais fortes por você. ⚠️ é um muro, ⚖️ é uma dívida sua com a pessoa.
+- **📍** o que está fazendo e até quando.
+- **Por dentro, sentimentos e o que sabe**: abra para ver o resto. Veja a parte 7.
 - **Na cena**: como ela parece e age agora, e seus pensamentos.
+
+As barras clássicas (Afeto, Confiança e as outras) voltam se você puser Configurações → Mentes → **Sentimentos por você** em Barras clássicas.
 
 Use **Definir o vínculo** se a história ler uma relação errado.
 Menores são protegidos: nunca um vínculo romântico, nunca nenhum desejo.
@@ -398,22 +410,23 @@ Seus poderes, perícias e atributos, lidos do HUD.
 
 ### Missões
 - **A trama**: onde a história está, e seus fios abertos.
+- **🔫 Detalhes plantados** (arma de Tchekhov): coisinhas que a história plantou e que devem ter consequência depois. Os **maduros** podem acontecer já. Um com 🔒 espera uma hora, uma pessoa ou uma condição. Aperte ✕ para tirar um que não cabe.
 - **Objetivos**: o que você está tentando fazer agora. Você pode adicionar os seus. Os seus nunca vão para o modelo.
 - **Missões** do HUD, com o objetivo, quem deu, onde, a recompensa e o tempo que resta.
 - **Suas notas** nunca vão para o modelo.
-- Se uma missão sai do HUD ainda ativa, aperte **Devolver**.
+- Se uma missão sai do HUD ainda ativa, aperte **Devolver**. Se o bot só parou de listá-la porque acabou, aperte **Já acabou**.
 
 ### Crônica
 A linha do tempo da história: momentos-chave, marcos, o que as pessoas passaram a sentir por você e pontos da trama.
 Filtre, marque uma entrada com estrela, oculte uma, ou adicione a sua.
-Respostas assentadas são gravadas no Memory Cortex. Veja a parte 8.
+Respostas assentadas são gravadas no Memory Cortex. Veja a parte 9.
 
 ### Capítulos
 Resumos de partes da história. Aperte **Encerrar capítulo e resumir** quando uma parte termina.
 Os resumos vão com cada mensagem, além do chat.
 
 ### Guia OOC
-Faça uma pergunta ao guia do bot. Veja a parte 7.
+Faça uma pergunta ao guia do bot. Veja a parte 8.
 
 ### Crítico
 Uma faixa vermelha para perigo real: vida perto de zero, uma condição no pior grau, um ferimento exposto por tempo demais.
@@ -432,8 +445,8 @@ Durante uma luta imersiva: o HP, MP e Stamina de todos, efeitos, o que cada luta
 ### No próprio chat
 
 - **O cartão do HUD.** O HUD desenhado como um cartão bonito nas cores do bot. A resposta salva mantém o texto puro. **Mostrar o HUD como texto** abre a versão simples.
-- **Estados internos** abaixo de cada resposta: abas de Cena, Pessoas, Vínculos, Trama e Mapa.
-- **Exibição do diálogo** (começa desligada): um emoji para o sentimento de quem fala, uma cor por personagem, ou o nome.
+- **Estados internos** abaixo de cada resposta: abas de Cena, Pessoas, Mentes, Vínculos, Trama e Mapa. **Mentes** mostra o que mudou por dentro de cada pessoa naquela resposta.
+- **Exibição do diálogo** (começa desligada): um emoji para o sentimento de quem fala, uma cor por personagem, ou o nome. **Tom de voz** desenha uma fala sussurrada em itálico e uma cortante em negrito.
 
 ### Zona de teste
 Um chat de treino dentro da extensão. Roda o mesmo código de um chat real e não toca em nenhum dos seus chats.
@@ -441,7 +454,79 @@ Um chat de treino dentro da extensão. Roda o mesmo código de um chat real e n�
 
 ---
 
-## 7. Perguntar fora do personagem (OOC)
+## 7. Mentes (do FrankenSIM)
+
+**Mentes** é como as pessoas da história sentem, pensam e agem. Vem do **FrankenSIM 4 Mini, de Wireless (Ryah)**, com permissão. **TFDY** (Ternura, Fúria, Pavor, Anseio) é de **Pyropia**. Obrigado aos dois.
+
+### Como funciona
+
+1. O modelo escreve a história como sempre.
+2. No bloco oculto, ele diz só **o que mudou** dentro de cada pessoa nesta resposta, e por quê.
+3. A extensão faz as contas: guarda cada número, limita cada passo, deixa sentimentos antigos esfriarem, e lembra.
+4. Antes da resposta seguinte, ela devolve o estado ao modelo como memória.
+
+O bot continua mandando. Os cards dos personagens dizem quem alguém é. As Mentes só lembram o que a história mostrou.
+
+### Por dentro de uma pessoa
+
+| Parte | O que significa |
+| --- | --- |
+| **Sentimento** | O que sente agora, nomeado pelo rumo que toma (a lista de Parrott: amor, alegria, surpresa, raiva, tristeza, medo), e por quem. |
+| **TFDY** | O humor de fundo: 💗 Ternura, 🔥 Fúria, 😰 Pavor, 🌙 Anseio, de 0 a 4. Cada um descansa num nível que o temperamento define. |
+| **Mostra** | O quanto se mostra calorosa por fora: ❄️ gélida, fria, morna, calorosa, 🔥 fervorosa. Pode ser diferente do que sente. |
+| **Máscara** | A cara que usa: mantida, rachando ou caída. |
+| **Lados dela** | Cinco a sete lados tirados do card. Um lidera de cada vez. Se o mesmo lidera três respostas seguidas, o painel avisa. |
+| **Ainda carrega** | Um sentimento forte das últimas respostas que não passou. |
+
+### Por você (e uns pelos outros)
+
+Doze sentimentos, cada um de 1 a 20:
+
+| Quente | Seu espelho |
+| --- | --- |
+| 🌶️ Desejo | 😠 Ódio |
+| 🎲 Brincadeira | 🥊 Discórdia |
+| 🤝 Amizade | ❄️ Inimizade |
+| 🛠️ Parceria | 🪨 Travado |
+| 🏠 Pertencimento | 🌫️ Indiferença |
+| 🕊️ Cuidado | 🐍 Inveja |
+
+- **Um muro** (⚠️): um sentimento e seu espelho estão os dois altos (10 ou mais), como desejo e ódio. Sai de lado.
+- **Portão** 🚪: o quanto a pessoa se permite sentir: adormecido, atento, ciente, ansiando, aberto. Muda um passo por vez, e só por um acontecimento.
+- **Mostra / Diz**: se o sentimento aparece no que faz e no que fala.
+- **Filtros**: o que segura o sentimento (social, valores, combinação, laços). Cada um pode ir rachando aos poucos. Aberto nunca fecha de novo.
+- **Dívida** ⚖️: um mal feito à pessoa. Fica até ser reparado.
+- **Modo**: estranho, caloroso, tenso, hostil, amantes e outros.
+
+### As contas que a extensão faz
+
+| Regra | O que significa para você |
+| --- | --- |
+| **O máximo que um sentimento muda numa resposta: 2** | Uma cena não vira uma pessoa do avesso. |
+| **Esfriar: um passo a cada 3 respostas paradas** | Um sentimento que nada alimenta volta para onde descansa. Sentimentos grandes esfriam um pouco mais rápido. |
+| **Assentar** | Um sentimento empurrado na mesma direção três vezes vira parte de quem a pessoa é para você. |
+| **Nunca 0** | Ninguém sente nada. Um primeiro encontro começa em 3 ou mais. |
+| **Menores e família** | Nunca desejo, nunca um modo romântico, diga o modelo o que disser. |
+| **Return by Death** | Quando o tempo volta, todos esquecem o loop desfeito: os sentimentos, o que descobriram nele e os planos. Os detalhes plantados ficam, porque você os viu. |
+
+Você pode mudar o tamanho do passo e a velocidade com que esfriam em Configurações → **Mentes**.
+
+### Rotinas, conhecimento e detalhes plantados
+
+- **Rotinas** 📍 (o FrankenSIM chama de agendas): o que cada pessoa está fazendo, onde e até quando, em cena ou não. Quando a hora passa, o painel diz **terminou**. Ninguém pula de um lugar para outro. Não confunda com a sua **Agenda**, que são os seus compromissos.
+- **Quem sabe o quê**: cada fato que uma pessoa descobriu, e como: 👁️ viu, 👂 ouviu escondido, 🗣️ alguém contou, 🔎 evidência, ✉️ mensagem, 🌐 todo mundo sabe, 💬 fofoca, 🤔 deduziu. Uma **crença falsa** fica sublinhada em vermelho. Aperte ✕ se alguém não deveria saber algo. Quem conhece um segredo seu (cartão Segredos) também mostra aqui, com 🔒.
+- **Detalhes plantados** 🔫 (arma de Tchekhov): no cartão Missões. A história decide quando um acontece. Até 20 ficam guardados. Os antigos e leves somem.
+- **Mapas de prédios**: no cartão Mapa, a partir dos cômodos que a história desenhou.
+
+### Ligar e desligar partes
+
+Configurações → **Módulos** → **Mentes (do FrankenSIM)** tem cinco chaves: Mentes e sentimentos, Rotinas, Quem sabe o quê, Arma de Tchekhov, Mapas de prédios. Configurações → **Mentes** tem os detalhes. **Desfazer minhas correções** traz de volta fatos e detalhes que você tirou.
+
+**Custo:** com tudo ligado, cerca de 1.000 tokens de instruções e 300 a 600 tokens de estado por resposta, mais o que o modelo escreve no bloco oculto. Com os outros módulos, a resposta do tracker fica longa: se o status disser que ela foi cortada, aumente o max tokens da conexão ou desligue o que não usa.
+
+---
+
+## 8. Perguntar fora do personagem (OOC)
 
 Cada bot tem um personagem-guia que responde perguntas sobre o mundo, as regras e os comandos.
 
@@ -467,7 +552,7 @@ Você pode nomear outro guia na caixa **Guia**, se o bot permitir.
 
 ---
 
-## 8. Memória: o que lembra o quê
+## 9. Memória: o que lembra o quê
 
 | Ajudante | Parte | O que guarda | Chega ao modelo? |
 | --- | --- | --- | --- |
@@ -476,6 +561,7 @@ Você pode nomear outro guia na caixa **Guia**, se o bot permitir.
 | **Banco de mapas** | Extensão | Todo cômodo desenhado, por mundo | Só uma planta curta do cômodo quando preciso |
 | **Memory Cortex** e **Chat Memory** | Lumiverse | Pessoas, lugares, ligações entre eles, passagens antigas | Sim, pelo bloco Memory do preset |
 | **Loom Summary** | Lumiverse | Um resumo da história | Só se você ligar o bloco dele no preset |
+| **Mentes** | Extensão | Sentimentos, rotinas, quem sabe o quê, detalhes plantados | Sim, como o estado das mentes antes de cada resposta |
 
 ### A Crônica e o Memory Cortex
 
@@ -491,7 +577,7 @@ Use os **Capítulos** ou o **Loom Summary**, não os dois. Os dois mandariam um 
 
 ---
 
-## 9. Configurações, seção por seção
+## 10. Configurações, seção por seção
 
 As Configurações abrem como uma lista de seções. Clique numa para abri-la. Toda chave tem uma nota curta embaixo.
 
@@ -501,6 +587,7 @@ As Configurações abrem como uma lista de seções. Clique numa para abri-la. T
 | **Módulos** | Todo recurso numa lista. Desligue o que você não usa: sai do painel e do prompt, e não custa tokens. |
 | **Motor HMS** | Modo HMS (automático, sempre, desligado), o bloco oculto, buscar um bloco esquecido, a guarda de linhas perdidas, o lembrete dos fixados. |
 | **Sistemas HMS** | Como o HUD é lido: recursos e medidores, ferimentos e condições, habilidades e atributos, pessoas e suas barras, agenda, propriedades, equipamento, finanças, facções, segredos e família, o celular, o grupo, o relógio de sobrevivência, ferimentos, experiência. |
+| **Mentes (do FrankenSIM)** | Sentimentos (os doze sentimentos ou as barras clássicas), também entre os outros, o tamanho do passo, a velocidade com que esfriam, devolver o estado ao modelo, rotinas, quem sabe o quê, arma de Tchekhov, mapas de prédios, e os créditos. |
 | **Missões** | O cartão Missões, detalhes das missões, a trama, objetivos, o diário de missões, rótulos e estados das missões. |
 | **Capítulos** | Capítulos automáticos para loops, arcos, dias ou meses; resumos; se vão com cada mensagem e com as lutas. |
 | **Crônica** | Ligada ou desligada, pedir à história os momentos-chave, e quanto vai para o Memory Cortex. |
@@ -522,7 +609,7 @@ As Configurações abrem como uma lista de seções. Clique numa para abri-la. T
 
 ---
 
-## 10. Quando algo dá errado
+## 11. Quando algo dá errado
 
 | Problema | O que fazer |
 | --- | --- |
@@ -539,6 +626,10 @@ As Configurações abrem como uma lista de seções. Clique numa para abri-la. T
 | O cartão de D&D aparece num jogo sem dados. | Use o preset do seu mundo, ou desligue o D&D em Configurações → Módulos. |
 | "Seu provedor permite só um pedido por vez." | Espere a resposta terminar, depois aperte **Atualizar**, ou **Ler de novo** (grátis). |
 | Pensamentos e resumos vêm em inglês. | Configurações → Geral → ligue **Pedir o texto do painel neste idioma**. |
+| Alguém sabe algo que não poderia saber. | Abra o cartão da pessoa → Por dentro, sentimentos e o que sabe → aperte ✕ no fato. |
+| Um detalhe plantado não cabe na história. | Cartão Missões → Detalhes plantados → aperte ✕. |
+| Os sentimentos de alguém parecem errados. | Eles mudam no máximo 2 por resposta; dê algumas respostas à história. Se a relação em si está errada, use **Definir o vínculo**. |
+| Tokens demais. | Desligue partes das Mentes em Configurações → Módulos. |
 | Falta uma permissão. | Conceda-a no painel Extensions. A parte que precisa diz qual. |
 | Outra coisa. | Configurações → **Ajuda e relatório de bug** → **Copiar relatório de bug**, e cole no Discord. |
 
@@ -546,11 +637,12 @@ As Configurações abrem como uma lista de seções. Clique numa para abri-la. T
 
 - O pedido do bloco oculto custa cerca de 1.000 a 1.700 tokens por resposta, conforme o que estiver ligado.
 - Módulos desligados não custam nada.
+- As Mentes acrescentam cerca de 1.000 tokens de instruções e 300 a 600 tokens de estado por resposta. Desligue partes para economizar.
 - Lutas, o guia OOC e os resumos de capítulo fazem cada um a própria chamada quando você os usa.
 
 ---
 
-## 11. Palavras usadas neste guia
+## 12. Palavras usadas neste guia
 
 | Palavra | Significado |
 | --- | --- |
@@ -573,3 +665,12 @@ As Configurações abrem como uma lista de seções. Clique numa para abri-la. T
 | **Extensão** | Um complemento do Lumiverse. Aqui: RPG Companion HMS Edition. |
 | **Junto / Separado** | Se os dados do painel lateral vêm na mesma resposta ou de uma segunda chamada. |
 | **Resposta assentada** | Uma resposta que você já respondeu. Não pode mais ser trocada por swipe. |
+| **Mentes** | Como as pessoas sentem, pensam e agem, do FrankenSIM. A extensão guarda os números. |
+| **TFDY** | Ternura, Fúria, Pavor, Anseio: o humor de fundo de uma pessoa, de 0 a 4. De Pyropia. |
+| **Mostra (IW)** | O quanto uma pessoa se mostra calorosa por fora. O FrankenSIM chama de Inner Weather. |
+| **Os doze sentimentos** | Desejo, Brincadeira, Amizade, Parceria, Pertencimento, Cuidado, e seus espelhos Ódio, Discórdia, Inimizade, Travado, Indiferença, Inveja. |
+| **Assenta em** | Onde um sentimento descansa. Muda devagar, quando um sentimento é empurrado na mesma direção várias vezes. |
+| **Muro** | Um sentimento e seu espelho altos ao mesmo tempo. |
+| **Portão** | O quanto uma pessoa se permite sentir por alguém. |
+| **Rotina** | O que uma pessoa está fazendo, onde e até quando. |
+| **Arma de Tchekhov** | Um detalhe que a história plantou e que deve ter consequência depois. |

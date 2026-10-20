@@ -1,9 +1,86 @@
-## 2.5.2 beta — Minds prompt integration
-- Restores the 2.1 Minds behavior guidance in the bundled HMS Reporter preset: distinct motives, emotional continuity, knowledge limits, subtext and independent NPC actions.
-- Adds the Minds checks to the preset's planning guidance while retaining the 2.5.1 extension and HUD/tracker behavior.
-- This is prompt-level Minds integration. It does not restore the 2.1 stateful Minds tracker or its removed `rpgc_minds` macro.
-
 # Changelog — RPG Companion HMS Edition
+
+## 2.6.0 beta — the official 2.1 (Minds) merged in
+Everything from **TenderTriper's 2.1 beta** — **Minds**, ported from **FrankenSIM 4 Mini by Wireless (Ryah)**,
+with permission; **TFDY** by **Pyropia** — joined to this edition's 2.5 work. See the 2.1 entry below for
+what Minds does. On top of the merge:
+- **Routines.** 2.1's "agendas" (what each person is doing, where, until when) are called Routines here, so
+  they are not confused with your own **Agenda** card (your appointments and promises).
+- **Secrets and "who knows what" are one picture.** Whoever knows one of your secrets shows it under what
+  they know, with 🔒; ✕ there takes them off the secret too.
+- **Translated:** every new card, setting, the chat's Minds tab and the whole vocabulary (the twelve
+  feelings, TFDY, gate, filters, modes, Parrott's feelings, how someone found out) in Português and Español;
+  the new guide part 7 in both guides. Fixed-list words are translated by kind, so "open" on a gate never
+  changes an "open" elsewhere.
+- The answer-cut-off recovery from 2.5.4 covers the bigger block Minds adds.
+- Version: manifest 2.6.0; the panel and bug reports say 2.6.0-beta.
+
+## 2.1 beta — Minds, from FrankenSIM
+Ported from **FrankenSIM 4 Mini by Wireless (Ryah)**, with permission. **TFDY** is by **Pyropia**. Thank you both.
+FrankenSIM has the model rewrite its whole state every reply; here the model says only what moved, and the
+extension does the math and the remembering.
+- **Minds**: each person's feeling (Parrott's tree) and at whom; TFDY (tenderness, fury, dread, yearning) resting
+  where their temperament puts it; how warm they show themselves (IW); their mask; the side of them that leads.
+  Toward you and toward each other: **twelve feelings** with walls between mirrors, a gate, what shows and what
+  is said, filters that crack open, debts until paid, intent and mode. They replace the classic bars by default
+  (Settings → Minds puts the bars back).
+- **The math**: at most 2 a reply (TFDY 1); a quiet feeling eases back one step every 3 replies, faster when far
+  off or near the top; three pushes the same way settle it a step deeper; never 0, first values 3 or more; minors
+  and family never get desire or a romantic mode. A **Return by Death** makes the world forget the undone loop.
+- **Agendas**: what everyone is doing, where and until when, here or elsewhere, with *over by* when the time passes.
+- **Who knows what**: each fact with how it reached them and how sure, false beliefs marked. Forget one with ✕.
+- **Chekhov's gun**: planted details in the Quests card, with weights, locks, ripe ones, payoffs. Drop one with ✕.
+- **Building maps**: the rooms the story drew, joined into whole buildings floor by floor by their doors, at no
+  token cost, with people placed by their agendas. A new room is told which rooms of its building exist.
+  FrankenSIM's furniture footprints keep a bed a bed.
+- **Tone of voice** in the dialogue display: whisper, steady, tremble, bite, drawn as type.
+- **Handed back** before each reply as memory, never as a rule: in HMS Reporter's new *Minds state* slot
+  (`{{rpgc_minds}}`), or in the extension's own context message.
+- **Panel**: a 🧠 line on People cards and *Inside, feelings and what they know*; *Planted details* in Quests; a
+  *Minds* tab under each reply; **Whole building** in the Map card; a **Minds (from FrankenSIM)** settings section
+  and five Modules switches; credits in Help. The Test zone's Re:Zero demo shows all of it.
+- **HMS Reporter beta 1.1.0**: a **Minds** block (play each character from the inside: facets that rotate,
+  feelings that carry over and catch bystanders, masks, honesty that is earned, knowledge that needs a way in,
+  people who act on their own), a minds step in the Normal and Deep plans (Deep also turns the world off screen
+  and checks planted details), receipt beats cut, and the Minds state slot. Fix: the Frame category and the
+  Frame block shared one id.
+- Version: the manifest says 2.1.0; the panel and bug reports say 2.1.0-beta.
+
+## 2.5.4 beta
+- **"Update automatically after each reply" no longer misses replies.** In Separate mode the tracker call
+  hangs on Lumiverse's "generation ended" event. When that event did not reach the extension, or arrived
+  before the reply was saved, nothing ran and the panel stayed on the old turn until you pressed Refresh.
+  Now the reply is looked up again for a few seconds if it is not there yet, and the panel, which hears the
+  same event, tells the backend too. Whichever comes first does the work; a reply is never read twice.
+- **Internal states and the other cards no longer vanish when the tracker answer is cut off.** With all the
+  new modules the answer is longer, and a connection with a low response limit cuts it before the end. The
+  whole answer used to be thrown away (or, in classic chats, the characters were lost). Now everything that
+  arrived complete is kept, and the status line says the answer was cut off and how to fix it.
+- A failure while reading the reply no longer stops the tracker call, and it shows in the panel's status
+  line instead of only in the server log.
+
+## 2.5.3 beta
+- **Gear reads far more HUDs.** An inventory written as a label on its own line with the items as bullets
+  under it was read as empty; items split by `|`, `·` or `•` were glued into one; "Carried:" was not a gear
+  label; counts ("2x Med kit", "Radio x2") made a second item. All read now.
+- **One item, not three.** "pack", "my backpack" and "Backpack" are the same bag, and a model writing in
+  Portuguese or Spanish ("Mochila", "Espada") lands on the HUD's item instead of adding a new one. The HUD's
+  spelling is the one shown, and the model is told to use it. Something put "into the pack" shows inside the
+  Backpack, not in a second bag.
+- **States the model words its own way** ("embainhada", "nas costas", "en la mano", "carried", "holstered")
+  are understood instead of the change being dropped. `"gear": {"Sword": "sheathed"}` is read too.
+- **What you added in the old Carried row** (before Gear existed) shows in the Gear card again, and what you
+  removed there stays gone. With Gear on, that row is hidden, so those items had disappeared.
+- "ring" and "earring", "belt" and "sword belt" are no longer merged into one item.
+- **Chronicle:** a reply that repeats a holding already gained, a promise already kept or a secret someone
+  already knew no longer adds the same entry again.
+
+## 2.5.2 beta
+- **A quest leaving the HUD is no longer a "Critical" alarm.** It used to sit in the red banner next to low HP,
+  forever, with no way to clear it. Now it shows only in the Quests card, with two buttons: **Put back**
+  (it is not over: write it back onto the Quests line) and **It's over** (the bot just stopped listing it: move
+  it to the journal as "ended by you"). If the quest comes back to the HUD later, it is tracked again.
+- The red banner translates each alarm on its own, so a mixed line no longer stays half in English.
 
 ## 2.5.1 beta
 - **Agenda layout fix**: the time ("in 1h 25m (after the manor visit, this afternoon)") now sits under the title and

@@ -1,6 +1,6 @@
 # HMS Guide
 
-**RPG Companion HMS Edition 2.0 beta** and **HMS Reporter beta**
+**RPG Companion HMS Edition 2.6 beta** and **HMS Reporter beta**
 
 This guide explains how an HMS game works, how to set it up, and what every part does.
 Read **Start here** first. Use the other parts when you need them.
@@ -15,7 +15,7 @@ An HMS game has three parts. Each part has one job.
 | --- | --- | --- |
 | **The bot** | The character card and its lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite or Overlord | The world and its rules. It writes the **WORLD STATE HUD** at the top of every reply. |
 | **HMS Reporter beta** | A preset: the prompt Lumiverse sends | How the story under the HUD is written: style, voices, length, thinking. |
-| **RPG Companion HMS Edition 2.0 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, quests, fights and more. It helps you start a game and ask questions. |
+| **RPG Companion HMS Edition 2.6 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, how they feel and what they know, quests, fights and more. It helps you start a game and ask questions. |
 
 ### Who is in charge
 
@@ -23,7 +23,7 @@ When two parts disagree, this order wins:
 
 1. **The bot.** Its rules and its HUD are the law. The bots call this **STATE IS GOD**. Nothing may hide, change or replace the HUD.
 2. **The preset.** It only shapes the story under the HUD. It never changes a rule or a HUD line.
-3. **The extension.** It reads and shows. It asks the model for one small hidden block after the story. It never writes a HUD of its own and never adds rules.
+3. **The extension.** It reads and shows. It asks the model for one small hidden block after the story, and hands back what it remembers about the people (Minds) before the next reply. It never writes a HUD of its own and never adds rules.
 
 ### What a reply looks like
 
@@ -55,6 +55,9 @@ The story...
 | How the story reads, its length, thinking | Preset | Set them under the sliders icon. |
 | Emoji and dialogue colours | Extension | Drawn on your screen. The preset never writes emoji. |
 | Side panel, map, Chronicle, people, quests | Extension | Read from the HUD and the hidden block. |
+| Who a character is | Bot (its character cards) | The cards always win. |
+| How characters are played from the inside | Preset (the Minds block) | From FrankenSIM. See part 7. |
+| The numbers: feelings, routines, who knows what, planted details | Extension (Minds) | The model only says what moved. The extension keeps the rest. See part 7. |
 
 ---
 
@@ -172,11 +175,12 @@ The card puts the bot's Continuer line first, as the bot asks.
 ## 4. What happens each turn
 
 1. You write what you do, and send it.
-2. The preset builds the prompt: the bot's card and engine, your lore, memory, the chat, and the extension's small request.
+2. The preset builds the prompt: the bot's card and engine, your lore, memory, the chat, the minds state, and the extension's small request.
 3. The model writes the HUD, the `***` wall, the story, and the hidden block.
 4. The extension reads the reply:
     - It reads the HUD and updates the cards.
-    - It reads the hidden block (people, quests, phone, injuries), then removes it from the saved message.
+    - It reads the hidden block (people, feelings, routines, what people learned, planted details, quests, phone, injuries), then removes it from the saved message.
+    - It does the Minds math: caps each step, lets old feelings fade, remembers debts.
     - It checks for HUD lines that vanished, and puts back lines you pinned.
     - It draws the HUD as a card in the chat, and dialogue colours and emoji if you switched them on.
 5. When you answer a reply, that reply is settled. The Chronicle then writes its key moments to the Memory Cortex.
@@ -226,6 +230,7 @@ HMS Reporter beta tells the model how to write the story under the wall. It alwa
 | Reporter: how the prose reads | On | Lead with what changed. Use exact details. Show only what you can see. End where the world hands it back. Cut stock phrases. |
 | Voices and groups | On | People speak briefly and in their own voice. Nobody reads minds. Groups talk to each other. |
 | The player's character | On | The model never writes your choices, words or thoughts. A Narrative Mode from the bot can change this. |
+| Minds (from FrankenSIM) | On | How to play each character from the inside: the side of them that leads, feelings that carry over, masks, honesty that is earned, knowledge that needs a way in. See part 7. |
 | Mature content (adults only) | Off | Adult scenes between adults only. Minors and family bonds always stay non-explicit. |
 | Gore | Off | Shows violence without softening it. |
 | World info (before) and (after) | On | Your lorebook entries. |
@@ -233,6 +238,7 @@ HMS Reporter beta tells the model how to write the story under the wall. It alwa
 | Story summary (Loom Summary) | Off | Lumiverse's own summary. Turn it on only if you use it instead of Chapters. |
 | Chat history | On | The chat itself. |
 | Card's post-history instructions | On | Anything the card puts after the chat. |
+| Minds state (RPG Companion) | On | What the extension remembers about the people of the story. It stays empty without the extension, with Minds off, and on OOC turns. |
 | Fight craft | Fights only | Loads by itself during fights: wind-ups, the room in the fight, impact before pain. |
 | Side panel (RPG Companion) | On | The extension's request goes here. It stays empty without the extension and on OOC turns. |
 | Before you write | On | Thinking, length, and the dialogue marker reminder. On an OOC turn: answer out of character. |
@@ -241,7 +247,7 @@ HMS Reporter beta tells the model how to write the story under the wall. It alwa
 
 | Setting | Choices | Tip |
 | --- | --- | --- |
-| Thinking | Off, Light, Normal (default), Deep | Deep plans many moves ahead. It is the slowest. |
+| Thinking | Off, Light, Normal (default), Deep | Normal and Deep think through each character first (the minds step). Deep also moves the world off screen and checks planted details. It is the slowest. |
 | Think out loud | On or off | For models that cannot think by themselves. Also switch on Auto-parse thoughts in Lumiverse, so the plan folds away. |
 | Prose length | Brief, Scene-led (default), Long, Very long | The HUD never counts toward the length. |
 | Start replies with the HUD header | Auto (default), Always, Never | Auto helps only Kimi and DeepSeek. Use Always only if a model keeps skipping the HUD, with thinking off. |
@@ -283,6 +289,8 @@ It shows that world's own stats from the HUD, explained from your lorebooks. Som
 Where everyone stands in the room. It is off at first: Settings → Chat and panel extras → **Map**.
 A room is drawn once, then only people move. The **map bank** keeps every drawn room for that world, so a place is never paid for twice.
 
+**Whole building.** When two or more rooms of one building are drawn, press **Whole building**. The extension joins the rooms by their doors, floor by floor. It costs no tokens. People not in your room show where their routine puts them. A room no door leads to yet is drawn with a dashed line. See part 7.
+
 ### Atlas
 The bot's location book as a map. It shows where you are, the rooms around you, and details for any place: how watched it is, opening hours, who is usually there.
 Click a place to go in, **Up** to go out.
@@ -301,8 +309,12 @@ Everyone you have met. Each person shows:
 
 - **Standing**: how close they feel to you, from Nemesis to Devoted. It is never romance.
 - **Bond**: what kind of relationship it is: classmate, mentor, family, partner.
-- Their mood, and bars like Affection and Trust, with the reason a bar moved.
+- **The 🧠 line**: what they feel right now and at whom, how warm they show themselves, and their three strongest feelings toward you. A ⚠️ means a wall, a ⚖️ means you owe them.
+- **📍** what they are doing and until when.
+- **Inside, feelings and what they know**: open it for the rest. See part 7.
 - **In the scene**: how they look and act now, and their thoughts.
+
+The classic bars (Affection, Trust and the rest) come back if you set Settings → Minds → **Feelings toward you** to Classic bars.
 
 Use **Set the bond** if the story reads a relationship wrong.
 Minors are protected: never a romantic bond, never any desire.
@@ -329,7 +341,8 @@ Who knows what.
 - The model is told who knows each secret; anyone not named does not know it and cannot act on it. Each discovery goes into the Chronicle.
 
 ### Agenda
-Appointments, promises and set times: "I'll meet you at the river tomorrow", "the exam is on Friday", "be back before dark".
+
+Appointments, promises and set times: "I'll meet you at the river tomorrow", "the exam is on Friday", "be back before dark". These are yours; what other people are doing is their **routine**, in People (part 7).
 
 - They come from your own messages and from the story. Times are placed on the HUD clock ("tomorrow at dawn", "in three days", "Day 5, 14:00"), so the card counts down: **Late**, **Soon** (next 3 hours), **Coming up**, **No set time**.
 - ✓ kept, ✗ missed, ⊘ called off; the story marks them too. Done ones fold away.
@@ -391,22 +404,23 @@ Your powers, skills and attributes, read from the HUD.
 
 ### Quests
 - **The plot**: where the story stands, and its open threads.
+- **🔫 Planted details** (Chekhov's gun): small things the story planted that should pay off later. **Ripe** ones are free to pay off. A 🔒 one waits for a time, a person or a condition. Press ✕ to drop one that does not fit.
 - **Objectives**: what you are trying to do now. You can add your own. Yours are never sent to the model.
 - **Quests** from the HUD, with the goal, who gave it, where, the reward, and the time left.
 - **Your notes** are never sent to the model.
-- If a quest drops off the HUD while still live, press **Put back**.
+- If a quest drops off the HUD while still live, press **Put back**. If the bot only stopped listing it because it ended, press **It's over**.
 
 ### Chronicle
 The story's timeline: key moments, milestones, how people came to feel about you, and plot points.
 Filter it, star an entry, hide one, or add your own.
-Settled replies are written to the Memory Cortex. See part 8.
+Settled replies are written to the Memory Cortex. See part 9.
 
 ### Chapters
 Summaries of parts of the story. Press **End chapter and summarise** when a part ends.
 Summaries go with every message, on top of the chat.
 
 ### OOC guide
-Ask the bot's guide a question. See part 7.
+Ask the bot's guide a question. See part 8.
 
 ### Critical
 A red banner for real danger: health near zero, a condition at its worst, a wound left raw too long.
@@ -425,8 +439,8 @@ During an immersive fight: everyone's HP, MP and Stamina, effects, what each fig
 ### In the chat itself
 
 - **The HUD card.** The HUD drawn as a neat card in the bot's colours. The saved reply keeps its plain text. **Show the HUD as text** opens the plain version.
-- **Internal states** under each reply: tabs for Scene, People, Bonds, Plot and Map.
-- **Dialogue display** (off at first): an emoji for each speaker's feeling, a colour per speaker, or their name.
+- **Internal states** under each reply: tabs for Scene, People, Minds, Bonds, Plot and Map. **Minds** shows what moved inside each person in that reply.
+- **Dialogue display** (off at first): an emoji for each speaker's feeling, a colour per speaker, or their name. **Tone of voice** draws a whispered line in italics, a biting one in bold.
 
 ### Test zone
 A practice chat inside the extension. It runs the same code as a real chat and touches none of your chats.
@@ -434,7 +448,79 @@ A practice chat inside the extension. It runs the same code as a real chat and t
 
 ---
 
-## 7. Ask out of character (OOC)
+## 7. Minds (from FrankenSIM)
+
+**Minds** is how the people of the story feel, think and act. It comes from **FrankenSIM 4 Mini by Wireless (Ryah)**, with permission. **TFDY** (Tenderness, Fury, Dread, Yearning) is by **Pyropia**. Thank you both.
+
+### How it works
+
+1. The model writes the story as usual.
+2. In the hidden block, it says only **what moved** inside each person in this reply, and why.
+3. The extension does the math: it keeps every number, caps each step, lets old feelings fade, and remembers.
+4. Before the next reply, it hands the state back to the model as memory.
+
+The bot still wins. Its character cards say who someone is. Minds only remembers what the story showed.
+
+### Inside a person
+
+| Part | What it means |
+| --- | --- |
+| **Feeling** | What they feel now, named by where it leads (Parrott's list: love, joy, surprise, anger, sadness, fear), and at whom. |
+| **TFDY** | Their mood under everything: 💗 Tenderness, 🔥 Fury, 😰 Dread, 🌙 Yearning, from 0 to 4. Each rests at a level set by their temperament. |
+| **Shows** | How warm they act on the outside: ❄️ frostbound, cool, temperate, warm, 🔥 fervent. It can differ from what they feel. |
+| **Mask** | The face they wear: held, cracking or off. |
+| **Sides of them** | Five to seven sides from their card. One leads at a time. If the same one leads three replies running, the panel says so. |
+| **Still carrying** | A strong feeling from the last few replies that has not gone away. |
+
+### Toward you (and toward each other)
+
+Twelve feelings, each from 1 to 20:
+
+| Warm | Its mirror |
+| --- | --- |
+| 🌶️ Desire | 😠 Hate |
+| 🎲 Play | 🥊 Strife |
+| 🤝 Friendship | ❄️ Enmity |
+| 🛠️ Partnership | 🪨 Stuck |
+| 🏠 Belonging | 🌫️ Indifference |
+| 🕊️ Care | 🐍 Envy |
+
+- **A wall** (⚠️): a feeling and its mirror are both high (10 or more), like desire and hate. It comes out sideways.
+- **Gate** 🚪: how far they let themselves feel: dormant, attentive, aware, longing, open. It moves one step at a time, and only for an event.
+- **Shows it / Says it**: whether the feeling comes out in what they do and in what they say.
+- **Filters**: what holds the feeling back (social, values, fit, ties). Each can crack open step by step. Open never closes again.
+- **Owed** ⚖️: a wrong done to them. It stays until it is made good.
+- **Mode**: stranger, warm, strained, hostile, lovers and more.
+
+### The math the extension does
+
+| Rule | What it means for you |
+| --- | --- |
+| **Most a feeling moves in one reply: 2** | One scene cannot flip a person. |
+| **Fading: one step every 3 quiet replies** | A feeling nothing feeds goes back toward where it rests. Big feelings fade a little faster. |
+| **Settling** | A feeling pushed the same way three times becomes part of who they are to you. |
+| **Never 0** | Nobody feels nothing. A first meeting starts at 3 or more. |
+| **Minors and family** | Never desire, never a romantic mode, whatever the model says. |
+| **Return by Death** | When time goes back, everyone forgets the undone loop: its feelings, what they learned there, and their plans. Planted details stay, because you saw them. |
+
+You can change the step size and the fading speed in Settings → **Minds**.
+
+### Routines, knowledge and planted details
+
+- **Routines** 📍 (FrankenSIM calls them agendas): what each person is doing, where, and until when, here or elsewhere. When the time passes, the panel says **over by**. Nobody jumps between places.
+- **Who knows what**: each fact a person learned, and how: 👁️ saw it, 👂 overheard, 🗣️ told by someone, 🔎 evidence, ✉️ message, 🌐 common knowledge, 💬 gossip, 🤔 guessed. A **false belief** is underlined in red. Press ✕ if someone should not know a thing. Whoever knows one of your secrets (the Secrets card) shows it here too, with 🔒.
+- **Planted details** 🔫 (Chekhov's gun): in the Quests card. The story decides when one pays off. Up to 20 are kept. Old light ones fade away.
+- **Building maps**: in the Map card, from the rooms the story drew.
+
+### Switch parts on and off
+
+Settings → **Modules** → **Minds (from FrankenSIM)** has five switches: Minds and feelings, Routines, Who knows what, Chekhov's gun, Building maps. Settings → **Minds** has the details. **Undo my corrections** brings back facts and details you took out.
+
+**Cost:** with everything on, about 1,000 tokens of instructions and 300 to 600 tokens of state per reply, plus what the model writes in its hidden block.
+
+---
+
+## 8. Ask out of character (OOC)
 
 Each bot has a guide character who answers questions about the world, the rules and the commands.
 
@@ -460,13 +546,14 @@ You can name another guide in the **Guide** box, if the bot allows it.
 
 ---
 
-## 8. Memory: what remembers what
+## 9. Memory: what remembers what
 
 | Helper | Part | What it keeps | Reaches the model? |
 | --- | --- | --- | --- |
 | **Chronicle** | Extension | The timeline: moments, milestones, bonds, plot | Yes, through the Memory Cortex |
 | **Chapters** | Extension | Summaries of story parts; loops in Re:Zero | Yes, as "the story so far", once summarised |
 | **Map bank** | Extension | Every room drawn, per world | Only a short room plan when needed |
+| **Minds** | Extension | Feelings, routines, who knows what, planted details | Yes, as the minds state before each reply |
 | **Memory Cortex** and **Chat Memory** | Lumiverse | People, places, links between them, older passages | Yes, through the preset's Memory block |
 | **Loom Summary** | Lumiverse | One summary of the story | Only if you switch on its block in the preset |
 
@@ -484,7 +571,7 @@ Use **Chapters** or the **Loom Summary**, not both. Both would send a summary of
 
 ---
 
-## 9. Settings, section by section
+## 10. Settings, section by section
 
 Settings opens as a list of sections. Click one to open it. Every switch has a short note under it.
 
@@ -494,6 +581,7 @@ Settings opens as a list of sections. Click one to open it. Every switch has a s
 | **Modules** | Every feature in one list. Switch off what you do not use: it leaves the panel and the prompt, and costs no tokens. |
 | **HMS engine** | HMS mode (automatic, always, off), the hidden block, fetching a forgotten block, the guard for dropped lines, the pin reminder. |
 | **HMS systems** | How the HUD is read: pools and meters, wounds and conditions, abilities and attributes, people and their bars, your agenda, holdings, gear, money, factions, secrets and family, the phone, the party, the survival clock, injuries, experience. |
+| **Minds (from FrankenSIM)** | Feelings (twelve feelings or the classic bars), between the others too, the step size, the fading speed, handing the state back, routines, who knows what, Chekhov's gun, building maps, and the credits. |
 | **Quests** | The Quests card, quest details, the plot, objectives, the quest journal, quest labels and states. |
 | **Chapters** | Automatic chapters for loops, arcs, days or months; summaries; whether they go with every message and with fights. |
 | **Chronicle** | On or off, asking the story for key moments, and how much goes into the Memory Cortex. |
@@ -515,7 +603,7 @@ Settings opens as a list of sections. Click one to open it. Every switch has a s
 
 ---
 
-## 10. When something goes wrong
+## 11. When something goes wrong
 
 | Problem | What to do |
 | --- | --- |
@@ -532,17 +620,22 @@ Settings opens as a list of sections. Click one to open it. Every switch has a s
 | The D&D card shows in a game without dice. | Use your world's preset, or switch D&D off in Settings → Modules. |
 | "Your provider allows only one request at a time." | Wait for the reply to finish, then press **Refresh**, or **Read again** (free). |
 | A permission is missing. | Grant it in the Extensions panel. The part that needs it says which one. |
+| Someone knows something they could not know. | Open their card → Inside, feelings and what they know → press ✕ on the fact. |
+| A planted detail does not fit the story. | Quests card → Planted details → press ✕. |
+| Someone's feelings look wrong. | They move at most 2 per reply, so give the story a few replies. If the relationship itself is wrong, use **Set the bond**. |
+| Too many tokens. | Switch off parts of Minds in Settings → Modules. |
 | Something else. | Settings → **Help & bug report** → **Copy bug report**, and paste it in the Discord. |
 
 ### What it costs
 
 - The hidden-block request is about 1,000 to 1,700 tokens per reply, depending on what is switched on.
+- Minds adds about 1,000 tokens of instructions and 300 to 600 tokens of state per reply. Switch parts off to save.
 - Modules you switch off cost nothing.
 - Fights, the OOC guide and chapter summaries each make their own call when you use them.
 
 ---
 
-## 11. Words used in this guide
+## 12. Words used in this guide
 
 | Word | Meaning |
 | --- | --- |
@@ -565,3 +658,12 @@ Settings opens as a list of sections. Click one to open it. Every switch has a s
 | **Extension** | An add-on for Lumiverse. Here: RPG Companion HMS Edition. |
 | **Together / Separate** | Whether the side-panel data comes in the same reply, or from a second call. |
 | **Settled reply** | A reply you have answered. It can no longer be swiped away. |
+| **Minds** | How people feel, think and act, from FrankenSIM. The extension keeps the numbers. |
+| **TFDY** | Tenderness, Fury, Dread, Yearning: a person's mood under everything, 0 to 4. By Pyropia. |
+| **Shows (IW)** | How warm a person acts on the outside. FrankenSIM calls it Inner Weather. |
+| **The twelve feelings** | Desire, Play, Friendship, Partnership, Belonging, Care, and their mirrors Hate, Strife, Enmity, Stuck, Indifference, Envy. |
+| **Settles at** | Where a feeling rests. It moves slowly, when a feeling is pushed the same way again and again. |
+| **Wall** | A feeling and its mirror both high at once. |
+| **Gate** | How far a person lets themselves feel for someone. |
+| **Routine** | What a person is doing, where, and until when. |
+| **Chekhov's gun** | A detail the story planted that should pay off later. |

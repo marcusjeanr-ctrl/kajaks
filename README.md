@@ -1,10 +1,16 @@
-# RPG Companion HMS Edition 2.0 beta
+# RPG Companion HMS Edition 2.6 beta
 
 The side panel for the **HMS Living World** bots: Re:Zero, Mushoku Tensei, Classroom of the Elite and
 Overlord (and Undertale, Dark Souls and Skyrim bots). In an HMS chat the bot's WORLD STATE HUD **is** the
 tracker: the extension reads it, shows it as cards, guards it, and never asks the model for a competing one.
 
 Made to work with the **HMS Reporter beta** preset.
+
+**Minds (from 2.1)**, from **FrankenSIM 4 Mini by Wireless (Ryah)**, with permission (TFDY by
+**Pyropia**): how each person feels inside and toward you and each other, what they are doing, what they know,
+the details the story planted, and whole buildings on the map. The model reports only what moved; the
+extension keeps the numbers. In this edition the agendas show as **Routines** (your own appointments are the
+**Agenda** card), and whoever knows one of your **Secrets** shows it under what they know.
 
 By **TenderTriper (Perch)**. Based on RPG Companion by Marinara — see Credits.
 
@@ -19,7 +25,8 @@ Three parts make one game, and when they disagree this order wins:
    `***` wall, the start handler, the catalog and the OOC guide. STATE IS GOD.
 2. **The preset** (HMS Reporter beta): how the prose below the wall reads, and the shape of the reply.
 3. **The extension** (this): reads the HUD and one hidden block after the prose, shows them, and owns every
-   display extra (emoji, dialogue colours, the HUD card). It adds no rules and writes no HUD of its own.
+   display extra (emoji, dialogue colours, the HUD card). It keeps the Minds state and hands it back as memory.
+   It adds no rules and writes no HUD of its own.
 
 ## Language
 English, Português (Brasil) and Español: Settings → General → Language (Auto follows the browser). With
@@ -58,7 +65,7 @@ into the panel.
   that block rides in the preset's own *Side panel* slot after the chat, where it fits the preset's
   reply shape, and the extension does not add its usual message before your turn. Any preset can do
   the same with `{{if::{{matches::{{rpgc_on}}::^1$}}}}{{rpgc_request}}{{/if}}`; without the extension
-  the guard keeps the slot empty. Other macros: `{{rpgc_fight}}` is `1` while a fight runs. Every
+  the guard keeps the slot empty. Other macros: `{{rpgc_fight}}` is `1` while a fight runs; `{{rpgc_minds}}` is the Minds state. Every
   other preset gets the message as before. The request only sends last reply's characters as names
   and looks (not their old thoughts), and asks for spells only where the HUD shows magic.
 - **The HUD as a card.** In the chat, the World State is drawn as a card: the date and time on top,
@@ -205,12 +212,59 @@ into the panel.
   advances a step, nothing surfaces early, and it never trips The World Moves status on its own. It is a story
   turn, not an OOC message (an OOC message is answered outside the story, with no HUD).
 
+## Minds (from FrankenSIM)
+Ported from **FrankenSIM 4 Mini by Wireless (Ryah)**, with permission; **TFDY** (Tenderness, Fury, Dread,
+Yearning) is **Pyropia**'s. FrankenSIM has the model rewrite its whole state in a long block every reply. Here
+the model reports only what **moved** in the hidden block, and the extension keeps the rest — per reply and per
+swipe, rebuilt from the replies themselves, so a swipe or an edit is always reflected.
+
+- **What is asked** (`"minds"`, one entry per named character present): the feeling as a Parrott path and at
+  whom; TFDY steps (±1); IW (how warm they show themselves, 0–4); the leading facet; the mask; and `"toward"`
+  you and the others present: the twelve feelings that moved (eros, ludus, philia, pragma, storge, agape and
+  their mirrors misos, eris, echthros, stasis, adiaphora, phthonos), why, the gate step, the E/L sluices, filter
+  cracks and strains, a debt or its payment, the intent and the mode. Someone new also gets a temperament and 5–7
+  facets; a new pair gets `"start"` values (3–20). Plus `"agendas"` (who is where doing what, until when),
+  `"learned"` (a fact, how it reached them, how sure) and `"chekhov"` (load, fired, drop).
+- **The math the extension does.** Each feeling moves at most *max step* (2) a reply; TFDY one step. A feeling
+  nothing feeds for *decay* replies (3) eases one step toward where it settles — faster when far from it or near
+  the top. Three pushes the same way move the settled level one step (deepening, not just a spike). Nothing falls
+  below 1, and first values are at least 3. A mirror pair both at 10 or more is a **wall**. The gate moves one
+  step per reply; an open filter never closes; a debt stays until it is paid. A minor (People's minor flag or your
+  pin) or family (the bond, or `kin`) gets no desire and no romantic mode, whatever is reported. Facet rotation
+  (one facet three replies running) and the strongest carried-over feeling are worked out, not asked.
+- **Return by Death.** A rewind (the HUD clock going back in a world that can rewind) undoes every reply after the
+  moment it went back to: the world forgets those feelings, what was learned and the plans. Planted details stay
+  (the player saw them); a payoff in an undone loop does not count.
+- **Chekhov's gun.** Loaded details get ids (`c1`, `c2`…), never twice; locks `T:` a time, `C:` a person present,
+  `D:` another id fired, `K:` a condition the story judges. Ripe after three replies; 20 at most (the lightest,
+  oldest go); light ones fade after 40 replies, medium after 80.
+- **Handed back** before each reply as memory (`[RPG Companion — minds]`): the people likely in the next reply,
+  their feelings and dam toward you and each other, agendas with time left or overdue, what they know and how,
+  the planted details. In the preset's own slot with `{{rpgc_minds}}`; otherwise in the context message before
+  your turn. Separate mode puts it in its own call.
+- **The panel.** People cards gain a 🧠 line and *Inside, feelings and what they know*; Quests gains *Planted
+  details*; Internal states gains a *Minds* tab; the Map card gains **Whole building** (below). Forget a fact,
+  drop a detail, or undo your corrections — kept per chat.
+- **Building maps.** The rooms the story drew (this chat's and the map bank's) are grouped into buildings — the
+  location book's tier above its rooms, or the HUD path — and floors (`(Second Floor)`, the book's level, or the
+  room's own `"floor"`), and laid out flush along their doors, the doors lined up. A new room never moves an old
+  one; one that would overlap slides along the wall; a room no door reaches yet is drawn loose. FrankenSIM's
+  furniture footprints keep a bed a bed. People not in your room show by their agenda. A new room is told which
+  rooms of its building already exist, so its doors can name them.
+- **Tone of voice** (FrankenSIM's tone tags): `[D:Name:mood:whisper|steady|tremble|bite]` is drawn as type
+  (italic, firm, spaced, bold); the speaker keeps their colour.
+- **Settings → Minds (from FrankenSIM)**: the feelings model (twelve feelings, or the classic bars), between
+  the others or only toward you, max step, decay, handing the state back, and switches for agendas, who knows what,
+  Chekhov's gun and building maps. About 1,000 tokens of instructions and 300–600 tokens of state per reply with
+  everything on.
+
 ## Modules
 **Settings → Modules** switches any feature off: You, Magic, People (with the Party and Present characters parts
 of each person's card), Phone, Vitals (in You), Wounds, Conditions, Abilities, Quest details, the survival clock,
 Fights, Quests, D&D, Weather, Portraits, Thoughts in chat, the Atlas, the Chronicle, the New game builder, the OOC
-guide, the World card, Injuries, Chapters, Lorebook context, Long-term memory, the Test zone button, and recovering
-a HUD from the model's thinking. Off means it leaves the panel *and* the prompt, so it costs no tokens.
+guide, Minds and feelings, Agendas, Who knows what, Chekhov's gun, Building maps, the World card, Injuries,
+Chapters, Lorebook context, Long-term memory, the Test zone button, and recovering a HUD from the model's
+thinking. Off means it leaves the panel *and* the prompt, so it costs no tokens.
 
 The side-panel request goes in **its own system message just before your turn** — your own message is sent
 exactly as you wrote it. (1.8 and earlier appended it to your message; that option is still there.)
@@ -662,14 +716,18 @@ classic RPG Companion behavior — plus **People**, **Party** and **Phone**, rea
 with their settings under **People, party & phone**.
 
 ## Not yet
-The music player is not ported (song tags are still hidden). Reading the preset's INTERNAL STATES
-block. The interface is English only. The weather overlay and the floating panel mount straight into
+The music player is not ported (song tags are still hidden). From FrankenSIM, on purpose: its time header
+(the HUD owns time), the ARC engine (the bot owns its arcs), the POV and persona rules, and the GM's notebook
+(the plot threads, the Chronicle and Chekhov's gun cover it). The interface is English only. The weather overlay and the floating panel mount straight into
 the page rather than through Lumiverse's app-mount API. Momon and Ainz as two identities with separate
 reputations: the Overlord HUD prints only the cover rank today; give it a line such as
 `Identity: Momon (Cover)` and the card can read it.
 
 ## Credits
 **HMS Edition** by **TenderTriper (Perch)**.
+**Minds, agendas, who knows what, Chekhov's gun, building maps and the tone tags** are ported from
+**FrankenSIM 4 Mini** by **Wireless (Ryah)**, with permission. **TFDY** (Tenderness, Fury, Dread, Yearning)
+is by **Pyropia**.
 **RPG Companion** by **Marinara** (Marysia, marinara_spaghetti), licensed AGPL-3.0. Panels,
 presets, dice, deception tags, immersive HTML, portraits and the prompt editor are hers.
 This fork stays AGPL-3.0 — see `LICENSE`.
