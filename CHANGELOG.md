@@ -1,5 +1,20 @@
 # Changelog — RPG Companion HMS Edition
 
+## 2.8.0 beta
+- **Spell list from the bot's lorebook.** The Magic card now lists every spell the lorebook describes, by school,
+  with its rank, effect and chant. It reads one-entry-per-spell books (`[SPELL — Name]` with `School:`/`Rank:`,
+  and the older `Name [School Magic - Rank]:` lines), spell indexes (`### School` › `**Series**` › bullets) and
+  one-entry-per-element books (Re:Zero's `– Core Definition` entries), plus the older Master Spell Index.
+- **What you can use.** The HUD's `Magic School: Water: Saint, …` (rank per school) or `Magic: Fire | Gate:
+  C-Rank` (elements, Gate as the tier cap) marks each spell Known, Within reach, Next rank, Locked or Special
+  (unique, forbidden, lost). Melded spells need their parts. `Casting Method: Voiceless` marks chants optional.
+  A filter (Usable and next / All) and a search box.
+- **Learning magic.** 📖 Study a spell: the model gets a short reminder with the lorebook's effect and chant and
+  the rule that learning takes practice and rank; the side-panel block reports progress and the first clean cast.
+  Learned spells go to Known and the Chronicle ("Learned a spell — …"), and are given to the fight setup. ✓/✕ to
+  mark by hand. A rank-up on the HUD shows which spells it opened. Works the same in Together and Separate modes.
+- The Mushoku world card's spell lists now also fill from one-entry-per-spell lorebooks.
+
 ## 2.7.0 beta
 - **Русский and Türkçe.** Settings → General → Language now also offers Russian and Turkish, and Auto picks
   them from the browser. Every card, setting, status line, the chat's Internal states and Minds tab, the whole

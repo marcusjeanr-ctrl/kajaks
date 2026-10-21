@@ -1,4 +1,4 @@
-# RPG Companion HMS Edition 2.7 beta
+# RPG Companion HMS Edition 2.8 beta
 
 The side panel for the **HMS Living World** bots: Re:Zero, Mushoku Tensei, Classroom of the Elite and
 Overlord (and Undertale, Dark Souls and Skyrim bots). In an HMS chat the bot's WORLD STATE HUD **is** the
