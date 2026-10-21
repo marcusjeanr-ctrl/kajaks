@@ -1,4 +1,4 @@
-# RPG Companion HMS Edition 2.6 beta
+# RPG Companion HMS Edition 2.7 beta
 
 The side panel for the **HMS Living World** bots: Re:Zero, Mushoku Tensei, Classroom of the Elite and
 Overlord (and Undertale, Dark Souls and Skyrim bots). In an HMS chat the bot's WORLD STATE HUD **is** the
@@ -29,7 +29,7 @@ Three parts make one game, and when they disagree this order wins:
    It adds no rules and writes no HUD of its own.
 
 ## Language
-English, Português (Brasil) and Español: Settings → General → Language (Auto follows the browser). With
+English, Português (Brasil), Español, Русский and Türkçe: Settings → General → Language (Auto follows the browser). With
 **Ask for panel text in this language** on, the model also writes the panel's free text, chapter summaries and
 OOC answers in that language; HUD lines, names and keywords are never translated. Translations are in
 `i18n/*.json`; after editing them or a guide, run `python3 tools/embed_i18n.py`.

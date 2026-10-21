@@ -1,6 +1,6 @@
 # HMS Guide
 
-**RPG Companion HMS Edition 2.6 beta** and **HMS Reporter beta**
+**RPG Companion HMS Edition 2.7 beta** and **HMS Reporter beta**
 
 This guide explains how an HMS game works, how to set it up, and what every part does.
 Read **Start here** first. Use the other parts when you need them.
@@ -15,7 +15,7 @@ An HMS game has three parts. Each part has one job.
 | --- | --- | --- |
 | **The bot** | The character card and its lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite or Overlord | The world and its rules. It writes the **WORLD STATE HUD** at the top of every reply. |
 | **HMS Reporter beta** | A preset: the prompt Lumiverse sends | How the story under the HUD is written: style, voices, length, thinking. |
-| **RPG Companion HMS Edition 2.6 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, how they feel and what they know, quests, fights and more. It helps you start a game and ask questions. |
+| **RPG Companion HMS Edition 2.7 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, how they feel and what they know, quests, fights and more. It helps you start a game and ask questions. |
 
 ### Who is in charge
 
@@ -511,6 +511,7 @@ You can change the step size and the fading speed in Settings → **Minds**.
 - **Who knows what**: each fact a person learned, and how: 👁️ saw it, 👂 overheard, 🗣️ told by someone, 🔎 evidence, ✉️ message, 🌐 common knowledge, 💬 gossip, 🤔 guessed. A **false belief** is underlined in red. Press ✕ if someone should not know a thing. Whoever knows one of your secrets (the Secrets card) shows it here too, with 🔒.
 - **Planted details** 🔫 (Chekhov's gun): in the Quests card. The story decides when one pays off. Up to 20 are kept. Old light ones fade away.
 - **Building maps**: in the Map card, from the rooms the story drew.
+- **The bot's own block**: some bots (Re:Zero, for one) ask the model for their own `side_panel` block in the reply. The extension reads it into these same cards, takes it out of the saved reply, and stops asking for the parts the bot already writes, so nothing is written twice.
 
 ### Switch parts on and off
 

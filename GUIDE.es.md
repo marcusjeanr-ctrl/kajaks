@@ -1,6 +1,6 @@
 # Guía HMS
 
-**RPG Companion HMS Edition 2.6 beta** y **HMS Reporter beta**
+**RPG Companion HMS Edition 2.7 beta** y **HMS Reporter beta**
 
 Esta guía explica cómo funciona una partida HMS, cómo configurarla y qué hace cada parte.
 Lee primero **Empieza aquí**. Usa las demás partes cuando las necesites.
@@ -15,7 +15,7 @@ Una partida HMS tiene tres partes. Cada parte tiene una tarea.
 | --- | --- | --- |
 | **El bot** | La tarjeta del personaje y sus lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite u Overlord | El mundo y sus reglas. Escribe el **HUD del WORLD STATE** al principio de cada respuesta. |
 | **HMS Reporter beta** | Un preset: el prompt que envía Lumiverse | Cómo se escribe la historia bajo el HUD: estilo, voces, longitud, razonamiento. |
-| **RPG Companion HMS Edition 2.6 beta** | Una extensión: el panel lateral | Lee el HUD y lo muestra en tarjetas. Sigue personas, lo que sienten y lo que saben, misiones, combates y más. Te ayuda a empezar una partida y a hacer preguntas. |
+| **RPG Companion HMS Edition 2.7 beta** | Una extensión: el panel lateral | Lee el HUD y lo muestra en tarjetas. Sigue personas, lo que sienten y lo que saben, misiones, combates y más. Te ayuda a empezar una partida y a hacer preguntas. |
 
 ### Quién manda
 
@@ -517,6 +517,7 @@ Puedes cambiar el tamaño del paso y la velocidad a la que se enfrían en Ajuste
 - **Quién sabe qué**: cada hecho que una persona descubrió, y cómo: 👁️ lo vio, 👂 lo oyó a escondidas, 🗣️ se lo contaron, 🔎 pruebas, ✉️ mensaje, 🌐 lo sabe todo el mundo, 💬 chisme, 🤔 lo dedujo. Una **creencia falsa** se subraya en rojo. Pulsa ✕ si alguien no debería saber algo. Quien conoce un secreto tuyo (tarjeta Secretos) también lo muestra aquí, con 🔒.
 - **Detalles sembrados** 🔫 (el arma de Chéjov): en la tarjeta Misiones. La historia decide cuándo se cumple uno. Se guardan hasta 20. Los viejos y ligeros se desvanecen.
 - **Mapas de edificios**: en la tarjeta Mapa, a partir de las salas que dibujó la historia.
+- **El bloque del propio bot**: algunos bots (el de Re:Zero, por ejemplo) piden al modelo su propio bloque `side_panel` en la respuesta. La extensión lo lee en estas mismas tarjetas, lo quita de la respuesta guardada y deja de pedir las partes que el bot ya escribe, para que nada se escriba dos veces.
 
 ### Encender y apagar partes
 

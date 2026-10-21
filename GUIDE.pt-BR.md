@@ -1,6 +1,6 @@
 # Guia HMS
 
-**RPG Companion HMS Edition 2.6 beta** e **HMS Reporter beta**
+**RPG Companion HMS Edition 2.7 beta** e **HMS Reporter beta**
 
 Este guia explica como um jogo HMS funciona, como configurá-lo e o que cada parte faz.
 Leia primeiro **Comece aqui**. Use as outras partes quando precisar.
@@ -15,7 +15,7 @@ Um jogo HMS tem três partes. Cada parte tem uma função.
 | --- | --- | --- |
 | **O bot** | O card do personagem e seus lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite ou Overlord | O mundo e suas regras. Ele escreve o **HUD do WORLD STATE** no topo de cada resposta. |
 | **HMS Reporter beta** | Um preset: o prompt que o Lumiverse envia | Como a história abaixo do HUD é escrita: estilo, vozes, tamanho, raciocínio. |
-| **RPG Companion HMS Edition 2.6 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, o que sentem e o que sabem, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
+| **RPG Companion HMS Edition 2.7 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, o que sentem e o que sabem, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
 
 ### Quem manda
 
@@ -517,6 +517,7 @@ Você pode mudar o tamanho do passo e a velocidade com que esfriam em Configura�
 - **Quem sabe o quê**: cada fato que uma pessoa descobriu, e como: 👁️ viu, 👂 ouviu escondido, 🗣️ alguém contou, 🔎 evidência, ✉️ mensagem, 🌐 todo mundo sabe, 💬 fofoca, 🤔 deduziu. Uma **crença falsa** fica sublinhada em vermelho. Aperte ✕ se alguém não deveria saber algo. Quem conhece um segredo seu (cartão Segredos) também mostra aqui, com 🔒.
 - **Detalhes plantados** 🔫 (arma de Tchekhov): no cartão Missões. A história decide quando um acontece. Até 20 ficam guardados. Os antigos e leves somem.
 - **Mapas de prédios**: no cartão Mapa, a partir dos cômodos que a história desenhou.
+- **O bloco do próprio bot**: alguns bots (o de Re:Zero, por exemplo) pedem ao modelo um bloco `side_panel` próprio na resposta. A extensão o lê para estes mesmos cartões, tira-o da resposta salva, e deixa de pedir as partes que o bot já escreve, para nada ser escrito duas vezes.
 
 ### Ligar e desligar partes
 

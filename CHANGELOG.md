@@ -1,5 +1,32 @@
 # Changelog — RPG Companion HMS Edition
 
+## 2.7.0 beta
+- **Русский and Türkçe.** Settings → General → Language now also offers Russian and Turkish, and Auto picks
+  them from the browser. Every card, setting, status line, the chat's Internal states and Minds tab, the whole
+  Minds vocabulary, and the guide (GUIDE.ru.md, GUIDE.tr.md) are translated. **Ask for panel text in this
+  language** asks the model for Russian or Turkish too.
+
+## 2.6.3 beta
+- **Family is family only.** A model sometimes reported an enemy, a mentor or a spirit under "family" (a fire
+  spirit "who sentenced you" showed up there as dead and Nemesis). A family entry now needs a real family tie in
+  its relation (mother, irmã, hermano, step-, adopted, in-law…, in English, Portuguese and Spanish); anything else
+  is ignored, and entries already read that way drop out of the card. People you add by hand stay. The request
+  also tells the model plainly that enemies, mentors and allies never go there.
+
+## 2.6.2 beta
+- **The bot's own `side_panel` block is read.** Newer HMS bots (Re:Zero) ask the model for a FrankenSIM-style
+  block of their own, in a visible ```json fence: `{"side_panel": {"agendas", "learned", "chekhov": {"loaded",
+  "fired", "drop"}}}`. It used to sit in the chat as raw JSON and feed nothing. Now its routines, what people
+  learned and planted details go into the same cards (the bot's ids like `c7-toupeira` work for "fired"), the
+  block is taken out of the saved reply, and the extension stops asking for the parts the bot already writes.
+  A bare lock kind ("C") with nothing to wait for is not shown as a lock; weights above 3 count as 3.
+
+## 2.6.1 beta
+- **The "Close" standing showed as "Fechar" / "Cerrar"** (the button's word) in Portuguese and Spanish. Standings
+  now have their own words: Nêmesis, Inimigo, Hostil, Desconfiado, Estranho, Conhecido, Amigável, Amigo,
+  Próximo, Devotado (and the Spanish set), in the People card and in the chat's Bonds tab. A ladder of your
+  own keeps its words.
+
 ## 2.6.0 beta — the official 2.1 (Minds) merged in
 Everything from **TenderTriper's 2.1 beta** — **Minds**, ported from **FrankenSIM 4 Mini by Wireless (Ryah)**,
 with permission; **TFDY** by **Pyropia** — joined to this edition's 2.5 work. See the 2.1 entry below for

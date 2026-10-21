@@ -2,11 +2,11 @@
 """Copies the interface translations and the translated guides into dist/.
 
 Sources (edit these, then run this script):
-  i18n/pt-BR.json, i18n/es.json   English text → translation. Keys with {0}, {1}… are patterns for text
+  i18n/{pt-BR,es,ru,tr}.json      English text → translation. Keys with {0}, {1}… are patterns for text
                                   built at run time; the same slots must appear in the translation.
   i18n/chat-keys.json             The keys the backend may translate in HTML it draws into the chat
                                   (the HUD card, Internal states). Only the extension's own words.
-  GUIDE.md, GUIDE.pt-BR.md, GUIDE.es.md
+  GUIDE.md, GUIDE.pt-BR.md, GUIDE.es.md, GUIDE.ru.md, GUIDE.tr.md
 
 Run:   python3 tools/embed_i18n.py
 """
@@ -16,7 +16,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-LANGS = {"pt": "pt-BR", "es": "es"}
+LANGS = {"pt": "pt-BR", "es": "es", "ru": "ru", "tr": "tr"}
 
 
 def blob(value):
@@ -55,7 +55,7 @@ fe = put(fe, "I18N", blob(table()), fe_path)
 be = put(be, "I18N", blob(table(lambda s: s in chat_keys)), be_path)
 
 fe = put(fe, "GUIDE", blob((ROOT / "GUIDE.md").read_text(encoding="utf-8")), fe_path)
-for code, marker in (("pt", "GUIDE_PT"), ("es", "GUIDE_ES")):
+for code, marker in (("pt", "GUIDE_PT"), ("es", "GUIDE_ES"), ("ru", "GUIDE_RU"), ("tr", "GUIDE_TR")):
     g = ROOT / f"GUIDE.{LANGS[code]}.md"
     fe = put(fe, marker, blob(g.read_text(encoding="utf-8") if g.exists() else ""), fe_path)
 

@@ -12,18 +12,18 @@
 
 const META_KEY = 'rpg_companion';
 
-const I18N_DATA = /* I18N:BEGIN */ {"langs":["pt","es"],"t":{"Agendas":["Rotinas","Rutinas"],"Building map":["Mapa do prédio","Mapa del edificio"],"Cameras":["Câmeras","Cámaras"],"Chekhov’s gun":["Arma de Tchekhov","El arma de Chéjov"],"Elsewhere:":["Em outro lugar:","En otra parte:"],"Here":["Aqui","Aquí"],"Internal states":["Estados internos","Estados internos"],"Learned":["Descobriu","Descubrió"],"Location (keeps its lorebook entries loading)":["Local (mantém as entradas de lorebook dele carregando)","Lugar (mantiene cargadas sus entradas de lorebook)"],"Minds":["Mentes","Mentes"],"Objectives":["Objetivos","Objetivos"],"Phone":["Telefone","Teléfono"],"Place":["Lugar","Lugar"],"Quests":["Missões","Misiones"],"Routines":["Rotinas","Rutinas"],"Show the HUD as text":["Mostrar o HUD como texto","Mostrar el HUD como texto"],"This reply":["Esta resposta","Esta respuesta"],"Time":["Hora","Hora"],"Weather":["Clima","Clima"],"World state":["World state","World state"],"You":["Você","Tú"],"You got":["Você ganhou","Obtuviste"],"You lost":["Você perdeu","Perdiste"],"aimed at {0}":["por {0}","hacia {0}"],"at {0}":["em {0}","en {0}"],"debt paid":["dívida paga","deuda saldada"],"feel: adoration":["adoração","adoración"],"feel: affection":["afeição","afecto"],"feel: aggravation":["agravo","enojo"],"feel: agitation":["agitação","agitación"],"feel: agony":["agonia","agonía"],"feel: alarm":["alarme","alarma"],"feel: alienation":["alienação","alienación"],"feel: amazement":["assombro","asombro"],"feel: amusement":["diversão","diversión"],"feel: anger":["raiva","ira"],"feel: anguish":["angústia","angustia"],"feel: annoyance":["aborrecimento","fastidio"],"feel: anxiety":["ansiedade","ansiedad"],"feel: apprehension":["apreensão","aprensión"],"feel: arousal":["excitação","excitación"],"feel: astonishment":["espanto","estupefacción"],"feel: attraction":["atração","atracción"],"feel: bitterness":["amargura","amargura"],"feel: bliss":["êxtase sereno","dicha"],"feel: caring":["zelo","cuidado"],"feel: cheerfulness":["contentamento","buen humor"],"feel: compassion":["compaixão","compasión"],"feel: contempt":["desprezo","desprecio"],"feel: contentment":["contentamento","contento"],"feel: defeat":["derrota","derrota"],"feel: dejection":["abatimento","abatimiento"],"feel: delight":["deleite","deleite"],"feel: depression":["depressão","depresión"],"feel: desire":["desejo","deseo"],"feel: despair":["desespero","desesperación"],"feel: disappointment":["decepção","decepción"],"feel: disgust":["nojo","asco"],"feel: dislike":["antipatia","antipatía"],"feel: dismay":["consternação","consternación"],"feel: displeasure":["desagrado","disgusto"],"feel: distress":["aflição","angustia"],"feel: dread":["pavor","pavor"],"feel: eagerness":["ansiedade boa","afán"],"feel: ecstasy":["êxtase","éxtasis"],"feel: elation":["euforia","exaltación"],"feel: embarrassment":["constrangimento","vergüenza ajena"],"feel: enjoyment":["prazer","disfrute"],"feel: enthrallment":["fascínio","embeleso"],"feel: enthusiasm":["entusiasmo","entusiasmo"],"feel: envy":["inveja","envidia"],"feel: euphoria":["euforia","euforia"],"feel: exasperation":["exasperação","exasperación"],"feel: excitement":["empolgação","emoción"],"feel: exhilaration":["animação","euforia"],"feel: fear":["medo","miedo"],"feel: ferocity":["ferocidade","ferocidad"],"feel: fondness":["carinho","cariño"],"feel: fright":["susto","susto"],"feel: frustration":["frustração","frustración"],"feel: fury":["fúria","furia"],"feel: gaiety":["jovialidade","jovialidad"],"feel: gladness":["alegria","alegría"],"feel: glee":["júbilo","regocijo"],"feel: gloom":["melancolia","pesadumbre"],"feel: glumness":["desânimo","desánimo"],"feel: grief":["luto","duelo"],"feel: grouchiness":["rabugice","malhumor"],"feel: grumpiness":["ranzinzice","gruñonería"],"feel: guilt":["culpa","culpa"],"feel: happiness":["felicidade","felicidad"],"feel: hate":["ódio","odio"],"feel: homesickness":["saudade de casa","nostalgia"],"feel: hope":["esperança","esperanza"],"feel: hopelessness":["desesperança","desesperanza"],"feel: horror":["horror","horror"],"feel: hostility":["hostilidade","hostilidad"],"feel: humiliation":["humilhação","humillación"],"feel: hurt":["mágoa","dolor"],"feel: hysteria":["histeria","histeria"],"feel: infatuation":["paixonite","encaprichamiento"],"feel: insecurity":["insegurança","inseguridad"],"feel: insult":["ofensa","ofensa"],"feel: irritation":["irritação","irritación"],"feel: isolation":["isolamento","aislamiento"],"feel: jealousy":["ciúme","celos"],"feel: jolliness":["bom humor","jolgorio"],"feel: joviality":["jovialidade","jovialidad"],"feel: joy":["alegria","alegría"],"feel: jubilation":["júbilo","júbilo"],"feel: liking":["simpatia","simpatía"],"feel: loathing":["asco","aversión"],"feel: loneliness":["solidão","soledad"],"feel: love":["amor","amor"],"feel: lust":["luxúria","lujuria"],"feel: melancholy":["melancolia","melancolía"],"feel: misery":["miséria","desdicha"],"feel: mortification":["mortificação","mortificación"],"feel: neglect":["abandono","abandono"],"feel: nervousness":["nervosismo","nerviosismo"],"feel: optimism":["otimismo","optimismo"],"feel: outrage":["indignação","indignación"],"feel: panic":["pânico","pánico"],"feel: passion":["paixão","pasión"],"feel: pity":["pena","lástima"],"feel: pleasure":["prazer","placer"],"feel: pride":["orgulho","orgullo"],"feel: rage":["fúria","rabia"],"feel: rapture":["arrebatamento","arrobamiento"],"feel: regret":["arrependimento","arrepentimiento"],"feel: rejection":["rejeição","rechazo"],"feel: relief":["alívio","alivio"],"feel: remorse":["remorso","remordimiento"],"feel: resentment":["ressentimento","resentimiento"],"feel: revulsion":["repulsa","repulsión"],"feel: sadness":["tristeza","tristeza"],"feel: satisfaction":["satisfação","satisfacción"],"feel: scorn":["desdém","desdén"],"feel: sentimentality":["sentimentalismo","sentimentalismo"],"feel: shame":["vergonha","vergüenza"],"feel: shock":["choque","conmoción"],"feel: sorrow":["pesar","pesar"],"feel: spite":["rancor","rencor"],"feel: suffering":["sofrimento","sufrimiento"],"feel: surprise":["surpresa","sorpresa"],"feel: sympathy":["solidariedade","compasión"],"feel: tenderness":["ternura","ternura"],"feel: tenseness":["tensão","tensión"],"feel: terror":["terror","terror"],"feel: thrill":["frenesi","estremecimiento"],"feel: torment":["tormento","tormento"],"feel: triumph":["triunfo","triunfo"],"feel: uneasiness":["inquietação","inquietud"],"feel: unhappiness":["infelicidade","infelicidad"],"feel: vengefulness":["sede de vingança","sed de venganza"],"feel: woe":["aflição","aflicción"],"feel: worry":["preocupação","preocupación"],"feel: wrath":["ira","cólera"],"feel: zeal":["fervor","fervor"],"feel: zest":["entusiasmo","entusiasmo"],"feeling: Belonging":["Pertencimento","Pertenencia"],"feeling: Care":["Cuidado","Cuidado"],"feeling: Desire":["Desejo","Deseo"],"feeling: Enmity":["Inimizade","Enemistad"],"feeling: Envy":["Inveja","Envidia"],"feeling: Friendship":["Amizade","Amistad"],"feeling: Hate":["Ódio","Odio"],"feeling: Indifference":["Indiferença","Indiferencia"],"feeling: Partnership":["Parceria","Alianza"],"feeling: Play":["Brincadeira","Juego"],"feeling: Strife":["Discórdia","Discordia"],"feeling: Stuck":["Travado","Estancado"],"filter: fit":["combinação","encaje"],"filter: social":["social","social"],"filter: ties":["laços","lazos"],"filter: values":["valores","valores"],"gate {0}":["portão {0}","puerta {0}"],"gate: attentive":["atento","atenta"],"gate: aware":["ciente","consciente"],"gate: dormant":["adormecido","dormida"],"gate: longing":["ansiando","anhelante"],"gate: open":["aberto","abierta"],"give: cracked":["rachado","agrietado"],"give: giving way":["cedendo","cediendo"],"give: holding":["segurando","aguanta"],"give: open":["aberto","abierto"],"how: common knowledge":["todo mundo sabe","lo sabe todo el mundo"],"how: got word by message":["soube por mensagem","lo supo por un mensaje"],"how: guessed":["adivinhou","lo adivinó"],"how: heard it as gossip":["ouviu como fofoca","lo oyó como chisme"],"how: overheard it":["ouviu escondido","lo oyó a escondidas"],"how: saw it":["viu","lo vio"],"how: was told":["contaram","se lo contaron"],"how: worked it out from evidence":["deduziu pelas evidências","lo dedujo por las pruebas"],"iw: cool":["fria","fría"],"iw: fervent":["fervorosa","ferviente"],"iw: frostbound":["gélida","gélida"],"iw: temperate":["morna","templada"],"iw: warm":["calorosa","cálida"],"keeps its lorebook entry loading":["mantém sua entrada de lorebook carregando","mantiene cargada su entrada de lorebook"],"leads with {0}":["lidera com {0}","lidera con {0}"],"level: high":["muito","mucho"],"level: low":["pouco","poco"],"level: med":["médio","medio"],"mask cracking":["máscara rachando","máscara agrietándose"],"mask held":["máscara mantida","máscara firme"],"mask off":["máscara caída","máscara caída"],"mode {0}":["modo {0}","modo {0}"],"mode: affair":["caso","aventura"],"mode: committed":["compromissado","comprometido"],"mode: hostile":["hostil","hostil"],"mode: lovers":["amantes","amantes"],"mode: physical":["físico","físico"],"mode: poly":["poli","poli"],"mode: severed":["rompido","roto"],"mode: slow-burn":["fogo lento","fuego lento"],"mode: strained":["tenso","tenso"],"mode: stranger":["estranho","desconocido"],"mode: unrequited":["não correspondido","no correspondido"],"mode: warm":["caloroso","cálido"],"paid off":["aconteceu","se cumplió"],"planted w{0}":["plantado p{0}","sembrado p{0}"],"shows {0}":["mostra-se {0}","se muestra {0}"],"sure: a false belief":["uma crença falsa","una creencia falsa"],"sure: certain":["certeza","seguro"],"sure: not sure":["sem certeza","no está seguro"],"sure: partly":["em parte","en parte"],"sure: partly sure":["certeza em parte","en parte seguro"],"sure: sure":["tem certeza","seguro"],"sure: unsure":["incerto","inseguro"],"sure: wrong":["crença falsa","creencia falsa"],"tfdy: Dread":["Pavor","Pavor"],"tfdy: Fury":["Fúria","Furia"],"tfdy: Tenderness":["Ternura","Ternura"],"tfdy: Yearning":["Anseio","Anhelo"],"tfdy: active":["ativo","activo"],"tfdy: baseline":["no normal","en su base"],"tfdy: consuming":["consumindo","consumiendo"],"tfdy: depleted":["esgotado","agotado"],"tfdy: simmering":["fervendo baixo","a fuego lento"],"told by {0}":["contado por {0}","se lo contó {0}"],"you":["você","ti"],"{0} sq ≈ {1} m":["{0} quad. ≈ {1} m","{0} cuad. ≈ {1} m"],"{0}×{1} squares of about 1.5 m":["{0}×{1} quadrados de cerca de 1,5 m","{0}×{1} casillas de unos 1,5 m"],"★ moment":["★ momento","★ momento"],"🎬 Scene":["🎬 Cena","🎬 Escena"],"👥 People {0}":["👥 Pessoas {0}","👥 Personas {0}"],"💞 Bonds {0}":["💞 Vínculos {0}","💞 Vínculos {0}"],"🗺️ Map":["🗺️ Mapa","🗺️ Mapa"],"🧠 Minds {0}":["🧠 Mentes {0}","🧠 Mentes {0}"],"🧭 Plot":["🧭 Trama","🧭 Trama"]}} /* I18N:END */;
+const I18N_DATA = /* I18N:BEGIN */ {"langs":["pt","es","ru","tr"],"t":{"Agendas":["Rotinas","Rutinas","Распорядок","Rutinler"],"Building map":["Mapa do prédio","Mapa del edificio","Карта здания","Bina haritası"],"Cameras":["Câmeras","Cámaras","Камеры","Kameralar"],"Chekhov’s gun":["Arma de Tchekhov","El arma de Chéjov","Чеховское ружьё","Çehov'un silahı"],"Elsewhere:":["Em outro lugar:","En otra parte:","В другом месте:","Başka yerde:"],"Here":["Aqui","Aquí","Здесь","Burada"],"Internal states":["Estados internos","Estados internos","Внутренние состояния","İç durumlar"],"Learned":["Descobriu","Descubrió","Узнал(а)","Öğrendi"],"Location (keeps its lorebook entries loading)":["Local (mantém as entradas de lorebook dele carregando)","Lugar (mantiene cargadas sus entradas de lorebook)","Место (держит его записи лорбука загруженными)","Konum (lorebook girdilerini yüklü tutar)"],"Minds":["Mentes","Mentes","Внутренний мир","İç dünya"],"Objectives":["Objetivos","Objetivos","Цели","Hedefler"],"Phone":["Telefone","Teléfono","Телефон","Telefon"],"Place":["Lugar","Lugar","Место","Yer"],"Quests":["Missões","Misiones","Квесты","Görevler"],"Routines":["Rotinas","Rutinas","Распорядок","Rutinler"],"Show the HUD as text":["Mostrar o HUD como texto","Mostrar el HUD como texto","Показать HUD текстом","HUD'u metin olarak göster"],"This reply":["Esta resposta","Esta respuesta","Этот ответ","Bu yanıt"],"Time":["Hora","Hora","Время","Saat"],"Weather":["Clima","Clima","Погода","Hava"],"World state":["World state","World state","Состояние мира","Dünya durumu"],"You":["Você","Tú","Вы","Sen"],"You got":["Você ganhou","Obtuviste","Вы получили","Aldığın"],"You lost":["Você perdeu","Perdiste","Вы потеряли","Kaybettiğin"],"aimed at {0}":["por {0}","hacia {0}","на {0}","{0} kişisine yönelik"],"at {0}":["em {0}","en {0}","в {0}","yer: {0}"],"debt paid":["dívida paga","deuda saldada","долг уплачен","borç ödendi"],"feel: adoration":["adoração","adoración","обожание","tapınma"],"feel: affection":["afeição","afecto","привязанность","düşkünlük"],"feel: aggravation":["agravo","enojo","досада","kızgınlık"],"feel: agitation":["agitação","agitación","взвинченность","huzursuzluk"],"feel: agony":["agonia","agonía","агония","can çekişme"],"feel: alarm":["alarme","alarma","тревога","alarm"],"feel: alienation":["alienação","alienación","отчуждение","yabancılaşma"],"feel: amazement":["assombro","asombro","изумление","hayret"],"feel: amusement":["diversão","diversión","веселье","eğlence"],"feel: anger":["raiva","ira","гнев","öfke"],"feel: anguish":["angústia","angustia","мука","elem"],"feel: annoyance":["aborrecimento","fastidio","недовольство","can sıkıntısı"],"feel: anxiety":["ansiedade","ansiedad","беспокойство","kaygı"],"feel: apprehension":["apreensão","aprensión","опасение","endişe"],"feel: arousal":["excitação","excitación","возбуждение","uyarılma"],"feel: astonishment":["espanto","estupefacción","потрясение","afallama"],"feel: attraction":["atração","atracción","влечение","çekim"],"feel: bitterness":["amargura","amargura","горечь","acılık"],"feel: bliss":["êxtase sereno","dicha","блаженство","mutluluk"],"feel: caring":["zelo","cuidado","забота","ilgi"],"feel: cheerfulness":["contentamento","buen humor","весёлость","şenlik"],"feel: compassion":["compaixão","compasión","сострадание","merhamet"],"feel: contempt":["desprezo","desprecio","презрение","hor görme"],"feel: contentment":["contentamento","contento","довольство","hoşnutluk"],"feel: defeat":["derrota","derrota","поражение","yenilgi"],"feel: dejection":["abatimento","abatimiento","упадок духа","bezginlik"],"feel: delight":["deleite","deleite","восторг","zevk"],"feel: depression":["depressão","depresión","подавленность","depresyon"],"feel: desire":["desejo","deseo","желание","arzu"],"feel: despair":["desespero","desesperación","отчаяние","umutsuzluk"],"feel: disappointment":["decepção","decepción","разочарование","hayal kırıklığı"],"feel: disgust":["nojo","asco","отвращение","iğrenme"],"feel: dislike":["antipatia","antipatía","неприязнь","hoşnutsuzluk"],"feel: dismay":["consternação","consternación","смятение","dehşet içinde şaşkınlık"],"feel: displeasure":["desagrado","disgusto","неудовольствие","hoşnutsuzluk"],"feel: distress":["aflição","angustia","смятение","sıkıntı"],"feel: dread":["pavor","pavor","страх","korku"],"feel: eagerness":["ansiedade boa","afán","нетерпение","istek"],"feel: ecstasy":["êxtase","éxtasis","экстаз","vecd"],"feel: elation":["euforia","exaltación","воодушевление","sevinç coşkusu"],"feel: embarrassment":["constrangimento","vergüenza ajena","смущение","mahcubiyet"],"feel: enjoyment":["prazer","disfrute","удовольствие","keyif alma"],"feel: enthrallment":["fascínio","embeleso","очарованность","büyülenme"],"feel: enthusiasm":["entusiasmo","entusiasmo","энтузиазм","şevk"],"feel: envy":["inveja","envidia","зависть","haset"],"feel: euphoria":["euforia","euforia","эйфория","öfori"],"feel: exasperation":["exasperação","exasperación","отчаяние от бессилия","bıkkınlık"],"feel: excitement":["empolgação","emoción","волнение","heyecan"],"feel: exhilaration":["animação","euforia","упоение","coşkunluk"],"feel: fear":["medo","miedo","страх","korku"],"feel: ferocity":["ferocidade","ferocidad","свирепость","vahşet"],"feel: fondness":["carinho","cariño","нежность","hoşlanma"],"feel: fright":["susto","susto","испуг","ürkme"],"feel: frustration":["frustração","frustración","фрустрация","hayal kırıklığı (engellenme)"],"feel: fury":["fúria","furia","ярость","öfke"],"feel: gaiety":["jovialidade","jovialidad","жизнерадостность","cıvıltı"],"feel: gladness":["alegria","alegría","радостность","memnuniyet"],"feel: glee":["júbilo","regocijo","ликование","sevinç"],"feel: gloom":["melancolia","pesadumbre","мрачность","kasvet"],"feel: glumness":["desânimo","desánimo","уныние","keyifsizlik"],"feel: grief":["luto","duelo","горе","yas"],"feel: grouchiness":["rabugice","malhumor","ворчливость","huysuzluk"],"feel: grumpiness":["ranzinzice","gruñonería","брюзгливость","aksilik"],"feel: guilt":["culpa","culpa","вина","suçluluk"],"feel: happiness":["felicidade","felicidad","счастье","mutluluk"],"feel: hate":["ódio","odio","ненависть","nefret"],"feel: homesickness":["saudade de casa","nostalgia","тоска по дому","sıla hasreti"],"feel: hope":["esperança","esperanza","надежда","umut"],"feel: hopelessness":["desesperança","desesperanza","безнадёжность","çaresizlik"],"feel: horror":["horror","horror","ужас","dehşet"],"feel: hostility":["hostilidade","hostilidad","враждебность","düşmanlık"],"feel: humiliation":["humilhação","humillación","унижение","aşağılanma"],"feel: hurt":["mágoa","dolor","боль","incinme"],"feel: hysteria":["histeria","histeria","истерия","histeri"],"feel: infatuation":["paixonite","encaprichamiento","увлечение","tutulma"],"feel: insecurity":["insegurança","inseguridad","неуверенность","güvensizlik"],"feel: insult":["ofensa","ofensa","оскорблённость","hakarete uğramışlık"],"feel: irritation":["irritação","irritación","раздражение","sinir"],"feel: isolation":["isolamento","aislamiento","изоляция","yalıtılmışlık"],"feel: jealousy":["ciúme","celos","ревность","kıskançlık"],"feel: jolliness":["bom humor","jolgorio","задор","keyif"],"feel: joviality":["jovialidade","jovialidad","добродушие","güler yüz"],"feel: joy":["alegria","alegría","радость","neşe"],"feel: jubilation":["júbilo","júbilo","торжество","coşku"],"feel: liking":["simpatia","simpatía","симпатия","beğeni"],"feel: loathing":["asco","aversión","отвращение","tiksinme"],"feel: loneliness":["solidão","soledad","одиночество","yalnızlık"],"feel: love":["amor","amor","любовь","sevgi"],"feel: lust":["luxúria","lujuria","похоть","şehvet"],"feel: melancholy":["melancolia","melancolía","меланхолия","melankoli"],"feel: misery":["miséria","desdicha","страдание","sefalet"],"feel: mortification":["mortificação","mortificación","унижение","kahrolma"],"feel: neglect":["abandono","abandono","заброшенность","ihmal edilmişlik"],"feel: nervousness":["nervosismo","nerviosismo","нервозность","sinirlilik"],"feel: optimism":["otimismo","optimismo","оптимизм","iyimserlik"],"feel: outrage":["indignação","indignación","возмущение","infial"],"feel: panic":["pânico","pánico","паника","panik"],"feel: passion":["paixão","pasión","страсть","tutku"],"feel: pity":["pena","lástima","жалость","acıma"],"feel: pleasure":["prazer","placer","наслаждение","haz"],"feel: pride":["orgulho","orgullo","гордость","gurur"],"feel: rage":["fúria","rabia","ярость","hiddet"],"feel: rapture":["arrebatamento","arrobamiento","восхищение","kendinden geçme"],"feel: regret":["arrependimento","arrepentimiento","сожаление","pişmanlık"],"feel: rejection":["rejeição","rechazo","отвергнутость","reddedilmişlik"],"feel: relief":["alívio","alivio","облегчение","rahatlama"],"feel: remorse":["remorso","remordimiento","раскаяние","vicdan azabı"],"feel: resentment":["ressentimento","resentimiento","обида","içerleme"],"feel: revulsion":["repulsa","repulsión","омерзение","tiksinti"],"feel: sadness":["tristeza","tristeza","грусть","hüzün"],"feel: satisfaction":["satisfação","satisfacción","удовлетворение","tatmin"],"feel: scorn":["desdém","desdén","презрение","küçümseme"],"feel: sentimentality":["sentimentalismo","sentimentalismo","сентиментальность","duygusallık"],"feel: shame":["vergonha","vergüenza","стыд","utanç"],"feel: shock":["choque","conmoción","шок","şok"],"feel: sorrow":["pesar","pesar","скорбь","keder"],"feel: spite":["rancor","rencor","злоба","kin"],"feel: suffering":["sofrimento","sufrimiento","страдание","çile"],"feel: surprise":["surpresa","sorpresa","удивление","şaşkınlık"],"feel: sympathy":["solidariedade","compasión","сочувствие","duygudaşlık"],"feel: tenderness":["ternura","ternura","нежность","şefkat"],"feel: tenseness":["tensão","tensión","напряжённость","gerginlik"],"feel: terror":["terror","terror","ужас","terör"],"feel: thrill":["frenesi","estremecimiento","трепет","ürperti"],"feel: torment":["tormento","tormento","мучение","ıstırap"],"feel: triumph":["triunfo","triunfo","триумф","zafer"],"feel: uneasiness":["inquietação","inquietud","неловкость","tedirginlik"],"feel: unhappiness":["infelicidade","infelicidad","несчастье","mutsuzluk"],"feel: vengefulness":["sede de vingança","sed de venganza","мстительность","intikam hırsı"],"feel: woe":["aflição","aflicción","беда","dert"],"feel: worry":["preocupação","preocupación","тревожность","evham"],"feel: wrath":["ira","cólera","гнев","gazap"],"feel: zeal":["fervor","fervor","рвение","gayret"],"feel: zest":["entusiasmo","entusiasmo","азарт","heves"],"feeling: Belonging":["Pertencimento","Pertenencia","Близость","Aidiyet"],"feeling: Care":["Cuidado","Cuidado","Забота","Özen"],"feeling: Desire":["Desejo","Deseo","Влечение","Arzu"],"feeling: Enmity":["Inimizade","Enemistad","Вражда","Düşmanlık"],"feeling: Envy":["Inveja","Envidia","Зависть","Haset"],"feeling: Friendship":["Amizade","Amistad","Дружба","Dostluk"],"feeling: Hate":["Ódio","Odio","Ненависть","Nefret"],"feeling: Indifference":["Indiferença","Indiferencia","Безразличие","Kayıtsızlık"],"feeling: Partnership":["Parceria","Alianza","Партнёрство","Ortaklık"],"feeling: Play":["Brincadeira","Juego","Игра","Oyun"],"feeling: Strife":["Discórdia","Discordia","Раздор","Çekişme"],"feeling: Stuck":["Travado","Estancado","Застой","Tıkanma"],"filter: fit":["combinação","encaje","совместимость","uyum"],"filter: social":["social","social","социальное","toplumsal"],"filter: ties":["laços","lazos","узы","bağlar"],"filter: values":["valores","valores","ценности","değerler"],"gate {0}":["portão {0}","puerta {0}","врата {0}","kapı {0}"],"gate: attentive":["atento","atenta","внимателен","dikkatli"],"gate: aware":["ciente","consciente","осознаёт","farkında"],"gate: dormant":["adormecido","dormida","спит","uykuda"],"gate: longing":["ansiando","anhelante","тоскует","özlem dolu"],"gate: open":["aberto","abierta","открыт","açık"],"give: cracked":["rachado","agrietado","дал трещину","çatladı"],"give: giving way":["cedendo","cediendo","поддаётся","çözülüyor"],"give: holding":["segurando","aguanta","держится","tutuyor"],"give: open":["aberto","abierto","открыто","açık"],"how: common knowledge":["todo mundo sabe","lo sabe todo el mundo","общеизвестно","herkes biliyor"],"how: got word by message":["soube por mensagem","lo supo por un mensaje","узнал(а) из послания","mesajla haber aldı"],"how: guessed":["adivinhou","lo adivinó","догадался(ась)","tahmin etti"],"how: heard it as gossip":["ouviu como fofoca","lo oyó como chisme","услышал(а) как слух","dedikodu olarak duydu"],"how: overheard it":["ouviu escondido","lo oyó a escondidas","подслушал(а)","kulak misafiri oldu"],"how: saw it":["viu","lo vio","видел(а)","gördü"],"how: was told":["contaram","se lo contaron","рассказали","anlatıldı"],"how: worked it out from evidence":["deduziu pelas evidências","lo dedujo por las pruebas","вычислил(а) по уликам","kanıtlardan çıkardı"],"iw: cool":["fria","fría","прохладный","serin"],"iw: fervent":["fervorosa","ferviente","пылкий","ateşli"],"iw: frostbound":["gélida","gélida","ледяной","buz gibi"],"iw: temperate":["morna","templada","умеренный","ılık"],"iw: warm":["calorosa","cálida","тёплый","sıcak"],"keeps its lorebook entry loading":["mantém sua entrada de lorebook carregando","mantiene cargada su entrada de lorebook","держит свою запись лорбука загруженной","lorebook girdisini yüklü tutar"],"leads with {0}":["lidera com {0}","lidera con {0}","ведёт {0}","önde: {0}"],"level: high":["muito","mucho","сильно","çok"],"level: low":["pouco","poco","слегка","az"],"level: med":["médio","medio","средне","orta"],"mask cracking":["máscara rachando","máscara agrietándose","маска трескается","maske çatlıyor"],"mask held":["máscara mantida","máscara firme","маска держится","maske yerinde"],"mask off":["máscara caída","máscara caída","маска снята","maske düştü"],"mode {0}":["modo {0}","modo {0}","режим {0}","mod {0}"],"mode: affair":["caso","aventura","интрижка","ilişki (gizli)"],"mode: committed":["compromissado","comprometido","в паре","bağlı"],"mode: hostile":["hostil","hostil","враждебные","düşmanca"],"mode: lovers":["amantes","amantes","любовники","sevgililer"],"mode: physical":["físico","físico","физические","fiziksel"],"mode: poly":["poli","poli","поли","poli"],"mode: severed":["rompido","roto","разорваны","kopmuş"],"mode: slow-burn":["fogo lento","fuego lento","медленный огонь","ağır ateş"],"mode: strained":["tenso","tenso","натянутые","gergin"],"mode: stranger":["estranho","desconocido","незнакомец","yabancı"],"mode: unrequited":["não correspondido","no correspondido","безответно","karşılıksız"],"mode: warm":["caloroso","cálido","тёплые","sıcak"],"paid off":["aconteceu","se cumplió","сработало","gerçekleşti"],"planted w{0}":["plantado p{0}","sembrado p{0}","заложено, вес {0}","ekildi, ağırlık {0}"],"shows {0}":["mostra-se {0}","se muestra {0}","показывается {0}","{0} görünüyor"],"standing: Acquaintance":["Conhecido","Conocido","Знакомый","Tanıdık"],"standing: Close":["Próximo","Cercano","Близкий","Yakın"],"standing: Devoted":["Devotado","Devoto","Преданный","Sadık"],"standing: Enemy":["Inimigo","Enemigo","Враг","Düşman"],"standing: Friend":["Amigo","Amigo","Друг","Arkadaş"],"standing: Friendly":["Amigável","Amistoso","Дружелюбный","Dostça"],"standing: Hostile":["Hostil","Hostil","Враждебный","Düşmanca"],"standing: Nemesis":["Nêmesis","Némesis","Немезида","Baş düşman"],"standing: Stranger":["Estranho","Desconocido","Незнакомец","Yabancı"],"standing: Wary":["Desconfiado","Receloso","Настороженный","Temkinli"],"sure: a false belief":["uma crença falsa","una creencia falsa","ложное убеждение","yanlış bir inanç"],"sure: certain":["certeza","seguro","уверен(а)","emin"],"sure: not sure":["sem certeza","no está seguro","не уверен(а)","emin değil"],"sure: partly":["em parte","en parte","частично","kısmen"],"sure: partly sure":["certeza em parte","en parte seguro","отчасти уверен(а)","kısmen emin"],"sure: sure":["tem certeza","seguro","уверен(а)","emin"],"sure: unsure":["incerto","inseguro","не уверен(а)","emin değil"],"sure: wrong":["crença falsa","creencia falsa","ложное убеждение","yanlış inanç"],"tfdy: Dread":["Pavor","Pavor","Страх","Korku"],"tfdy: Fury":["Fúria","Furia","Ярость","Öfke"],"tfdy: Tenderness":["Ternura","Ternura","Нежность","Şefkat"],"tfdy: Yearning":["Anseio","Anhelo","Тоска","Hasret"],"tfdy: active":["ativo","activo","активно","etkin"],"tfdy: baseline":["no normal","en su base","в норме","olağan"],"tfdy: consuming":["consumindo","consumiendo","поглощает","yutan"],"tfdy: depleted":["esgotado","agotado","истощено","tükenmiş"],"tfdy: simmering":["fervendo baixo","a fuego lento","тлеет","için için"],"told by {0}":["contado por {0}","se lo contó {0}","рассказал(а) {0}","{0} anlattı"],"you":["você","ti","вы","sen"],"{0} sq ≈ {1} m":["{0} quad. ≈ {1} m","{0} cuad. ≈ {1} m","{0} кл. ≈ {1} м","{0} kare ≈ {1} m"],"{0}×{1} squares of about 1.5 m":["{0}×{1} quadrados de cerca de 1,5 m","{0}×{1} casillas de unos 1,5 m","{0}×{1} клеток примерно по 1,5 м","{0}×{1} kare, her biri yaklaşık 1,5 m"],"★ moment":["★ momento","★ momento","★ момент","★ an"],"🎬 Scene":["🎬 Cena","🎬 Escena","🎬 Сцена","🎬 Sahne"],"👥 People {0}":["👥 Pessoas {0}","👥 Personas {0}","👥 Люди {0}","👥 Kişiler {0}"],"💞 Bonds {0}":["💞 Vínculos {0}","💞 Vínculos {0}","💞 Связи {0}","💞 Bağlar {0}"],"🗺️ Map":["🗺️ Mapa","🗺️ Mapa","🗺️ Карта","🗺️ Harita"],"🧠 Minds {0}":["🧠 Mentes {0}","🧠 Mentes {0}","🧠 Внутренний мир {0}","🧠 İç dünya {0}"],"🧭 Plot":["🧭 Trama","🧭 Trama","🧭 Сюжет","🧭 Olay örgüsü"]}} /* I18N:END */;
 // ───────────────────────────── Interface language (en / pt-BR / es) ─────────────────────────────
 // The code is written in English. T() looks a shown string up in the active dictionary (exact text first,
 // then patterns with {0} slots for text built at run time); anything not in it is shown as written.
 // Only what is shown is translated: values, keys and everything sent to the model stay as they are.
 let i18nLang = 'en';
 const i18nCache = { lang: null, exact: null, pats: null };
-function i18nNorm(v) { const s = String(v || '').toLowerCase(); return s.startsWith('pt') ? 'pt' : s.startsWith('es') ? 'es' : 'en'; }
+function i18nNorm(v) { const s = String(v || '').toLowerCase(); return s.startsWith('pt') ? 'pt' : s.startsWith('es') ? 'es' : s.startsWith('ru') ? 'ru' : s.startsWith('tr') ? 'tr' : 'en'; }
 function i18nSet(v) { i18nLang = i18nNorm(v); return i18nLang; }
 function i18nTables() {
     if (i18nCache.lang === i18nLang) return i18nCache;
-    // I18N_DATA = { langs: ['pt', 'es'], t: { english: [pt, es] } }
+    // I18N_DATA = { langs: ['pt', 'es', 'ru', 'tr'], t: { english: [pt, es, ru, tr] } }
     const data = typeof I18N_DATA !== 'undefined' && I18N_DATA && I18N_DATA.t ? I18N_DATA : { langs: [], t: {} };
     const col = data.langs.indexOf(i18nLang);
     const exact = new Map();
@@ -95,7 +95,7 @@ function T(s, depth = 0) {
 // The HUD card shows the bot's own HUD: only the card's own words are translated, never a HUD line.
 const HUD_CARD_I18N = new Set(['World state', 'Location (keeps its lorebook entries loading)', 'keeps its lorebook entry loading', 'Show the HUD as text']);
 let uiLocale = 'en';   // the browser's language, reported by the panel (for Auto)
-const I18N_MODEL_NAMES = { pt: 'Brazilian Portuguese', es: 'Spanish' };
+const I18N_MODEL_NAMES = { pt: 'Brazilian Portuguese', es: 'Spanish', ru: 'Russian', tr: 'Turkish' };
 /**
  * With "Ask for panel text in this language" on, one line for a prompt: free text in that language, and
  * everything that is matched or keyed (names, HUD lines, JSON keys, labels from a list) left exactly as it is.
@@ -298,7 +298,7 @@ const HMS_SYS_DEFAULTS = {
 const DEFAULT_SETTINGS = {
     settingsVersion: 9,
     enabled: true,
-    uiLanguage: 'auto',         // interface language: 'auto' (browser) | 'en' | 'pt' | 'es'
+    uiLanguage: 'auto',         // interface language: 'auto' (browser) | 'en' | 'pt' | 'es' | 'ru' | 'tr'
     modelLanguage: false,       // ask the model for the panel's free text in that language
     generationMode: 'together', // 'together' | 'separate'
     autoUpdate: true,           // separate mode: update trackers after each reply
@@ -2217,7 +2217,7 @@ async function pushState(chatId) {
 // Demo mode plays scripted turns (no tokens); Live mode asks the model, with a small
 // world narrator standing in for a bot card.
 
-const RPGC_VERSION = '2.6.0-beta';
+const RPGC_VERSION = '2.7.0-beta';
 const diagLog = [];
 function diagPush(kind, m) { diagLog.push({ at: new Date().toISOString(), kind, text: String(m).slice(0, 400) }); if (diagLog.length > 60) diagLog.shift(); }
 function logW(m) { diagPush('warn', m); return spindle.log.warn(m); }
@@ -3454,7 +3454,7 @@ function statesPanelHtml(state, hud, msgId, cfg = chatDisplayCfg(), colours = nu
         const rel = (Array.isArray(d.relations) ? d.relations : []).filter(r => r && r.name);
         const items = rel.map(r => {
             const p = state.prevRel && state.prevRel.get(r.key);
-            const moved = p && p.standing && r.standing && !relSameWords(p.standing, r.standing) ? `<span class="rs-chip">${escapeHtml(p.standing)} → ${escapeHtml(r.standing)}</span>` : (r.standing ? `<span class="rs-chip on">${escapeHtml(r.standing)}</span>` : '');
+            const moved = p && p.standing && r.standing && !relSameWords(p.standing, r.standing) ? `<span class="rs-chip">${escapeHtml(SW('standing', p.standing))} → ${escapeHtml(SW('standing', r.standing))}</span>` : (r.standing ? `<span class="rs-chip on">${escapeHtml(SW('standing', r.standing))}</span>` : '');
             // only the bars that say something: a value away from zero, or a change since their last reading
             const bars = rc.bars.filter(b => r[b.id] !== null && r[b.id] !== undefined && (r[b.id] !== 0 || (p && p[b.id] !== null && p[b.id] !== undefined && p[b.id] !== r[b.id])))
                 .map(b => statesBar(b, r[b.id], p ? p[b.id] : null)).join('');
@@ -9494,7 +9494,7 @@ function buildCompanionInstruction(committed, userName, locks, st = null, chat =
     // Minds (FrankenSIM): only what moved, against the state the extension keeps
     let simReq = null, simFoldNow = null;
     if (simWanted() && chat && st) {
-        try { simFoldNow = opts.fold || simFold(chat, st, { excludeId: opts.excludeId || null, userName }); simReq = simRequest(simFoldNow, userName); }
+        try { simFoldNow = opts.fold || simFold(chat, st, { excludeId: opts.excludeId || null, userName }); simReq = simRequest(simFoldNow, userName, botPanelKeys(chat)); }
         catch (e) { logW(`[RPG Companion HMS] Minds request failed: ${e?.message || e}`); }
     }
     if (simReq) parts.push(simReq.json);
@@ -9541,6 +9541,34 @@ function buildCompanionInstruction(committed, userName, locks, st = null, chat =
  * Processes an HMS reply: pins, guard, companion. Returns cleaned content and
  * the data to store, without touching the message.
  */
+// Some bots (the HMS Re:Zero card, for one) ask the model for their own FrankenSIM-style block in the reply:
+// a ```json fence holding {"side_panel": {"agendas", "learned", "chekhov": {"loaded", "fired", "drop"}, …}}.
+// It is read into the same Minds state as the extension's block and taken out of the saved reply.
+const BOT_PANEL_KEYS = ['minds', 'agendas', 'learned', 'chekhov'];
+function botSidePanel(text) {
+    const src = String(text || '');
+    if (!/"side_panel"\s*:/.test(src)) return null;
+    for (const o of scanJsonObjects(src)) {
+        if (!/^\{\s*"side_panel"\s*:/.test(o.text)) continue;
+        const obj = repairJSON(o.text);
+        const sp = obj && isPlainObject(obj.side_panel) ? obj.side_panel : null;
+        if (!sp) continue;
+        // the fence around it goes too, with the blank lines it leaves
+        let a = o.start, b = o.end;
+        const before = src.slice(0, a), after = src.slice(b);
+        const fo = before.match(/```[a-z]*\s*$/i), fc = after.match(/^\s*```/);
+        if (fo && fc) { a -= fo[0].length; b += fc[0].length; }
+        const out = { keys: [] };
+        if (sp.minds !== undefined) { out.minds = simMindsNormalize(sp.minds) || []; out.keys.push('minds'); }
+        if (sp.agendas !== undefined) { out.agendas = simAgendasNormalize(sp.agendas) || []; out.keys.push('agendas'); }
+        if (sp.learned !== undefined) { out.learned = simLearnedNormalize(sp.learned) || []; out.keys.push('learned'); }
+        if (sp.chekhov !== undefined) { out.chekhov = simChekhovNormalize(sp.chekhov, true); out.keys.push('chekhov'); }
+        out.content = (src.slice(0, a).replace(/\s+$/, '') + (src.slice(b).trim() ? '\n\n' + src.slice(b).replace(/^\s+/, '') : '')).replace(/\n{3,}/g, '\n\n');
+        return out;
+    }
+    return null;
+}
+
 async function hmsProcessContent(chatId, content, prevHud, generationType, committedBefore) {
     const st = await getChatState(chatId);
     const guard = { noHud: false, swapped: false, missing: [], restored: [], at: Date.now() };
@@ -9561,6 +9589,16 @@ async function hmsProcessContent(chatId, content, prevHud, generationType, commi
     }
     const comp = parseCompanion(out, partyRoster(st), st, immActive(st) ? st.immersive : null);
     if (comp.found && comp.characters) enforceLocks(comp, committedBefore || {}, st.locks);
+    try {
+        const bp = botSidePanel(out);
+        if (bp) {
+            out = bp.content;
+            // the extension's own block wins where both said something
+            for (const k of bp.keys) if (comp[k] === undefined || comp[k] === null || (Array.isArray(comp[k]) && !comp[k].length)) comp[k] = bp[k];
+            comp.botPanel = bp.keys;
+            comp.found = true;
+        }
+    } catch (e) { logW(`[RPG Companion HMS] The bot's side_panel block could not be read: ${e?.message || e}`); }
     out = stripHiddenTags(stripCompanion(stripLeakedReasoning(out)));
     const prevInfo = committedBefore?.infoBox || {};
     const infoBox = {
@@ -11363,6 +11401,15 @@ function famIsBond(bond) {
     return !!b && REL_FAMILY_RE.test(b) && !FAM_NOT_FAMILY_RE.test(b);
 }
 
+// The words that make someone family, in English, Portuguese and Spanish. A "relation" without one of them
+// (an enemy, a mentor, "fire spirit who sentenced you") is not family, whatever block it came in.
+const FAM_KIN_RE = /(?:^|[^\p{L}])(?:mother|father|mom|mum|dad|mama|papa|parents?|brother|sister|sibling|son|daughter|child|children|kid|baby|wife|husband|spouse|consort|grand(?:mother|father|ma|pa|mom|dad|parents?|sons?|daughters?|child|children|kids?|aunt|uncle|niece|nephew)|great-(?:grand\p{L}+|aunt|uncle)|aunt|auntie|uncle|cousin|niece|nephew|step-?(?:mother|father|mom|dad|mum|brother|sister|son|daughter|child|parent)s?|foster|adoptive|adopted|twin|in-law|fianc\p{L}*|betrothed|half-(?:brother|sister|sibling)s?|m[ãa]e|pai|pais|irm[ãa]o?s?|filh[oa]s?|esposa|esposo|marido|av[óô]s?|bisav\p{L}*|tatarav\p{L}*|tia|tio|tias|tios|prim[oa]s?|sobrinh[oa]s?|madrasta|padrasto|enteado|enteada|g[êe]me[oa]s?|cunhad[oa]s?|sogr[oa]s?|genro|nora|net[oa]s?|noiv[oa]|adotiv[oa]|madre|padre|padres|herman[oa]s?|hij[oa]s?|hijastr[oa]|abuel[oa]s?|bisabuel[oa]s?|t[íi][oa]s?|sobrin[oa]s?|madrastra|padrastro|gemel[oa]s?|cu[ñn]ad[oa]s?|suegr[oa]s?|yerno|nuera|niet[oa]s?|prometid[oa]|adoptiv[oa])(?:$|[^\p{L}])/iu;
+const FAM_NOT_KIN_RE = /\b(in arms|de armas|sworn|jurad[oa]|juramentad[oa]|spiritual|espiritual)\b/i;
+function famIsKin(relation) {
+    const r = String(relation || '');
+    return !!r && FAM_KIN_RE.test(r) && !FAM_NOT_KIN_RE.test(r);
+}
+
 function famNormalize(list) {
     if (!Array.isArray(list)) return null;
     const out = [];
@@ -11375,7 +11422,10 @@ function famNormalize(list) {
         const kn = String(e.known || '').trim().toLowerCase();
         const where = partyText(e.where, 120);
         const place = where && !/^(unknown|nowhere|somewhere|not known|unclear)$/i.test(where) ? where : null;
-        out.push({ key, name, relation: partyText(e.relation, 40), status: FAM_STATUS.includes(st) ? st : null,
+        const relation = partyText(e.relation, 40);
+        // a named relation that is no family tie: an enemy or a mentor reported here by mistake
+        if (relation && !famIsKin(relation)) continue;
+        out.push({ key, name, relation, status: FAM_STATUS.includes(st) ? st : null,
             where: place, known: FAM_KNOWN.includes(kn) ? kn : (place ? 'told' : null), doing: partyText(e.doing, 160) });
     }
     return out.length ? out.slice(0, 12) : null;
@@ -11424,6 +11474,8 @@ function famRead(chat, st, cfg) {
         const here = segs.length ? segs.slice(-2).join(' › ') : null;
         const seenNow = new Set();
         for (const r of Array.isArray(d.family) ? d.family : []) {
+            // older readings kept before the kin check: someone whose stated relation is no family tie stays out
+            if (r && r.relation && !famIsKin(r.relation) && !fam.has(lockKey(r.name || ''))) continue;
             const p = get(r.name);
             if (!p) continue;
             p.name = r.name;
@@ -11508,7 +11560,7 @@ function famRequest(chat, st, userName, cfg) {
     const fc = famCfg(cfg);
     if (!fc.on || !fc.ask) return null;
     const json = `"family": [{"name": "exact name", "relation": "what they are to ${userName}: mother, younger sister…", "status": "${FAM_STATUS.join('|')}", "where": "where they are now, as precisely as the story says, or null", "known": "${FAM_KNOWN.join('|')}", "doing": "what they are doing or how they are, one line, or null"}]`;
-    let rules = `"family": ${userName}'s own family only — by blood, marriage or adoption (parents, siblings, children, spouse, grandparents, aunts, uncles, cousins, step- and foster family), never ${userName}. One entry for each who appears in this reply, is spoken of, or whose whereabouts or condition the reply reveals; [] when none does. "known" is "seen" when they are in the scene with ${userName}, "told" when someone or something in the story says where they are, "guess" when it is only assumed. "where" and "status" change only when the story shows or tells it: never move, lose or kill anyone the story did not. Report what the story shows — this block never changes how you write anyone.`;
+    let rules = `"family": ${userName}'s own family only — by blood, marriage or adoption (parents, siblings, children, spouse, grandparents, aunts, uncles, cousins, step- and foster family), never ${userName}. Enemies, rivals, mentors, masters, spirits, allies and anyone else who is not kin never go here, however much they matter; "relation" is always the family tie itself. One entry for each who appears in this reply, is spoken of, or whose whereabouts or condition the reply reveals; [] when none does. "known" is "seen" when they are in the scene with ${userName}, "told" when someone or something in the story says where they are, "guess" when it is only assumed. "where" and "status" change only when the story shows or tells it: never move, lose or kill anyone the story did not. Report what the story shows — this block never changes how you write anyone.`;
     if (fc.tell && chat && st) {
         let known = [];
         try { known = famRead(chat, st).members; } catch { known = []; }
@@ -12943,17 +12995,19 @@ function simLearnedNormalize(list) {
     return out.slice(0, 12);
 }
 
-function simChekhovNormalize(o) {
+function simChekhovNormalize(o, whole = false) {
     if (!isPlainObject(o)) return null;
-    const load = (Array.isArray(o.load) ? o.load : []).map(x => {
+    const load = (Array.isArray(o.load) ? o.load : Array.isArray(o.loaded) ? o.loaded : []).map(x => {
         if (typeof x === 'string') x = { what: x };
         if (!isPlainObject(x)) return null;
         const what = partyText(x.what ?? x.desc ?? x.detail, 160);
         if (!what) return null;
         const w = Math.max(1, Math.min(3, Math.round(Number(x.w ?? x.weight)) || 1));
         const lock = partyText(x.lock, 80);
-        return { what, w, lock: lock && !/^(null|none|no|-)$/i.test(lock) ? lock : null };
-    }).filter(Boolean).slice(0, 4);
+        const ext = partyText(x.id, 60);
+        // a bare kind ("C") with nothing to wait for is no lock at all
+        return { what, w, lock: lock && !/^(null|none|no|-)$/i.test(lock) && !/^[TCDK]$/i.test(lock) ? lock : null, ...(ext ? { ext } : {}) };
+    }).filter(Boolean).slice(0, whole || Array.isArray(o.loaded) ? SIM_CHEKHOV_MAX : 4);
     const ids = (v) => (Array.isArray(v) ? v : typeof v === 'string' && v.trim() ? v.split(/[,;]/) : []).map(x => partyText(isPlainObject(x) ? (x.id ?? x.what) : x, 160)).filter(Boolean).slice(0, 6);
     const r = { load, fired: ids(o.fired ?? o.fire), drop: ids(o.drop ?? o.pruned) };
     return r.load.length || r.fired.length || r.drop.length ? r : { load: [], fired: [], drop: [] };
@@ -13239,6 +13293,8 @@ function simLockParse(s) {
 }
 function simBulletFind(bullets, ref) {
     const s = String(ref || '').trim();
+    const ext = bullets.find(b => b.ext && b.ext.toLowerCase() === s.toLowerCase());   // the bot's own id ("c7-toupeira")
+    if (ext) return ext;
     const id = s.match(/^#?c(\d+)$/i);
     if (id) return bullets.find(b => b.id === 'c' + id[1]) || null;
     return bullets.find(b => b.status === 'live' && simSameFact(b.what, s)) || null;
@@ -13260,7 +13316,7 @@ function simChekhovFold(rep, nowClock, present) {
         if (c) {
             for (const l of c.load || []) {
                 if (bullets.some(b => b.status === 'live' && simSameFact(b.what, l.what))) continue;   // already in the chamber
-                bullets.push({ id: 'c' + (++seq), what: l.what, w: l.w, lock: simLockParse(l.lock), at: ri, atClock: e.clock, status: 'live', msgId: e.msg.id });
+                bullets.push({ id: 'c' + (++seq), what: l.what, w: l.w, lock: simLockParse(l.lock), at: ri, atClock: e.clock, status: 'live', msgId: e.msg.id, ...(l.ext ? { ext: l.ext } : {}) });
             }
             if (rep.keep.has(e)) {
                 for (const ref of c.fired || []) { const b = simBulletFind(bullets, ref); if (b && b.status === 'live') { b.status = 'fired'; b.firedAt = ri; b.firedMsg = e.msg.id; } }
@@ -13541,8 +13597,17 @@ function simKnownLine(fold) {
 
 // ── for the model: what to report ──
 
-function simRequest(fold, userName) {
-    const sc = simCfg();
+/** The parts the bot itself has been writing lately (its own side_panel block): not asked for twice. */
+function botPanelKeys(chat) {
+    const keys = new Set();
+    if (!Array.isArray(chat)) return keys;
+    const recent = chat.filter(m => m.role === 'assistant').slice(-3);
+    for (const m of recent) { const d = getSwipeData(m); if (d && Array.isArray(d.botPanel)) d.botPanel.forEach(k => keys.add(k)); else if (/"side_panel"\s*:/.test(textOf(m.content))) BOT_PANEL_KEYS.forEach(k => { if (new RegExp(`"${k}"\\s*:`).test(textOf(m.content))) keys.add(k); }); }
+    return keys;
+}
+function simRequest(fold, userName, skip = new Set()) {
+    const sc0 = simCfg();
+    const sc = { ...sc0, on: sc0.on && !skip.has('minds'), agendas: sc0.agendas && !skip.has('agendas'), knowledge: sc0.knowledge && !skip.has('learned'), chekhov: sc0.chekhov && !skip.has('chekhov') };
     const json = [], rules = [];
     const u = userName || 'the player';
     if (sc.on) {
@@ -13590,7 +13655,8 @@ function simStoreKeys(comp, prev, chat, st, msgId) {
         minds: Array.isArray(comp.minds) ? comp.minds : (prev.minds || null),
         agendas: Array.isArray(comp.agendas) ? comp.agendas : (prev.agendas || null),
         learned: Array.isArray(comp.learned) ? comp.learned : (prev.learned || null),
-        chekhov: comp.chekhov || prev.chekhov || null
+        chekhov: comp.chekhov || prev.chekhov || null,
+        botPanel: Array.isArray(comp.botPanel) ? comp.botPanel : (prev.botPanel || null)
     };
     if (comp.chekhov && comp.chekhov.fired.length && Array.isArray(chat)) {
         try {

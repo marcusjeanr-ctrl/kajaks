@@ -2554,5 +2554,15 @@
  "{0} forgets: {1}": "{0} olvida: {1}",
  "aimed at {0}": "hacia {0}",
  ", with permission.": ", con permiso.",
- ". Thank you both.": ". Gracias a los dos."
+ ". Thank you both.": ". Gracias a los dos.",
+ "standing: Nemesis": "Némesis",
+ "standing: Enemy": "Enemigo",
+ "standing: Hostile": "Hostil",
+ "standing: Wary": "Receloso",
+ "standing: Stranger": "Desconocido",
+ "standing: Acquaintance": "Conocido",
+ "standing: Friendly": "Amistoso",
+ "standing: Friend": "Amigo",
+ "standing: Close": "Cercano",
+ "standing: Devoted": "Devoto"
 }
