@@ -1,6 +1,6 @@
 # Guía HMS
 
-**RPG Companion HMS Edition 2.8 beta** y **HMS Reporter beta**
+**RPG Companion HMS Edition 2.9 beta** y **HMS Reporter beta**
 
 Esta guía explica cómo funciona una partida HMS, cómo configurarla y qué hace cada parte.
 Lee primero **Empieza aquí**. Usa las demás partes cuando las necesites.
@@ -15,7 +15,7 @@ Una partida HMS tiene tres partes. Cada parte tiene una tarea.
 | --- | --- | --- |
 | **El bot** | La tarjeta del personaje y sus lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite u Overlord | El mundo y sus reglas. Escribe el **HUD del WORLD STATE** al principio de cada respuesta. |
 | **HMS Reporter beta** | Un preset: el prompt que envía Lumiverse | Cómo se escribe la historia bajo el HUD: estilo, voces, longitud, razonamiento. |
-| **RPG Companion HMS Edition 2.8 beta** | Una extensión: el panel lateral | Lee el HUD y lo muestra en tarjetas. Sigue personas, lo que sienten y lo que saben, misiones, combates y más. Te ayuda a empezar una partida y a hacer preguntas. |
+| **RPG Companion HMS Edition 2.9 beta** | Una extensión: el panel lateral | Lee el HUD y lo muestra en tarjetas. Sigue personas, lo que sienten y lo que saben, misiones, combates y más. Te ayuda a empezar una partida y a hacer preguntas. |
 
 ### Quién manda
 
@@ -405,9 +405,12 @@ Empieza apagada. Sigue el tiempo desde que dormiste, comiste y bebiste, con el r
 ### Magia
 Reservas de magia, tradiciones, tiempos de recarga y un libro de conjuros que aprende tus conjuros.
 
-**Lista de hechizos.** Cuando el lorebook del bot describe hechizos, la tarjeta los lista por escuela, leídos del propio lorebook: una entrada por hechizo (`[SPELL — Earth Lance]` con `School:` y `Rank:`, o `Earth Lance [Earth Magic - Intermediate]`), un índice de hechizos (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) o una entrada por elemento. El HUD decide qué está a tu alcance: `Magic School: Water: Saint, Fire: Advanced` da un rango por escuela; `Magic: Fire | Gate: C-Rank` da tus elementos, y la Gate hasta dónde llega una serie (D El, C Ul, B Al). Cada hechizo aparece como **Conocido**, **Estudiando**, **A tu alcance**, **Siguiente rango**, **Bloqueado** o **Especial** (único de un personaje, prohibido, perdido). **Usables y siguientes** oculta el resto; **Todos** muestra todo; la búsqueda encuentra un hechizo por nombre o efecto. Con `Casting Method: Voiceless`, el conjuro aparece como opcional.
+**Lista de hechizos.** Cuando el lorebook del bot describe hechizos, la tarjeta los lista por escuela, leídos del propio lorebook: una entrada por hechizo (`[SPELL — Earth Lance]` con `School:` y `Rank:`, o `Earth Lance [Earth Magic - Intermediate]`), un índice de hechizos (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) o una entrada por elemento. El HUD decide qué está a tu alcance: `Magic School: Water: Saint, Fire: Advanced` da un rango por escuela; `Magic: Fire | Gate: C-Rank` da tus elementos, y la Gate hasta dónde llega una serie (D El, C Ul, B Al). Cada hechizo aparece como **Dominado**, **Conocido**, **Estudiando**, **A tu alcance**, **Siguiente rango**, **Rango desconocido** (el lorebook no le da rango, así que decide la historia; aparece en Todos), **Bloqueado** o **Especial** (único de un personaje, prohibido, perdido). **Usables y siguientes** oculta el resto; **Todos** muestra todo; la búsqueda encuentra un hechizo por nombre o efecto. Con `Casting Method: Voiceless`, el conjuro aparece como opcional.
 
-**Aprender.** Pulsa 📖 para estudiar un hechizo. Antes de cada respuesta se le recuerda al modelo lo que estudias, con el efecto y el conjuro del lorebook, y la regla de que aprender exige práctica y tu rango. El bloque del panel lateral informa el progreso (una barra bajo el hechizo) y el hechizo cuando lo lanzas bien por primera vez: pasa a Conocido y a la Crónica. ✓ lo marca como aprendido a mano; ✕ lo quita. Cuando el rango de una escuela sube en el HUD, la tarjeta dice qué hechizos acaba de abrir. Los hechizos que conoces también van a la preparación de las peleas.
+**Aprender.** Pulsa 📖 para estudiar un hechizo. Antes de cada respuesta se le recuerda al modelo lo que estudias, con el efecto y el conjuro del lorebook, y la regla de que aprender exige práctica y tu rango. El bloque del panel lateral informa el progreso (una barra bajo el hechizo) y el hechizo cuando lo lanzas bien por primera vez: pasa a Conocido y a la Crónica. ✓ lo marca como aprendido a mano; ✕ lo quita. Cuando el rango de una escuela sube en el HUD, la tarjeta dice qué hechizos acaba de abrir. Los hechizos que conoces también van a la preparación de las peleas. Aparecer en el menú de una pelea, o solo intentarlo, nunca cuenta como aprender; un hechizo que la historia te muestra practicando pasa solo a Estudiando. Los lorebooks de cualquier tamaño se leen enteros, no solo las primeras 200 entradas.
+
+### Técnicas de espada
+La misma lista que los hechizos, para los estilos de espada. Las técnicas salen del lorebook: `[TECHNIQUE — Longsword of Light]` con `Style: Sword God · Rank: Saint`, o texto corrido como "Sword God Technique: Silent Strike." y "… technique of the Water God Style, achieved at the Saint tier". La línea `Sword Style:` (o `Martial Style:`) del HUD da tu rango en cada estilo, así que cada técnica aparece como Conocida, Estudiando, A tu alcance, Siguiente rango, Bloqueada o Rango desconocido. Estudiar, ✓ y ✕ funcionan como con los hechizos; cuando la historia informa la primera ejecución limpia, pasa a Conocida y entra en la Crónica. Un lorebook complementario, *Mushoku Tensei - Sword Techniques (Mazaki)*, da un rango a cada técnica de los estilos Sword God, Water God y North God, y añade el Estilo Greyrat creado por Ars Greyrat (añadido de fan).
 
 ### Habilidades
 Tus poderes, habilidades y atributos, leídos del HUD.

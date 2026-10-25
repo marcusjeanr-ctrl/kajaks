@@ -1,6 +1,6 @@
 # HMS Rehberi
 
-**RPG Companion HMS Edition 2.8 beta** ve **HMS Reporter beta**
+**RPG Companion HMS Edition 2.9 beta** ve **HMS Reporter beta**
 
 Bu rehber bir HMS oyununun nasıl çalıştığını, nasıl kurulacağını ve her parçanın ne yaptığını anlatır.
 Önce **Buradan başla** kısmını oku. Diğer kısımları ihtiyaç duydukça kullan.
@@ -15,7 +15,7 @@ Bir HMS oyununun üç parçası vardır. Her parçanın tek bir işi vardır.
 | --- | --- | --- |
 | **Bot** | Karakter kartı ve lorebook'ları: Re:Zero, Mushoku Tensei, Classroom of the Elite ya da Overlord | Dünya ve kuralları. Her yanıtın en üstüne **WORLD STATE HUD**'u yazar. |
 | **HMS Reporter beta** | Bir preset: Lumiverse'ün gönderdiği prompt | HUD'un altındaki hikâyenin nasıl yazıldığı: üslup, sesler, uzunluk, düşünme. |
-| **RPG Companion HMS Edition 2.8 beta** | Bir eklenti: yan panel | HUD'u okur ve kartlar hâlinde gösterir. İnsanları, ne hissettiklerini ve ne bildiklerini, görevleri, dövüşleri ve daha fazlasını izler. Oyuna başlamana ve soru sormana yardım eder. |
+| **RPG Companion HMS Edition 2.9 beta** | Bir eklenti: yan panel | HUD'u okur ve kartlar hâlinde gösterir. İnsanları, ne hissettiklerini ve ne bildiklerini, görevleri, dövüşleri ve daha fazlasını izler. Oyuna başlamana ve soru sormana yardım eder. |
 
 ### Kim yönetiyor
 
@@ -400,9 +400,12 @@ Başta kapalıdır. HUD saatinden, en son ne zaman uyuduğunu, yediğini ve içt
 ### Büyü
 Büyü havuzları, gelenekler, bekleme süreleri ve büyülerini öğrenen bir büyü kitabı.
 
-**Büyü listesi.** Botun lorebook'u büyüleri anlattığında kart onları okula göre, doğrudan lorebook'tan okuyarak listeler: büyü başına bir girdi (`School:` ve `Rank:` ile `[SPELL — Earth Lance]` ya da `Earth Lance [Earth Magic - Intermediate]`), bir büyü dizini (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) ya da element başına bir girdi. Neyin erişilebilir olduğuna HUD karar verir: `Magic School: Water: Saint, Fire: Advanced` her okul için bir rütbe verir; `Magic: Fire | Gate: C-Rank` elementlerini, Gate ise bir serinin ne kadar yükseğe çıktığını verir (D El, C Ul, B Al). Her büyü **Biliniyor**, **Çalışılıyor**, **Erişilebilir**, **Sonraki rütbe**, **Kilitli** ya da **Özel** (bir karaktere özgü, yasak, kayıp) olarak görünür. **Kullanılabilir ve sıradaki** gerisini gizler; **Tümü** hepsini gösterir; arama kutusu büyüyü adından ya da etkisinden bulur. `Casting Method: Voiceless` ile büyü sözü isteğe bağlı olarak işaretlenir.
+**Büyü listesi.** Botun lorebook'u büyüleri anlattığında kart onları okula göre, doğrudan lorebook'tan okuyarak listeler: büyü başına bir girdi (`School:` ve `Rank:` ile `[SPELL — Earth Lance]` ya da `Earth Lance [Earth Magic - Intermediate]`), bir büyü dizini (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) ya da element başına bir girdi. Neyin erişilebilir olduğuna HUD karar verir: `Magic School: Water: Saint, Fire: Advanced` her okul için bir rütbe verir; `Magic: Fire | Gate: C-Rank` elementlerini, Gate ise bir serinin ne kadar yükseğe çıktığını verir (D El, C Ul, B Al). Her büyü **Ustalaşıldı**, **Biliniyor**, **Çalışılıyor**, **Erişilebilir**, **Sonraki rütbe**, **Rütbe bilinmiyor** (lorebook rütbe vermiyor, hikâye karar verir; Tümü'nde görünür), **Kilitli** ya da **Özel** (bir karaktere özgü, yasak, kayıp) olarak görünür. **Kullanılabilir ve sıradaki** gerisini gizler; **Tümü** hepsini gösterir; arama kutusu büyüyü adından ya da etkisinden bulur. `Casting Method: Voiceless` ile büyü sözü isteğe bağlı olarak işaretlenir.
 
-**Öğrenme.** Bir büyüyü çalışmak için 📖'ya bas. Her yanıttan önce modele ne çalıştığın, lorebook'taki etkisi ve sözüyle birlikte, ve öğrenmenin pratik ve rütbe gerektirdiği kuralı hatırlatılır. Yan panel bloğu ilerlemeyi (büyünün altında bir çubuk) ve büyüyü ilk kez temiz bir şekilde yaptığında büyünün kendisini bildirir: Biliniyor'a ve Kronik'e geçer. ✓ bir büyüyü elle öğrenildi olarak işaretler; ✕ kaldırır. HUD'da bir okulun rütbesi yükseldiğinde kart bunun hangi büyüleri açtığını söyler. Bildiğin büyüler dövüş hazırlığına da verilir.
+**Öğrenme.** Bir büyüyü çalışmak için 📖'ya bas. Her yanıttan önce modele ne çalıştığın, lorebook'taki etkisi ve sözüyle birlikte, ve öğrenmenin pratik ve rütbe gerektirdiği kuralı hatırlatılır. Yan panel bloğu ilerlemeyi (büyünün altında bir çubuk) ve büyüyü ilk kez temiz bir şekilde yaptığında büyünün kendisini bildirir: Biliniyor'a ve Kronik'e geçer. ✓ bir büyüyü elle öğrenildi olarak işaretler; ✕ kaldırır. HUD'da bir okulun rütbesi yükseldiğinde kart bunun hangi büyüleri açtığını söyler. Bildiğin büyüler dövüş hazırlığına da verilir. Dövüş menüsünde görünmek ya da yalnızca denemek asla öğrenmek sayılmaz; hikâyenin seni çalışırken gösterdiği bir büyü kendiliğinden Çalışılıyor'a geçer. Her boyuttaki lorebook'lar yalnızca ilk 200 girdi değil, tamamen okunur.
+
+### Kılıç teknikleri
+Büyülerle aynı liste, kılıç stilleri için. Teknikler lorebook'tan gelir: `Style: Sword God · Rank: Saint` ile `[TECHNIQUE — Longsword of Light]`, ya da "Sword God Technique: Silent Strike." ve "… technique of the Water God Style, achieved at the Saint tier" gibi düz metin. HUD'un `Sword Style:` (ya da `Martial Style:`) satırı her stildeki rütbeni verir; böylece her teknik Biliniyor, Çalışılıyor, Erişilebilir, Sonraki rütbe, Kilitli ya da Rütbe bilinmiyor olarak görünür. Çalışma, ✓ ve ✕ büyülerdeki gibi çalışır; hikâye ilk temiz uygulamayı bildirdiğinde teknik Biliniyor olur ve Kronik'e girer. Ek bir lorebook, *Mushoku Tensei - Sword Techniques (Mazaki)*, Sword God, Water God ve North God stillerinin her tekniğine bir rütbe verir ve Ars Greyrat'ın kurduğu Greyrat Stilini ekler (hayran eklemesi).
 
 ### Yetenekler
 HUD'dan okunan güçlerin, becerilerin ve niteliklerin.

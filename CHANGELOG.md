@@ -1,5 +1,44 @@
 # Changelog — RPG Companion HMS Edition
 
+## 2.9.0 beta
+- **Sword techniques**, a new card beside Magic: every sword technique the lorebook describes, by style and rank,
+  against the HUD's `Sword Style:` / `Martial Style:` ranks: Known, Studying, Within reach, Next rank, Locked,
+  Rank unknown. Reads `[TECHNIQUE — Name]` entries (`Style: … · Rank: …`, `Effect:`, `Requires:`) and the prose
+  forms already in Mushoku lorebooks ("Sword God Technique: Silent Strike.", "… technique of the Water God Style,
+  achieved at the Saint tier"). Study, ✓ and ✕ share the spells' learning: the model is reminded, the story reports
+  progress and the first clean execution, learned techniques go to the Chronicle. The Mushoku world card's sword
+  style ranks also list techniques from it.
+- **A companion lorebook**, *Mushoku Tensei - Sword Techniques (Mazaki)*: the Sword God, Water God and North God
+  techniques with a rank each, the rules for learning by rank, and the **Greyrat Style** founded by Ars Greyrat
+  (a fan addition: seven techniques, Beginner to God, available only after he founds it).
+- **Merged marcusjeanr-ctrl's 2.8.12–2.8.17** (stability and tracking integrity): tracker data bound to the reply it
+  was read from (an edited reply drops its stale reading), serialized saves with a recovery copy, chapter summaries
+  that go stale when their messages change, exact names first in People and Minds, guesses and gossip kept as
+  unsure, abandoned objectives, Agenda items **In progress**, spell aliases, a reader for "Known spells" lists in
+  replies, and the Mushoku Atlas (prose geography, ports, ruins only after the Calamity happens).
+- Fixes on top: the Internal-states panel lost its map link (an undefined variable), and the Agenda's "in progress"
+  count read the wrong field. The new text is translated in all five languages.
+
+## 2.8.2 beta — fixes contributed by marcusjeanr-ctrl (from their 2.8.11 compatibility candidate)
+- **Large lorebooks are read whole.** The book reader paged only the first 200 entries per book and stopped at 800;
+  it now pages through every entry, so a 1,400-entry Mushoku book no longer loses half its spells. The spell catalog
+  keeps the complete book even when only part of it is active.
+- **Spells, stricter.** Spell names match exactly (Water Ball is not Water Ball Storm). A fight menu or an attempt
+  never grants a spell; a successful cast or a learning report does, from the active swipe. New **Mastered** status.
+  Spells with no rank in the lorebook show as **Rank unknown** (under All) instead of Within reach. Practice the story
+  shows starts Studying by itself; a manual stop holds until new practice.
+- **Mushoku, second HUD format** (the Six-Sided World card): `Armored Dragon Calendar: K.414, Month 3, Day 12`
+  (12 months of 30 days), `Magic Tiers:`, `Sword Style:`, `Voiceless Casting:`, `Shown: … | True: …` mana and Touki,
+  comma-separated locations. Year-less Agenda deadlines use the Mushoku calendar; no more "K. null" birth year;
+  the mana tier note comes from the tier's own entry. The Living World HUD keeps working.
+- **Saga timeline:** the full 22-arc list always shows, with the lorebook's dated canon calendar when it has one;
+  a personal or Sandbox arc line is kept apart from the canon reference; canon events the story confirms are listed.
+- **Atlas** adds the places the HUD visits in Mushoku chats. **Separate mode** now also keeps room drawings and
+  positions, and drops a reading if the reply was swiped or edited while it ran.
+- The side-panel block is asked for whenever a module that needs it is on (You, Magic, quests, Chronicle moments,
+  and the other HMS modules), not only when People or Party are.
+- New text translated in all five languages.
+
 ## 2.8.1 beta
 - **Mushoku Tensei: the saga's timeline** on the world card, like Re:Zero's Arc 0 bar: the HUD's year (K.) on a bar
   of all 22 arcs, the current arc (with its part, "Arc 2-B: Hearth & Home"), how many years to the next arc, the

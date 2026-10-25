@@ -1,6 +1,6 @@
 # Guia HMS
 
-**RPG Companion HMS Edition 2.8 beta** e **HMS Reporter beta**
+**RPG Companion HMS Edition 2.9 beta** e **HMS Reporter beta**
 
 Este guia explica como um jogo HMS funciona, como configurá-lo e o que cada parte faz.
 Leia primeiro **Comece aqui**. Use as outras partes quando precisar.
@@ -15,7 +15,7 @@ Um jogo HMS tem três partes. Cada parte tem uma função.
 | --- | --- | --- |
 | **O bot** | O card do personagem e seus lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite ou Overlord | O mundo e suas regras. Ele escreve o **HUD do WORLD STATE** no topo de cada resposta. |
 | **HMS Reporter beta** | Um preset: o prompt que o Lumiverse envia | Como a história abaixo do HUD é escrita: estilo, vozes, tamanho, raciocínio. |
-| **RPG Companion HMS Edition 2.8 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, o que sentem e o que sabem, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
+| **RPG Companion HMS Edition 2.9 beta** | Uma extensão: o painel lateral | Lê o HUD e o mostra em cartões. Acompanha pessoas, o que sentem e o que sabem, missões, lutas e mais. Ajuda você a começar um jogo e a tirar dúvidas. |
 
 ### Quem manda
 
@@ -405,9 +405,12 @@ Começa desligado. Acompanha o tempo desde que você dormiu, comeu e bebeu, pelo
 ### Magia
 Reservas de magia, tradições, recargas e um grimório que aprende as suas magias.
 
-**Lista de magias.** Quando o lorebook do bot descreve magias, o card lista todas por escola, lidas do próprio lorebook: uma entrada por magia (`[SPELL — Earth Lance]` com `School:` e `Rank:`, ou `Earth Lance [Earth Magic - Intermediate]`), um índice de magias (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) ou uma entrada por elemento. O HUD decide o que está ao alcance: `Magic School: Water: Saint, Fire: Advanced` dá um rank por escola; `Magic: Fire | Gate: C-Rank` dá seus elementos, e o Gate até onde uma série vai (D El, C Ul, B Al). Cada magia aparece como **Conhecida**, **Estudando**, **Ao alcance**, **Próximo rank**, **Bloqueada** ou **Especial** (única de um personagem, proibida, perdida). **Usáveis e próximas** esconde o resto; **Todos** mostra tudo; a busca acha uma magia pelo nome ou efeito. Com `Casting Method: Voiceless`, o encantamento aparece como opcional.
+**Lista de magias.** Quando o lorebook do bot descreve magias, o card lista todas por escola, lidas do próprio lorebook: uma entrada por magia (`[SPELL — Earth Lance]` com `School:` e `Rank:`, ou `Earth Lance [Earth Magic - Intermediate]`), um índice de magias (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`) ou uma entrada por elemento. O HUD decide o que está ao alcance: `Magic School: Water: Saint, Fire: Advanced` dá um rank por escola; `Magic: Fire | Gate: C-Rank` dá seus elementos, e o Gate até onde uma série vai (D El, C Ul, B Al). Cada magia aparece como **Dominada**, **Conhecida**, **Estudando**, **Ao alcance**, **Próximo rank**, **Rank desconhecido** (o lorebook não dá rank, então a história decide; aparece em Todos), **Bloqueada** ou **Especial** (única de um personagem, proibida, perdida). **Usáveis e próximas** esconde o resto; **Todos** mostra tudo; a busca acha uma magia pelo nome ou efeito. Com `Casting Method: Voiceless`, o encantamento aparece como opcional.
 
-**Aprender.** Aperte 📖 para estudar uma magia. Antes de cada resposta o modelo é lembrado do que você estuda, com o efeito e o encantamento do lorebook, e da regra de que aprender exige prática e o seu rank. O bloco do painel lateral informa o progresso (uma barra sob a magia) e a magia quando você a lança bem pela primeira vez: ela vai para Conhecida e para a Crônica. ✓ marca uma magia como aprendida à mão; ✕ tira. Quando o rank de uma escola sobe no HUD, o card diz quais magias isso acabou de abrir. As magias que você conhece também vão para a preparação das lutas.
+**Aprender.** Aperte 📖 para estudar uma magia. Antes de cada resposta o modelo é lembrado do que você estuda, com o efeito e o encantamento do lorebook, e da regra de que aprender exige prática e o seu rank. O bloco do painel lateral informa o progresso (uma barra sob a magia) e a magia quando você a lança bem pela primeira vez: ela vai para Conhecida e para a Crônica. ✓ marca uma magia como aprendida à mão; ✕ tira. Quando o rank de uma escola sobe no HUD, o card diz quais magias isso acabou de abrir. As magias que você conhece também vão para a preparação das lutas. Aparecer no menu de uma luta, ou só ser tentada, nunca conta como aprender; uma magia que a história mostra você praticando entra em Estudando sozinha. Lorebooks de qualquer tamanho são lidos inteiros, não só as primeiras 200 entradas.
+
+### Técnicas de espada
+A mesma lista das magias, para os estilos de espada. As técnicas vêm do lorebook: `[TECHNIQUE — Longsword of Light]` com `Style: Sword God · Rank: Saint`, ou texto corrido como "Sword God Technique: Silent Strike." e "… technique of the Water God Style, achieved at the Saint tier". A linha `Sword Style:` (ou `Martial Style:`) do HUD dá o seu rank em cada estilo, então cada técnica aparece como Conhecida, Estudando, Ao alcance, Próximo rank, Bloqueada ou Rank desconhecido. Estudar, ✓ e ✕ funcionam como nas magias; quando a história informa a primeira execução limpa, ela vira Conhecida e entra na Crônica. Um lorebook complementar, *Mushoku Tensei - Sword Techniques (Mazaki)*, dá um rank a cada técnica dos estilos Sword God, Water God e North God, e traz o Estilo Greyrat criado por Ars Greyrat (adição de fã).
 
 ### Habilidades
 Seus poderes, perícias e atributos, lidos do HUD.

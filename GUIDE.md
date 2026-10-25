@@ -1,6 +1,6 @@
 # HMS Guide
 
-**RPG Companion HMS Edition 2.8 beta** and **HMS Reporter beta**
+**RPG Companion HMS Edition 2.9 beta** and **HMS Reporter beta**
 
 This guide explains how an HMS game works, how to set it up, and what every part does.
 Read **Start here** first. Use the other parts when you need them.
@@ -15,7 +15,7 @@ An HMS game has three parts. Each part has one job.
 | --- | --- | --- |
 | **The bot** | The character card and its lorebooks: Re:Zero, Mushoku Tensei, Classroom of the Elite or Overlord | The world and its rules. It writes the **WORLD STATE HUD** at the top of every reply. |
 | **HMS Reporter beta** | A preset: the prompt Lumiverse sends | How the story under the HUD is written: style, voices, length, thinking. |
-| **RPG Companion HMS Edition 2.8 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, how they feel and what they know, quests, fights and more. It helps you start a game and ask questions. |
+| **RPG Companion HMS Edition 2.9 beta** | An extension: the side panel | It reads the HUD and shows it as cards. It tracks people, how they feel and what they know, quests, fights and more. It helps you start a game and ask questions. |
 
 ### Who is in charge
 
@@ -399,9 +399,12 @@ Off at first. Tracks time since you slept, ate and drank, from the HUD clock. Th
 ### Magic
 Magic pools, traditions, cooldowns, and a spellbook that learns your spells.
 
-**Spell list.** When the bot's lorebook describes spells, the card lists them by school, read from the lorebook itself: one entry per spell (`[SPELL — Earth Lance]` with `School:` and `Rank:`, or `Earth Lance [Earth Magic - Intermediate]`), a spell index (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`), or one entry per element. The HUD decides what is in reach: `Magic School: Water: Saint, Fire: Advanced` gives a rank per school; `Magic: Fire | Gate: C-Rank` gives your elements, and the Gate how high a series goes (D El, C Ul, B Al). Each spell shows as **Known**, **Studying**, **Within reach**, **Next rank**, **Locked** or **Special** (unique to a character, forbidden, lost). **Usable and next** hides the rest; **All** shows everything; the search box finds a spell by name or effect. With `Casting Method: Voiceless`, the chant is marked as optional.
+**Spell list.** When the bot's lorebook describes spells, the card lists them by school, read from the lorebook itself: one entry per spell (`[SPELL — Earth Lance]` with `School:` and `Rank:`, or `Earth Lance [Earth Magic - Intermediate]`), a spell index (`### Fire Magic` › `**Goa Series**` › `* **El Goa** – …`), or one entry per element. The HUD decides what is in reach: `Magic School: Water: Saint, Fire: Advanced` gives a rank per school; `Magic: Fire | Gate: C-Rank` gives your elements, and the Gate how high a series goes (D El, C Ul, B Al). Each spell shows as **Mastered**, **Known**, **Studying**, **Within reach**, **Next rank**, **Rank unknown** (the lorebook gives it no rank, so the story decides; shown under All), **Locked** or **Special** (unique to a character, forbidden, lost). **Usable and next** hides the rest; **All** shows everything; the search box finds a spell by name or effect. With `Casting Method: Voiceless`, the chant is marked as optional.
 
-**Learning.** Press 📖 to study a spell. Before each reply the model is reminded what you study, with the spell's effect and chant from the lorebook, and the rule that learning takes practice and your rank. The side-panel block reports progress (a bar under the spell) and the spell once you first cast it cleanly: it moves to Known and into the Chronicle. ✓ marks a spell learned by hand; ✕ takes it off. When a school's rank goes up on the HUD, the card says which spells it just opened. Spells you know are also given to the fight setup.
+**Learning.** Press 📖 to study a spell. Before each reply the model is reminded what you study, with the spell's effect and chant from the lorebook, and the rule that learning takes practice and your rank. The side-panel block reports progress (a bar under the spell) and the spell once you first cast it cleanly: it moves to Known and into the Chronicle. ✓ marks a spell learned by hand; ✕ takes it off. When a school's rank goes up on the HUD, the card says which spells it just opened. Spells you know are also given to the fight setup. Being offered in a fight menu, or merely tried, never counts as learning; a spell the story shows you practising goes into Studying by itself. Lorebooks of any size are read whole, not only the first 200 entries.
+
+### Sword techniques
+The same list as the spells, for sword styles. Techniques come from the lorebook: `[TECHNIQUE — Longsword of Light]` with `Style: Sword God · Rank: Saint`, or prose such as "Sword God Technique: Silent Strike." and "… technique of the Water God Style, achieved at the Saint tier". The HUD's `Sword Style:` (or `Martial Style:`) line gives your rank in each style, so each technique shows as Known, Studying, Within reach, Next rank, Locked or Rank unknown. Study, ✓ and ✕ work as for spells; the story's report of a first clean execution makes it Known and puts it in the Chronicle. A companion lorebook, *Mushoku Tensei - Sword Techniques (Mazaki)*, gives every technique of the Sword God, Water God and North God styles a rank, plus the Greyrat Style founded by Ars Greyrat (a fan addition).
 
 ### Abilities
 Your powers, skills and attributes, read from the HUD.
