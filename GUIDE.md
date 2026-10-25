@@ -283,7 +283,7 @@ It shows that world's own stats from the HUD, explained from your lorebooks. Som
 - Re:Zero: deaths and the save point, Authorities, spirit contracts and their ranks.
 - Overlord: levels and classes, with a check that they add up.
 - Classroom of the Elite: the calendar, class standings, Private Points, the exam.
-- Mushoku Tensei: sword styles and magic ranks, and the Man-God's advice.
+- Mushoku Tensei: sword styles and magic ranks, the Man-God's advice, and the saga's timeline: the year (K.) on a bar of all 22 arcs, the current arc, and how many years to the next one. The arcs and their years come from the lorebook's "[WORLD STATE — ARC N: …]" entries, or the canon list if it has none.
 
 ### Map
 Where everyone stands in the room. It is off at first: Settings → Chat and panel extras → **Map**.

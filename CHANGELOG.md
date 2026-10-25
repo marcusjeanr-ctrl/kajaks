@@ -1,5 +1,11 @@
 # Changelog — RPG Companion HMS Edition
 
+## 2.8.1 beta
+- **Mushoku Tensei: the saga's timeline** on the world card, like Re:Zero's Arc 0 bar: the HUD's year (K.) on a bar
+  of all 22 arcs, the current arc (with its part, "Arc 2-B: Hearth & Home"), how many years to the next arc, the
+  arcs around you, and all of them folded underneath. Arcs and their start years are read from the lorebook's
+  `[WORLD STATE — ARC N: …]` entries; without them the built-in canon list is used.
+
 ## 2.8.0 beta
 - **Spell list from the bot's lorebook.** The Magic card now lists every spell the lorebook describes, by school,
   with its rank, effect and chant. It reads one-entry-per-spell books (`[SPELL — Name]` with `School:`/`Rank:`,

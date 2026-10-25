@@ -2605,5 +2605,12 @@
  "Marked by you": "Marcada por você",
  "From the story": "Da história",
  "Unique": "Única",
- "Learned a spell — {0}.": "Aprendeu uma magia — {0}."
+ "Learned a spell — {0}.": "Aprendeu uma magia — {0}.",
+ "Year K.{0}": "Ano K.{0}",
+ "Arc {0}": "Arco {0}",
+ "{0} years to Arc {1}": "{0} anos até o Arco {1}",
+ "1 year to Arc {0}": "1 ano até o Arco {0}",
+ "Arc {0} begins this year": "o Arco {0} começa este ano",
+ "the last arc": "o último arco",
+ "All {0} arcs": "Todos os {0} arcos"
 }

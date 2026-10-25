@@ -2605,5 +2605,12 @@
  "Marked by you": "Senin işaretlediğin",
  "From the story": "Hikâyeden",
  "Unique": "Eşsiz",
- "Learned a spell — {0}.": "Bir büyü öğrenildi — {0}."
+ "Learned a spell — {0}.": "Bir büyü öğrenildi — {0}.",
+ "Year K.{0}": "Yıl K.{0}",
+ "Arc {0}": "Arc {0}",
+ "{0} years to Arc {1}": "Arc {1}'e {0} yıl",
+ "1 year to Arc {0}": "Arc {0}'e 1 yıl",
+ "Arc {0} begins this year": "Arc {0} bu yıl başlıyor",
+ "the last arc": "son arc",
+ "All {0} arcs": "{0} arc'ın tümü"
 }

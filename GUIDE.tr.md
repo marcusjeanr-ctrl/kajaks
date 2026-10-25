@@ -283,7 +283,7 @@ O dünyanın HUD'daki kendi istatistiklerini, lorebook'larından açıklanmış 
 - Re:Zero: ölümler ve kayıt noktası, Yetkiler, ruh sözleşmeleri ve rütbeleri.
 - Overlord: seviyeler ve sınıflar, tuttuklarına dair bir kontrolle.
 - Classroom of the Elite: takvim, sınıf sıralamaları, Private Points, sınav.
-- Mushoku Tensei: kılıç stilleri ve büyü rütbeleri, ve İnsan-Tanrı'nın tavsiyesi.
+- Mushoku Tensei: kılıç stilleri ve büyü rütbeleri, İnsan-Tanrı'nın tavsiyesi ve destanın zaman çizelgesi: 22 arc'lık bir çubukta yıl (K.), şu anki arc ve sıradakine kaç yıl kaldığı. Arc'lar ve yılları lorebook'un "[WORLD STATE — ARC N: …]" girdilerinden, yoksa kanon listesinden gelir.
 
 ### Harita
 Odada herkesin nerede durduğu. Başta kapalıdır: Ayarlar → Sohbet ve panel ekleri → **Harita**.

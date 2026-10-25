@@ -292,7 +292,7 @@ Muestra las estadísticas propias de ese mundo a partir del HUD, explicadas con 
 - Re:Zero: muertes y el punto de guardado, Autoridades, contratos de espíritu y sus rangos.
 - Overlord: niveles y clases, con una comprobación de que cuadran.
 - Classroom of the Elite: el calendario, la clasificación de las clases, Private Points, el examen.
-- Mushoku Tensei: estilos de espada y rangos de magia, y los consejos del Dios-Hombre.
+- Mushoku Tensei: estilos de espada y rangos de magia, los consejos del Dios-Hombre y la línea de tiempo de la saga: el año (K.) en una barra con los 22 arcos, el arco actual y cuántos años faltan para el siguiente. Los arcos y sus años salen de las entradas "[WORLD STATE — ARC N: …]" del lorebook, o de la lista canónica si no las tiene.
 
 ### Mapa
 Dónde está cada uno en la sala. Empieza apagado: Ajustes → Extras del chat y del panel → **Mapa**.

@@ -2217,7 +2217,7 @@ async function pushState(chatId) {
 // Demo mode plays scripted turns (no tokens); Live mode asks the model, with a small
 // world narrator standing in for a bot card.
 
-const RPGC_VERSION = '2.8.0-beta';
+const RPGC_VERSION = '2.8.1-beta';
 const diagLog = [];
 function diagPush(kind, m) { diagLog.push({ at: new Date().toISOString(), kind, text: String(m).slice(0, 400) }); if (diagLog.length > 60) diagLog.shift(); }
 function logW(m) { diagPush('warn', m); return spindle.log.warn(m); }
@@ -8851,6 +8851,45 @@ function worldSpellIndex(chatId, marker = /^\s*#+\s*Master Spell Index/i) {
     return out;
 }
 
+// The saga's arcs and the year each begins (K.), as the canon arc-by-arc World State entries give them.
+// The chat's own lorebook wins: its "[WORLD STATE — ARC N: TITLE …]" entries are read first.
+const MT_ARCS = [[1, 407, 'Infancy & Toddler'], [2, 414, 'Fittoa Region Tutor'], [3, 417, 'Demon Continent'], [4, 418, 'Voyage to Millis'],
+    [5, 420, 'Shirone Kingdom Reunion'], [6, 420, 'Homecoming & Separation'], [7, 421, 'The Quagmire Adventurer'], [8, 422, 'Ranoa Magic Academy'],
+    [9, 423, 'The Newlyweds & Sisters'], [10, 424, 'Teleportation Labyrinth'], [11, 425, 'Everyday Life & Roxy'], [12, 426, 'Summoning Magic & Perugius'],
+    [13, 427, 'Turning Point 4 & the Diary'], [14, 427, 'Asura Kingdom Succession'], [15, 428, 'Subordinates & Mercenary'], [16, 429, 'Shirone Defense & Pax'],
+    [17, 429, 'Zanoba & the Automaton'], [18, 430, 'Millis Kingdom Faction War'], [19, 430, 'King Dragon Realm'], [20, 430, 'Biheiril Kingdom & Heaven'],
+    [21, 431, 'The Final Battle & Geese\u2019s Trap'], [22, 431, 'Conclusion & the Future']];
+const MT_ARC_SMALL = new Set(['and', 'the', 'of', 'to', 'a', 'in', 'on', 'at', 'for']);
+function mtArcTitle(t) {
+    return String(t).toLowerCase().split(/\s+/).map((w, i) => (i && MT_ARC_SMALL.has(w) ? w : w.replace(/^(\p{L})/u, c => c.toUpperCase()))).join(' ').replace(/'S\b/g, '\u2019s').replace(/\s+arc$/i, '');
+}
+/** The arcs with their start years: the lorebook's own World State entries, else the built-in canon list. */
+function mtArcList(chatId) {
+    const out = new Map();
+    for (const e of getLorePool(chatId)) {
+        const m = String(e.content || '').match(/^\s*\[WORLD STATE\s*[\u2014\u2013-]\s*ARC\s+(\d{1,2})\s*:\s*([^\]\n]+?)\s*(?:[\u2014\u2013-]\s*canon[^\]]*)?\]/i);
+        if (!m) continue;
+        const y = String(e.content).slice(0, 2000).match(/\bK\.?\s?(\d{3})\b/);
+        const no = Number(m[1]);
+        if (y && !out.has(no)) out.set(no, { no, year: Number(y[1]), title: mtArcTitle(m[2]) });
+    }
+    if (out.size < 3) for (const [no, year, title] of MT_ARCS) if (!out.has(no)) out.set(no, { no, year, title });
+    return [...out.values()].sort((a, b) => a.no - b.no);
+}
+/** Where the story stands on the saga's timeline: the year, the arc, and how far the next one is. */
+function mtSaga(chatId, year, arcLine) {
+    if (year === null || year === undefined || !Number.isFinite(year)) return null;
+    const arcs = mtArcList(chatId);
+    if (!arcs.length) return null;
+    const am = String(arcLine || '').match(/\bArc\s+(\d{1,2})(?:\s*-\s*([A-Z]))?\s*(?::\s*(.+))?$/i);
+    let cur = am ? arcs.find(a => a.no === Number(am[1])) || null : null;
+    if (!cur) cur = arcs.filter(a => a.year <= year).slice(-1)[0] || null;
+    const next = cur ? arcs.find(a => a.no > cur.no && a.year >= year) || null : arcs.find(a => a.year >= year) || null;
+    const from = Math.min(arcs[0].year, year), to = Math.max(arcs[arcs.length - 1].year, year);
+    return { year, from, to, arcs, current: cur ? cur.no : null, part: am && am[2] ? am[2].toUpperCase() : null, partName: am && am[3] ? am[3].trim() : null,
+        next: next ? { no: next.no, title: next.title, year: next.year, inYears: next.year - year } : null };
+}
+
 function worldMushoku(chatId, lines, st) {
     const yr = worldFind(lines, /^Year:\s*K\.?\s*(\d+)\s*\|\s*Day:\s*(\d+)(?:\s*\|\s*Time:\s*([\d:]+)\s*(?:\(([^)]+)\))?)?/i);
     const birth = worldFind(lines, /^Birth:\s*K\.?\s*(\d+)\s*\|\s*Race:\s*([^|]+?)\s*\|\s*Age:\s*(\d+)\s*\|\s*Origin:\s*(.+)$/i);
@@ -8899,6 +8938,7 @@ function worldMushoku(chatId, lines, st) {
         drain: (() => { const m = worldFind(lines, /^Drain Syndrome:\s*([^|]+?)(?:\s*\|\s*Onset:\s*(.+))?$/i); return m ? { stage: m[1].trim(), onset: m[2] ? m[2].trim() : null } : null; })(),
         term: (() => { const m = worldFind(lines, /^Term:\s*(.+?)\s*\|\s*Role:\s*(.+)$/i); return m ? { term: m[1].trim(), role: m[2].trim() } : null; })(),
         hitogami: hg ? { state: hg[1].trim(), dreams: dreams ? Number(dreams) : null } : null,
+        saga: (() => { try { return mtSaga(chatId, yr ? Number(yr[1]) : null, one(/^(?:Current )?Arc:\s*(.+)$/i)); } catch { return null; } })(),
         advice: (Array.isArray(w.advice) ? w.advice : []).slice(-12).reverse()
     };
 }
